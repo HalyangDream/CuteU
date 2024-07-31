@@ -69,18 +69,18 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
         viewModel.processIntent(AppMainIntent.GetUnReadCount(userDataStore.getUid()))
         val feedFragment = RouteSdk.getNavigationFragment(RoutePage.HOME.FEED_FRAGMENT)
         val eventFragment = RouteSdk.getNavigationFragment(RoutePage.HOME.FEED_EVENT_FRAGMENT)
-        val matchFragment = RouteSdk.getNavigationFragment(RoutePage.HOME.FEED_MATCH_FRAGMENT)
+//        val matchFragment = RouteSdk.getNavigationFragment(RoutePage.HOME.FEED_MATCH_FRAGMENT)
         val mineFragment = RouteSdk.getNavigationFragment(RoutePage.MINE.MINE_FRAGMENT)
         val videoFragment = RouteSdk.getNavigationFragment(RoutePage.HOME.FEED_VIDEO_FRAGMENT)
 
-        bottomBarBinding.ivMatch.tag = matchFragment
+//        bottomBarBinding.ivMatch.tag = matchFragment
         bottomBarBinding.ivVideo.tag = videoFragment
         bottomBarBinding.ivHome.tag = feedFragment
         bottomBarBinding.ivMsg.tag = eventFragment
         bottomBarBinding.ivMe.tag = mineFragment
 
         val fragments = mutableListOf(
-            feedFragment, videoFragment, matchFragment, eventFragment, mineFragment
+            feedFragment, videoFragment, eventFragment, mineFragment
         )
         val pagerAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle, fragments)
         viewBinding.vp2.isUserInputEnabled = false
@@ -209,11 +209,6 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
             changeTab(index)
         }
 
-        bottomBarBinding.ivMatch.setOnClickListener {
-            val adapter = viewBinding.vp2.adapter as ViewPagerAdapter
-            val index = adapter.getIndexOfFragment(it.tag as Fragment)
-            changeTab(index)
-        }
 
         bottomBarBinding.ivMsg.setOnClickListener {
             val adapter = viewBinding.vp2.adapter as ViewPagerAdapter

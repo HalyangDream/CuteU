@@ -149,11 +149,20 @@ class FeedEventFragment : BaseFragment<FragmentFeedEventBinding>(), Conversation
 
     private fun setupTabItemLayout(isSelect: Boolean, tab: TabLayout.Tab) {
         val tabContext = viewBinding.tabLayout.context
+        val textView = tab.customView!!.findViewById<ShapeTextView>(R.id.stv_tab)
+        if (isSelect) {
+            textView.textSize = 32f
+            val selectColor =
+                ContextCompat.getColor(tabContext, com.cute.uibase.R.color.color_tab_event_select)
+            textView.setTextColor(selectColor)
+        } else {
+            val defColor =
+                ContextCompat.getColor(tabContext, com.cute.uibase.R.color.color_tab_event_def)
+            textView.textSize = 18f
+            textView.setTextColor(defColor)
+        }
 
-//        val selectColor =
-//            ContextCompat.getColor(tabContext, com.cute.uibase.R.color.color_tab_event_select)
-//        val defColor =
-//            ContextCompat.getColor(tabContext, com.cute.uibase.R.color.color_tab_event_def)
+
 //
 //        val selectTextColor =
 //            ContextCompat.getColor(tabContext, com.cute.uibase.R.color.app_text_reverse_color)

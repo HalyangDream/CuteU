@@ -264,6 +264,7 @@
     <string name="str_app_prodcut_pro">Tamo Pro</string>
     <string name="str_20201_product_desc">After activaing Tamo Pro,video call prices will disounted by  <font color="#FD1C48">50%</font></string>
 
-    <string name="str_popular">Popular</string>
+    <string name="str_spot">Spot</string>
     <string name="str_pay">Pay</string>
+    <string name="str_me">Me</string>
 </resources>

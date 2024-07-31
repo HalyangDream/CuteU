@@ -16,12 +16,12 @@
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:paddingHorizontal="20dp"
-            android:text="@string/str_popular"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_spot"
             android:textColor="@color/app_text_color"
-            android:textSize="20sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -42,7 +42,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_user"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:paddingHorizontal="14dp" />
 
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 

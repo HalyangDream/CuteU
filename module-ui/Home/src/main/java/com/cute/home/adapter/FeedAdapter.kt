@@ -13,6 +13,8 @@ import com.cute.picture.loadImage
 import com.cute.tool.dpToPx
 import com.cute.uibase.adapter.BaseRvFooterAdapter
 import com.cute.uibase.route.RouteSdk
+import com.cute.uibase.setOnlineLabelImage
+import com.cute.uibase.setOnlinePointImage
 
 class FeedAdapter(context: Context) : BaseRvFooterAdapter<Feed>(context) {
 
@@ -60,6 +62,7 @@ class FeedAdapter(context: Context) : BaseRvFooterAdapter<Feed>(context) {
             placeholderRes = com.cute.uibase.R.drawable.img_placehoder,
             errorRes = com.cute.uibase.R.drawable.img_placehoder
         )
+        itemBind.ivOnline.setOnlineLabelImage(item.online)
         if (!TextUtils.isEmpty(item.city)) {
             itemBind.tvCountry.text = "${item.city},${item.country}"
         } else {

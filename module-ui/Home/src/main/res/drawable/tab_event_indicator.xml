@@ -5,8 +5,9 @@
         <shape>
             <size
                 android:width="20dp"
-                android:height="2dp" />
+                android:height="5dp" />
             <solid android:color="@color/app_main_color" />
+            <corners android:radius="5dp" />
         </shape>
     </item>
 </layer-list>

@@ -14,9 +14,9 @@
 
     <ImageView
         android:id="@+id/iv_avatar"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,16 +48,15 @@
         android:id="@+id/tv_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:textColor="@color/app_text_reverse_color"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/tv_name"
         app:layout_constraintTop_toBottomOf="@id/tv_name"
         tools:text="New York,US" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ll_like"
+    <LinearLayout
+        android:id="@+id/ll_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -67,11 +66,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_feed_video_call" />
+
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_common_coin_s"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:textColor="@color/app_text_reverse_color"
+            android:textSize="12sp"
+            tools:text="50/min" />
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/ll_call"
+        app:layout_constraintStart_toStartOf="@id/ll_call"
+        app:layout_constraintTop_toBottomOf="@id/ll_call">
+
 
         <ImageView
             android:id="@+id/iv_like_state"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="40dp"
+            android:layout_height="34dp"
+            android:scaleType="center"
             android:src="@drawable/ic_feed_video_unliked"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +124,7 @@
 
 
     <LinearLayout
-        android:id="@+id/ll_call"
+        android:id="@+id/ll_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -106,39 +137,7 @@
         <ImageView
             android:layout_width="44dp"
             android:layout_height="44dp"
-            android:src="@drawable/ic_feed_video_call" />
-
-
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_common_coin_s"
-            android:drawablePadding="4dp"
-            android:gravity="center"
-            android:textColor="@color/app_text_reverse_color"
-            android:textSize="12sp"
-            tools:text="50/min" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/ll_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@id/ll_call"
-        app:layout_constraintStart_toStartOf="@id/ll_call"
-        app:layout_constraintTop_toBottomOf="@id/ll_call">
-
-        <ImageView
-            android:layout_width="44dp"
-            android:layout_height="44dp"
             android:src="@drawable/ic_feed_video_msg" />
-
 
         <TextView
             android:id="@+id/tv_msg"

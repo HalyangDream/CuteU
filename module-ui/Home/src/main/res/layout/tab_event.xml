@@ -6,16 +6,15 @@
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:gravity="center"
-    android:orientation="horizontal"
-    android:paddingHorizontal="24dp"
-    android:paddingVertical="6dp">
+    android:orientation="horizontal">
 
     <com.hjq.shape.view.ShapeTextView
         android:id="@+id/stv_tab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/app_text_color"
-        android:textSize="16sp"
+        android:textSize="32sp"
+        android:textStyle="bold"
         tool:text="Message" />
 
     <com.hjq.shape.view.ShapeTextView
@@ -25,7 +24,8 @@
         android:layout_marginStart="4dp"
         android:gravity="center"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="12sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
         android:visibility="invisible"
         tool:text="(99)" />
 

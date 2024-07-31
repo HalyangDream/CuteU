@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_me"
+            android:textColor="@color/app_text_color"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipChildren="false"
+            android:paddingTop="8dp"
             android:paddingBottom="156dp">
 
             <ImageView
                 android:id="@+id/iv_avatar"
-                android:layout_width="104dp"
-                android:layout_height="104dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="60dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="16dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_placehoder_round"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/btn_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_mine_edit"
                 app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_avatar" />
+                app:layout_constraintEnd_toEndOf="@id/iv_avatar" />
 
             <TextView
                 android:id="@+id/tv_name"
@@ -45,13 +65,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:textColor="@color/app_text_color"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/tv_id"
-                app:layout_constraintStart_toEndOf="@id/iv_avatar"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_avatar"
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="12345" />
+
+            <ImageView
+                android:id="@+id/iv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_male"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_name"
+                app:layout_constraintTop_toTopOf="@id/tv_name" />
 
             <TextView
                 android:id="@+id/tv_id"
@@ -59,112 +89,49 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/str_id_value"
-                android:textColor="@color/app_text_third_color"
+                android:textColor="@color/app_text_second_color"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/ll_vip_info"
+                app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
                 app:layout_constraintStart_toStartOf="@id/tv_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
-            <LinearLayout
-                android:id="@+id/ll_vip_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
-                app:layout_constraintStart_toStartOf="@id/tv_id"
-                app:layout_constraintTop_toBottomOf="@id/tv_id">
 
-                <ImageView
-                    android:id="@+id/iv_vip"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_mine_vip_grey" />
-
-                <TextView
-                    android:id="@+id/tv_vip_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:textColor="@color/app_text_second_color"
-                    android:textSize="14sp"
-                    tools:text="2023/12/4" />
-
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/rl_vip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/bg_mine_shop"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_avatar">
-
-                <TextView
-                    android:id="@+id/tv_shop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:drawableEnd="@drawable/ic_mine_enter"
-                    android:drawablePadding="8dp"
-                    android:gravity="center"
-                    android:text="@string/str_join_vip_now"
-                    android:textColor="@color/app_text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_shop"
-                    android:layout_alignStart="@id/tv_shop"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/str_join_vip_now_tip"
-                    android:textColor="@color/app_text_color"
-                    android:textSize="14sp" />
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_mine_shop_vip" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
+            <com.hjq.shape.layout.ShapeRelativeLayout
                 android:id="@+id/srl_coin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_mine_shop"
+                android:layout_marginTop="24dp"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="16dp"
-                android:visibility="gone"
+                android:paddingVertical="8dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rl_vip">
+                app:layout_constraintTop_toBottomOf="@id/iv_avatar"
+                app:shape_endColor="#FF6C43FF"
+                app:shape_radius="24dp"
+                app:shape_startColor="#FF0EE4E0">
+
+                <ImageView
+                    android:id="@+id/iv_coin_store"
+                    android:layout_width="82dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/img_coin_store" />
 
                 <TextView
                     android:id="@+id/tv_coin_shop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/iv_coin_store"
                     android:drawableEnd="@drawable/ic_mine_enter"
                     android:drawablePadding="8dp"
                     android:gravity="center"
                     android:text="@string/str_coin_store"
-                    android:textColor="@color/app_text_color"
-                    android:textSize="16sp"
+                    android:textColor="@color/app_text_reverse_color"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -173,21 +140,13 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_coin_shop"
                     android:layout_alignStart="@id/tv_coin_shop"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/str_my_balance_value"
-                    android:textColor="@color/app_text_color"
-                    android:textSize="14sp" />
+                    android:textColor="@color/app_text_reverse_color"
+                    android:textSize="16sp" />
 
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_common_coin_normal" />
-
-
-            </RelativeLayout>
+            </com.hjq.shape.layout.ShapeRelativeLayout>
 
 
             <LinearLayout
@@ -198,12 +157,14 @@
                 app:layout_constraintTop_toBottomOf="@id/srl_coin">
 
 
-                <RelativeLayout
+                <com.hjq.shape.layout.ShapeRelativeLayout
                     android:id="@+id/rl_mine_pro"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:paddingHorizontal="20dp">
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:paddingHorizontal="20dp"
+                    app:shape_radius="12dp"
+                    app:shape_solidColor="#F2F2F2">
 
                     <ImageView
                         android:id="@+id/iv_pro"
@@ -230,22 +191,69 @@
                         android:layout_centerVertical="true"
                         android:layout_gravity="end"
                         android:src="@drawable/ic_mine_enter" />
-                </RelativeLayout>
+                </com.hjq.shape.layout.ShapeRelativeLayout>
 
-                <View
+
+                <com.hjq.shape.layout.ShapeRelativeLayout
+                    android:id="@+id/rl_vip"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="52dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="#EDEEF1" />
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingHorizontal="20dp"
+                    app:shape_radius="12dp"
+                    app:shape_solidColor="#F2F2F2">
+
+                    <ImageView
+                        android:id="@+id/iv_vip"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_mine_vip_grey" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@id/iv_vip"
+                        android:text="@string/str_vip"
+                        android:textColor="@color/app_text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_vip_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:textColor="@color/app_text_second_color"
+                        android:textSize="14sp"
+                        tools:text="2023/12/4" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="end"
+                        android:src="@drawable/ic_mine_enter" />
 
 
-                <RelativeLayout
+                </com.hjq.shape.layout.ShapeRelativeLayout>
+
+
+                <com.hjq.shape.layout.ShapeRelativeLayout
                     android:id="@+id/rl_mine_setting"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:paddingHorizontal="20dp">
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingHorizontal="20dp"
+                    app:shape_radius="12dp"
+                    app:shape_solidColor="#F2F2F2">
 
                     <ImageView
                         android:id="@+id/iv_setting"
@@ -272,7 +280,7 @@
                         android:layout_centerVertical="true"
                         android:layout_gravity="end"
                         android:src="@drawable/ic_mine_enter" />
-                </RelativeLayout>
+                </com.hjq.shape.layout.ShapeRelativeLayout>
 
 
             </LinearLayout>
@@ -280,5 +288,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
