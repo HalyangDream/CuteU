@@ -253,6 +253,6 @@
     <string name="str_ads_free_tip">Torne-se VIP e não assista mais a anúncios</string>
     <string name="str_become_vip">Seja VIP</string>
 
-    <string name="str_app_prodcut_pro">Tamo Pro</string>
-    <string name="str_20201_product_desc">Após ativar o Tamo Pro, os preços das videochamadas terão um desconto de <font color="#FD1C48">50%</font></string>
+    <string name="str_app_prodcut_pro">App Pro</string>
+    <string name="str_20201_product_desc">Após ativar o App Pro, os preços das videochamadas terão um desconto de <font color="#FD1C48">50%</font></string>
 </resources>

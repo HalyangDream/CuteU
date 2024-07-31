@@ -257,6 +257,6 @@
     <string name="str_ads_free_tip">Hazte VIP y ya no verás anuncios</string>
     <string name="str_become_vip">Hazte VIP</string>
 
-    <string name="str_app_prodcut_pro">Tamo Pro</string>
-    <string name="str_20201_product_desc">Después de activar Tamo Pro, los precios de las videollamadas se descontarán en un <font color="#FD1C48">50%</font></string>
+    <string name="str_app_prodcut_pro">App Pro</string>
+    <string name="str_20201_product_desc">Después de activar App Pro, los precios de las videollamadas se descontarán en un <font color="#FD1C48">50%</font></string>
 </resources>

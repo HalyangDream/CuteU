@@ -251,6 +251,6 @@
     <string name="str_ads_free_tip">Trở thành VIP và không còn phải xem quảng cáo nữa</string>
     <string name="str_become_vip">Trở thành VIP</string>
 
-    <string name="str_app_prodcut_pro">Tamo Pro</string>
-    <string name="str_20201_product_desc">Sau khi kích hoạt Tamo Pro, giá cuộc gọi video sẽ được giảm giá <font color="#FD1C48">50%</font></string>
+    <string name="str_app_prodcut_pro">App Pro</string>
+    <string name="str_20201_product_desc">Sau khi kích hoạt App Pro, giá cuộc gọi video sẽ được giảm giá <font color="#FD1C48">50%</font></string>
 </resources>
