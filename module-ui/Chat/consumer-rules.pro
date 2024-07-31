@@ -1,0 +1,2 @@
+-keep class com.cute.chat.view.**{*;}
+-keep class com.cute.chat.view.CustomChattingAnnotation{*;}

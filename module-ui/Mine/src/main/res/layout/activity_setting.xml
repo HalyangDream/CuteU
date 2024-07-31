@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/layout_title_bar" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fl_title"
+        android:orientation="vertical"
+        app:divider="@drawable/divider_setting"
+        app:dividerPadding="16dp"
+        app:showDividers="middle">
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_app_language"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_account"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_account_info"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_privacy_policy"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_user_agreement"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_terms_service"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_black_user"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_black_user"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_about"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_check_update"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:drawableEnd="@drawable/ic_setting_enter"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:text="@string/str_checking_for_update"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <com.cute.uibase.PositiveButton
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="76dp"
+        android:gravity="center"
+        android:text="@string/str_logout"
+        android:textColor="@color/log_out_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:shape_radius="12dp"
+        app:shape_solidColor="@color/white" />
+
+</RelativeLayout>

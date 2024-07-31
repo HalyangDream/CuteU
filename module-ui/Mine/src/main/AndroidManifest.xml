@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BlackUserActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".TagActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".EditNameActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".EditIntroductionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".InfoCompleteActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".InfoCompleteProcessActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

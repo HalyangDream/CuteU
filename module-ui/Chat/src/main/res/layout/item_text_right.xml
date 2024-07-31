@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end">
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="12dp"
+        android:indeterminateTint="@color/app_main_color"
+        android:max="100"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/tv_content"
+        app:layout_constraintEnd_toStartOf="@id/tv_content"
+        app:layout_constraintTop_toTopOf="@id/tv_content" />
+
+
+    <com.hjq.shape.view.ShapeTextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:maxWidth="200dp"
+        android:minWidth="50dp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/app_text_reverse_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_bottomLeftRadius="12dp"
+        app:shape_bottomRightRadius="12dp"
+        app:shape_solidColor="@color/app_main_color"
+        app:shape_topLeftRadius="12dp" />
+
+    <ImageView
+        android:id="@+id/iv_error_status"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_msg_failed"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tv_content"
+        app:layout_constraintEnd_toStartOf="@id/tv_content"
+        app:layout_constraintTop_toTopOf="@id/tv_content" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

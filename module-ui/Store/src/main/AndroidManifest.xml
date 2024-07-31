@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name=".VipStoreActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CoinStoreActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".SettlementStoreActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.cute.store.NewWebPayActivity"
+            android:screenOrientation="portrait" />
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_join_us">Bergabung dengan kami</string>
+    <string name="str_sign_with_google">Masuk dengan Google</string>
+    <string name="str_sign_with_account">Đăng nhập bằng ID người dùng</string>
+    <string name="sign_notice">Dengan mendaftar, Anda mengonfirmasi bahwa Anda setuju dengan %s kami dan telah membaca serta memahami %s kami</string>
+    <string name="str_login_tips">Nikmati hidup sebanyak mungkin</string>
+    <string name="str_enter_user_id">Nhập ID người dùng</string>
+    <string name="str_enter_user_password">Nhập mật khẩu người dùng</string>
+    <string name="str_login">Đăng nhập</string>
+
+    <string name="str_empty_tip">Tidak Ada Konten</string>
+    <string name="str_net_error_tip">Ada masalah dengan jaringan</string>
+    <string name="str_retry">Coba Lagi</string>
+    <string name="str_refresh">Segarkan</string>
+
+    <string name="str_encounters">Pertemuan</string>
+    <string name="str_top_profile">Profil Teratas</string>
+    <string name="str_show">Tampilkan</string>
+    <string name="str_learn_more">Pelajari lebih lanjut</string>
+    <string name="str_album">Album</string>
+    <string name="str_self_introduction">Perkenalan Diri</string>
+    <string name="str_gift">Hadiah</string>
+    <string name="str_more">Lainnya</string>
+    <string name="str_call_me">Hubungi saya</string>
+    <string name="str_events">Acara</string>
+    <string name="str_who_you_like">Anda Menyukai %1$s</string>
+
+    <string name="str_say_hi">Ucapkan hai</string>
+    <string name="str_continue_matching">Lanjutkan pencocokan</string>
+    <string name="str_match">Cocok</string>
+    <string name="str_likes">Suka</string>
+    <string name="str_my_likes">Suka Saya</string>
+    <string name="str_video_call">Panggilan Video</string>
+
+    <string name="str_message">Pesan</string>
+    <string name="str_please_enter">Silakan masukkan</string>
+
+    <string name="str_private">Pribadi</string>
+    <string name="str_unlock">Buka Kunci</string>
+    <string name="str_chatting">Mengobrol</string>
+    <string name="str_chat_unlock_vip_tip">Trở thành VIP cho phép bạn tận hưởng cả trò chuyện văn bản và video bất cứ khi nào bạn muốn.</string>
+    <string name="str_chat_unlock_vip_sub_tip">Nhận trò chuyện miễn phí hàng ngày</string>
+    <string name="str_add_to_blacklist">Tambahkan ke Daftar Hitam</string>
+    <string name="str_remove_to_blacklist">Xóa khỏi danh sách đen</string>
+    <string name="str_delete">Hapus</string>
+    <string name="str_report">Laporkan</string>
+    <string name="str_report_reason">Alasan Laporan</string>
+    <string name="str_cancel">Batal</string>
+    <string name="str_advertising">Iklan</string>
+    <string name="str_harass_me">Ganggu saya</string>
+    <string name="str_copycat">Peniru</string>
+    <string name="str_illegal">Ilegal</string>
+    <string name="str_sexual_hint">Isyarat Seksual</string>
+    <string name="str_other">Lainnya</string>
+    <string name="str_report_success">Laporan Berhasil</string>
+    <string name="str_report_failed">Laporan Gagal</string>
+    <string name="str_video_history">Riwayat Video</string>
+
+    <string name="str_cancelled">Dibatalkan</string>
+    <string name="str_call_cancelled">Panggilan Dibatalkan</string>
+    <string name="str_rejected">Ditolak</string>
+    <string name="str_call_rejected">Panggilan Ditolak</string>
+    <string name="str_call_miss">Miss</string>
+    <string name="str_call_buys">Pembelian</string>
+    <string name="str_call_offline">Offline</string>
+    <string name="str_call_failure">Kegagalan</string>
+    <string name="str_call_end">Panggilan Berakhir</string>
+    <string name="str_received">Diterima</string>
+
+    <string name="str_join_vip_now">Bergabung dengan VIP Sekarang</string>
+    <string name="str_join_vip_now_tip">Nikmati lebih dari 6 hak istimewa</string>
+    <string name="str_id_value">ID:%s</string>
+    <string name="str_my_coins">Koin Saya</string>
+    <string name="str_vip">VIP</string>
+    <string name="str_setting">Pengaturan</string>
+    <string name="str_blacklist">Daftar Hitam</string>
+    <string name="str_coin_store">Cửa hàng xu</string>
+    <string name="str_my_balance_value">Số dư của tôi:%s</string>
+
+    <string name="str_version_value">Versi %s</string>
+    <string name="str_logout">Keluar</string>
+    <string name="str_app_language">Bahasa Aplikasi</string>
+    <string name="str_account_info">Info Akun</string>
+    <string name="str_privacy_policy">Kebijakan Privasi</string>
+    <string name="str_terms_service">Syarat Layanan</string>
+    <string name="str_black_user">Pengguna Diblokir</string>
+    <string name="str_about">Tentang</string>
+    <string name="str_checking_for_update">Memeriksa Pembaruan</string>
+    <string name="str_disable_your_account">Nonaktifkan akun Anda</string>
+    <string name="str_already_latest_version">Sudah versi terbaru</string>
+
+    <string name="str_my_diamonds">Berlian Saya</string>
+    <string name="str_purchase">Pembelian</string>
+    <string name="str_remove">Hapus</string>
+
+    <string name="str_free">Gratis</string>
+    <string name="str_insufficient_balance">Saldo Tidak Cukup</string>
+    <string name="str_video_time_remaining_value">Sisa waktu video: %ss</string>
+
+    <string name="str_user_busy_tip"><![CDATA[Kontak saat ini <font color="#FD1C48">sibuk.</font> Harap tunggu atau hubungi lagi nanti.]]></string>
+    <string name="str_user_offline_tip"><![CDATA[Kontak <font color="#FD1C48">offline.</font> Silakan periksa lagi nanti.]]></string>
+    <string name="str_user_fail_tip"><![CDATA[Panggilan <font color="#FD1C48">gagal</font> terhubung. Silakan coba lagi nanti.]]></string>
+    <string name="str_user_busy">Pengguna Sibuk</string>
+    <string name="str_user_offline">Pengguna Offline</string>
+    <string name="str_user_failed">Pengguna Gagal</string>
+    <string name="str_waiting_for_response">Menunggu Respon...</string>
+    <string name="str_connecting">Menghubungkan...</string>
+    <string name="str_calling">Memanggil...</string>
+
+    <string name="str_what_is_your_name">Siapa nama Anda?</string>
+    <string name="str_what_is_your_gender">Apa jenis kelamin Anda?</string>
+    <string name="str_want_to_meet">Anda ingin bertemu?</string>
+    <string name="str_please_enter_your_name">Silakan masukkan nama Anda</string>
+    <string name="str_continue">Lanjutkan</string>
+    <string name="str_male">Pria</string>
+    <string name="str_female">Wanita</string>
+    <string name="str_everyone">Semua orang</string>
+    <string name="str_unknown">Tidak Diketahui</string>
+    <string name="str_let_s_add_a_photo">Mari tambahkan foto</string>
+
+    <string name="str_gender">Jenis Kelamin</string>
+    <string name="str_age_range">Rentang Usia</string>
+    <string name="str_language">Bahasa</string>
+    <string name="apply_filters">Terapkan Filter</string>
+    <string name="str_country">Negara</string>
+    <string name="str_apply">Terapkan</string>
+    <string name="str_filter_gender_sub_title">Jenis kelamin mana yang ingin Anda lihat?</string>
+
+    <string name="str_edit_profile">Edit Profil</string>
+    <string name="str_portrait">Potret</string>
+    <string name="str_nick_name">Nama Panggilan</string>
+    <string name="str_age">Usia</string>
+    <string name="str_height">Tinggi</string>
+    <string name="str_introduction">Pengenalan</string>
+    <string name="str_tags">Tag</string>
+    <string name="str_add_your_tags">Tambahkan Tag Anda</string>
+    <string name="str_info">Info</string>
+    <string name="str_date_purpose">Tujuan Kencan</string>
+    <string name="str_improve_information">Tingkatkan informasi</string>
+    <string name="str_your_figure">Bentuk Tubuh Anda</string>
+    <string name="str_trying_new_things">Mencoba Hal Baru</string>
+
+    <string name="str_special_offer_bundle">Paket Penawaran Khusus</string>
+    <string name="str_buy_now">Beli Sekarang</string>
+
+    <string name="str_dialog_20101_title">Koin Tidak Cukup</string>
+    <string name="str_dialog_20101_tip">Dapatkan koin untuk mengaktifkan Boost</string>
+
+    <string name="str_dialog_20102_title">Cô ấy đang đợi bạn</string>
+    <string name="str_dialog_20102_tip">Cuộc gọi video yêu cầu %s</string>
+
+    <string name="str_unlock_private">Buka Kunci Pribadi</string>
+
+    <string name="str_more_matched">Lebih Banyak Cocok</string>
+    <string name="str_vip_describe_dialog_tip">Dapatkan 5x lebih banyak tampilan profil dan suka</string>
+
+    <string name="str_payment_method">Metode Pembayaran</string>
+
+    <string name="str_consumed">Terpakai</string>
+    <string name="str_duration">Durasi</string>
+    <string name="score_evaluate_desc">Bagaimana perasaan Anda tentang gadis cantik ini?</string>
+    <string name="str_like">Suka</string>
+    <string name="str_dislike">Tidak Suka</string>
+    <string name="str_confirm">Konfirmasi</string>
+
+    <string name="str_warning">Peringatan</string>
+    <string name="str_please_observe_the_community_rules_and_do_not_upload_images_or_videos_that_are_against_the_rules_read_the_privacy_policy_for_details">Harap patuhi aturan komunitas dan jangan mengunggah gambar atau video yang melanggar aturan. Baca kebijakan privasi untuk detailnya.</string>
+    <string name="str_i_have_read_and_agree_the_privacy_policy">Saya telah membaca dan setuju dengan kebijakan privasi</string>
+    <string name="str_back">Kembali</string>
+    <string name="str_save">SIMPAN</string>
+    <string name="str_about_me">Tentang saya...</string>
+    <string name="str_save_success">Pembaruan Berhasil</string>
+    <string name="str_save_failed">Pembaruan Gagal</string>
+    <string name="str_please_enter_your_intro">Silakan masukkan pengenalan Anda</string>
+    <string name="str_find_your_perfect_her_right_now">Temukan pasangan sempurna Anda sekarang juga.</string>
+    <string name="str_let_s_start">MARI MULAI</string>
+    <string name="str_block_success">Blokir Berhasil</string>
+    <string name="str_block_failed">Blokir Gagal</string>
+    <string name="str_unblock_success">Mở khóa thành công</string>
+    <string name="str_unblock_failed">Mở khóa thất bại</string>
+    <string name="str_liked">Disukai</string>
+    <string name="str_unliked">Tidak Disukai</string>
+    <string name="str_copy">Salin</string>
+    <string name="str_delete_account">Hapus Akun</string>
+
+    <string name="str_account_delete_title">Silakan periksa jika Anda ingin membatalkan akun Anda, setelah Anda melakukannya.</string>
+    <string name="str_account_delete_rule_1">1. Anda tidak akan dapat mengaktifkan kembali akun Anda menggunakan akun Facebook Anda.</string>
+    <string name="str_account_delete_rule_2">2. Profil, foto, postingan, video, dan konten lain yang Anda tambahkan akan dihapus secara permanen.</string>
+    <string name="str_account_delete_rule_3">3. Kami akan menghapus informasi akun Anda, informasi perangkat, dan semua riwayat penggunaan dalam Aplikasi.</string>
+    <string name="str_account_delete_rule_4">4. Beberapa informasi akan tetap terlihat setelah penghapusan akun, misalnya pesan yang telah Anda kirim sebelumnya ke teman Anda. Salinan pesan yang dikirim akan disimpan di riwayat obrolan teman Anda.</string>
+    <string name="str_account_delete_rule_5">5. Kami akan menghapus Koin yang tidak terpakai, keanggotaan, dll. dan tidak akan menawarkan pengembalian dana.</string>
+    <string name="str_agree_rule">Saya telah membaca dan setuju dengan aturan di atas</string>
+
+    <string name="str_account_expired">Akun telah kedaluwarsa</string>
+    <string name="str_exit_app_tip">Keluar dengan menekan tombol kembali sekali</string>
+
+    <string name="str_please_grant_permission">Harap berikan izin</string>
+    <string name="str_please_select_gift">Silakan pilih hadiah</string>
+    <string name="str_my_coins_with_balance">Koin Saya:%1$s</string>
+
+    <string name="str_left_chats_value">Anda memiliki %s percakapan gratis</string>
+    <string name="str_in_call">Sedang dalam panggilan...</string>
+    <string name="str_call_server_unable">Layanan panggilan tidak diaktifkan</string>
+
+    <string name="str_play_private_tip_value"><![CDATA[Bạn chỉ có thể xem video này trong <font color="#FFF034">%ss.</font> Mở khóa để xem toàn bộ video.]]></string>
+    <string name="str_tap_to_start">Nhấn để bắt đầu</string>
+    <string name="str_match_call_title">Đang tìm kiếm bạn bè mới…</string>
+    <string name="str_match_call_content">Đang tìm kiếm người đang trò chuyện video trực tiếp cho bạn…</string>
+    <string name="str_match_call_tip_value"><![CDATA[Sau <font color="#FFF034">%ss</font>, cuộc gọi sẽ trở thành cuộc gọi riêng tư.<font color="#FFF034">%s</font>]]></string>
+
+    <string name="str_enable_notify">Bật thông báo</string>
+    <string name="str_enable_notify_desc">Thông báo có thể giúp bạn:\n1. Nhận thông tin quan trọng và cập nhật kịp thời.\n2. Nhận thông báo tin nhắn tức thì.\n3. Luôn cập nhật với tin tức mới nhất của chúng tôi.</string>
+    <string name="str_go_setting">Đi đến Cài đặt</string>
+    <string name="str_no_match_found_for_user">Không tìm thấy kết quả phù hợp cho người dùng</string>
+    <string name="str_hint">Gợi ý</string>
+    <string name="str_conversation_with_value">Cuộc trò chuyện với %s</string>
+    <string name="str_delete_conversation_tip">Bạn có chắc chắn muốn xóa cuộc trò chuyện này không?</string>
+
+    <string name="str_watch_ad">Xem quảng cáo</string>
+    <string name="str_microphone_turned_off">Microphone đã tắt</string>
+    <string name="str_microphone_turned_off_tip">Bạn có chắc chắn muốn tắt microphone không?</string>
+    <string name="str_using_rear_camera">Đang sử dụng camera sau</string>
+    <string name="str_using_rear_camer_tip">Bạn có chắc chắn muốn bật camera sau không?</string>
+    <string name="str_camera_turned_off">Camera đã tắt</string>
+    <string name="str_camera_turned_off_tip">Bạn có quyền tắt camera của mình trong cuộc gọi video không?</string>
+    <string name="str_unlock_success">Mở khóa thành công</string>
+    <string name="str_unlock_failure">Mở khóa thất bại</string>
+    <string name="str_vip_free">VIP Miễn phí</string>
+    <string name="str_vip_only">Chỉ dành cho VIP</string>
+    <string name="str_camera_is_turned_on">Camera đã bật</string>
+    <string name="str_camera_is_turned_off">Camera đã tắt</string>
+    <string name="str_front_camera_switched">Đang sử dụng camera trước</string>
+    <string name="str_rear_camera_switched">Đang sử dụng camera sau</string>
+    <string name="str_micrphone_is_off">Microphone đã tắt</string>
+    <string name="str_micrphone_is_on">Microphone đã bật</string>
+    <string name="str_can_not_play_ad">Không thể phát quảng cáo</string>
+
+    <string name="str_cancel_subscription">Hủy đăng ký</string>
+    <string name="str_vip_subscription_tips">Thanh toán sẽ được tính vào Tài khoản Google Play Của bạn khi xác nhận mua hàng. Bạn có thể tắt tính năng tự động gia hạn ít nhất 24 giờ trước khi kết thúc thời hạn đăng ký hiện tại. Chúng tôi không cung cấp bản dùng thử miễn phí cho nội dung đăng ký. Đăng ký của bạn sẽ tự động gia hạn trong cùng kỳ gói với cùng giá. Bạn có thể hủy đăng ký bất cứ lúc nào. Hủy đăng ký của bạn bằng cách nhấp vào đây: %s</string>
+    <string name="str_vip_subscription_agreement">Để biết thêm thông tin, vui lòng truy cập các trang %s và %s của chúng tôi</string>
+
+    <string name="str_crowd">Đám đông</string>
+    <string name="str_country_region">Quốc gia/Khu vực</string>
+    <string name="str_rating_dialog_title">Bạn có thích ứng dụng của chúng tôi không?</string>
+    <string name="str_rating_dialog_tip">Nhấn để đánh giá</string>
+
+    <string name="str_look_coin_ad_tip">Xem quảng cáo để nhận Xu, Trò chuyện video với cô gái bạn yêu.</string>
+    <string name="str_ads_free">Miễn phí quảng cáo</string>
+    <string name="str_ads_free_tip">Trở thành VIP và không còn phải xem quảng cáo nữa</string>
+    <string name="str_become_vip">Trở thành VIP</string>
+
+    <string name="str_app_prodcut_pro">Tamo Pro</string>
+    <string name="str_20201_product_desc">Sau khi kích hoạt Tamo Pro, giá cuộc gọi video sẽ được giảm giá <font color="#FD1C48">50%</font></string>
+</resources>

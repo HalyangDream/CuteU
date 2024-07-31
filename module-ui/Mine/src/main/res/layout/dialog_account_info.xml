@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    android:layout_centerInParent="true"
+    app:shape_radius="16dp"
+    app:shape_solidColor="@color/white">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/str_account_info"
+        android:textColor="@color/app_text_color"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <com.hjq.shape.layout.ShapeFrameLayout
+        android:id="@+id/layout_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="20dp"
+        app:shape_radius="20dp"
+        app:shape_solidColor="#F3F3F3">
+
+        <TextView
+            android:id="@+id/tv_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text=" "
+            android:textColor="@color/app_text_second_color"
+            android:textSize="14sp" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/tv_copy_uid"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="@string/str_copy"
+            android:textColor="@color/app_text_reverse_color"
+            app:shape_bottomRightRadius="20dp"
+            app:shape_solidColor="@android:color/black"
+            app:shape_topRightRadius="20dp" />
+
+
+    </com.hjq.shape.layout.ShapeFrameLayout>
+
+    <com.hjq.shape.layout.ShapeFrameLayout
+        android:id="@+id/layout_password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/layout_user_id"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="20dp"
+        app:shape_radius="20dp"
+        app:shape_solidColor="#F3F3F3">
+
+        <TextView
+            android:id="@+id/tv_user_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/app_text_second_color"
+            android:textSize="14sp" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/tv_copy_pwd"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="@string/str_copy"
+            android:textColor="@color/app_text_reverse_color"
+            app:shape_bottomRightRadius="20dp"
+            app:shape_solidColor="@android:color/black"
+            app:shape_topRightRadius="20dp" />
+    </com.hjq.shape.layout.ShapeFrameLayout>
+
+    <TextView
+        android:id="@+id/tvDeleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="20dp"
+        android:text="@string/str_delete_account"
+        android:textColor="@color/app_text_third_color"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/ic_dialog_right_close_black"
+        android:visibility="visible" />
+
+</com.hjq.shape.layout.ShapeRelativeLayout>

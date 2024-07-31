@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="app_main_color">#32E1F0</color>
+
+    <color name="translate">#00000000</color>
+    <color name="black_70">#B3000000</color>
+    <color name="black_40">#4D000000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_20">#32FFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+
+    <color name="btn_positive_color">#32E1F0</color>
+    <color name="btn_positive_text_color">#FFFFFF</color>
+
+    <color name="btn_negative_color">#80FFFFFF</color>
+
+
+    <color name="app_text_color">#000000</color>
+    <color name="app_text_second_color">#FF666666</color>
+    <color name="app_text_third_color">#FF999999</color>
+    <color name="app_text_fourth_color">#333333</color>
+    <color name="app_text_reverse_color">#FFFFFF</color>
+
+    <color name="app_second_page_color">#FFFFFF</color>
+    <color name="log_out_color">#F9395D</color>
+
+    <color name="diamond_shop_purchase_color">#CF5CF6</color>
+
+    <color name="color_tab_event_select">#000000</color>
+    <color name="color_tab_event_def">#F3F3F3</color>
+
+    <color name="color_input_stroke">#EFEFEF</color>
+    <color name="color_input_hint">#999999</color>
+
+    <color name="color_divider">#E4E6ED</color>
+
+    <color name="color_chat_receive_msg">#F7F7F7</color>
+    <color name="color_chat_gift_main">#F7F7F7</color>
+    <color name="color_add_tags">#F7F7F7</color>
+
+
+    <color name="color_btn_vip_continue">#FDD02B</color>
+
+    <color name="color_gift_circle_normal">#B5B5B5</color>
+    <color name="color_tag_border">#E5E5EA</color>
+    <color name="color_gift_price">#FD6463</color>
+
+</resources>

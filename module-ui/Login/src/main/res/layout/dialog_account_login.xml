@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    app:shape_radius="8dp"
+    app:shape_solidColor="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_dialog_right_close_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_user_id"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_login_account_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_close" />
+
+    <com.hjq.shape.view.ShapeEditText
+        android:id="@+id/set_user_id"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_vertical"
+        android:hint="@string/str_enter_user_id"
+        android:maxLength="18"
+        android:paddingHorizontal="12dp"
+        android:singleLine="true"
+        android:textColor="@color/app_text_color"
+        android:textColorHint="@color/app_text_third_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_user_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_user_id"
+        app:layout_constraintTop_toTopOf="@id/iv_user_id"
+        app:shape_strokeColor="#979797"
+        app:shape_strokeWidth="1dp" />
+
+    <ImageView
+        android:id="@+id/iv_pwd"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/ic_login_account_pwd"
+        app:layout_constraintStart_toStartOf="@id/iv_user_id"
+        app:layout_constraintTop_toBottomOf="@id/iv_user_id" />
+
+    <com.hjq.shape.view.ShapeEditText
+        android:id="@+id/set_password"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_vertical"
+        android:hint="@string/str_enter_user_password"
+        android:inputType="text"
+        android:maxLength="18"
+        android:paddingHorizontal="12dp"
+        android:singleLine="true"
+        android:textColor="@color/app_text_color"
+        android:textColorHint="@color/app_text_third_color"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_pwd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_pwd"
+        app:layout_constraintTop_toTopOf="@id/iv_pwd"
+        app:shape_strokeColor="#979797"
+        app:shape_strokeWidth="1dp" />
+
+
+    <com.cute.uibase.PositiveButton
+        android:id="@+id/btn_login"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/str_login"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/set_password" />
+
+</com.hjq.shape.layout.ShapeConstraintLayout>

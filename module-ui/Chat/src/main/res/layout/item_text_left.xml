@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/sll_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="200dp"
+        android:minWidth="50dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="16dp"
+        app:shape_bottomLeftRadius="12dp"
+        app:shape_bottomRightRadius="12dp"
+        app:shape_solidColor="@color/color_chat_receive_msg"
+        app:shape_topRightRadius="12dp">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxWidth="200dp"
+            android:textColor="@color/app_text_color"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/translate_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#EDEEF1"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_translate_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxWidth="200dp"
+            android:textColor="@color/app_text_color"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@id/sll_content"
+        android:src="@drawable/ic_translate_def" />
+
+</RelativeLayout>

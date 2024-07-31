@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    app:shape_radius="16dp"
+    app:shape_solidColor="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_dialog_right_close_black" />
+
+    <TextView
+        android:id="@+id/tv_ad_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/str_look_coin_ad_tip"
+        android:textColor="@color/app_text_color"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_reward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_reward"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/img_placehoder_grey" />
+
+        <TextView
+            android:id="@+id/tv_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/app_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="1 Day" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/tv_progress"
+            android:max="100"
+            android:progress="20" />
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/app_text_second_color"
+            android:textSize="12sp"
+            tools:text="（1/4）" />
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fl_watch_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp">
+
+
+        <com.cute.uibase.PositiveButton
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/str_watch_ad"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="Ad"
+            android:textColor="@color/white"
+            app:shape_radius="6dp"
+            app:shape_solidColor="#5AC8FA" />
+    </FrameLayout>
+
+
+</com.hjq.shape.layout.ShapeLinearLayout>

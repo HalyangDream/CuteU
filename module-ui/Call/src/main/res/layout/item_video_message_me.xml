@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="10dp"
+    app:shape_bottomLeftRadius="16dp"
+    app:shape_bottomRightRadius="16dp"
+    app:shape_solidColor="@color/black_40"
+    app:shape_topLeftRadius="1dp"
+    app:shape_topRightRadius="16dp">
+
+    <TextView
+        android:id="@+id/tv_message_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/app_text_reverse_color"
+        android:textSize="14sp" />
+
+</com.hjq.shape.layout.ShapeLinearLayout>

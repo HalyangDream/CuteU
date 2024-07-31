@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+
+        <activity
+            android:name=".WebViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".GameWebViewActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false" />
+
+        <activity
+            android:name=".media.preview.PicturePreviewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".media.preview.VideoPreviewActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

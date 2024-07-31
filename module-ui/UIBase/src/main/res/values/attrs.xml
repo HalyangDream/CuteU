@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StateLayout">
+        <attr name="netErrorLayoutId" format="reference" />
+        <attr name="emptyLayoutId" format="reference" />
+        <attr name="loadingLayoutId" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="InfoItemView">
+        <attr name="leftContent" format="string" />
+        <attr name="hideSplitLine" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="pickerview">
+        <attr name="wheelview_gravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="wheelview_textSize" format="dimension" />
+        <attr name="wheelview_textColorOut" format="color" />
+        <attr name="wheelview_textColorCenter" format="color" />
+        <attr name="wheelview_dividerColor" format="color" />
+        <attr name="wheelview_dividerWidth" format="dimension" />
+        <attr name="wheelview_lineSpacingMultiplier" format="float" />
+    </declare-styleable>
+
+
+    <!-- 圆形进度条 -->
+    <declare-styleable name="CircleProgressBar">
+        <attr name="progressBackgroundColor" format="color|reference" />
+        <attr name="progressColor" format="color|reference" />
+        <attr name="arcWidth" format="dimension" />
+        <!-- 背景圆弧宽度 -->
+        <attr name="bgArcWidth" format="dimension" />
+    </declare-styleable>
+
+
+</resources>

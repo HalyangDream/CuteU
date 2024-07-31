@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/buildSrc" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/module-base" />
+            <option value="$PROJECT_DIR$/module-base/Ad" />
+            <option value="$PROJECT_DIR$/module-base/Basic" />
+            <option value="$PROJECT_DIR$/module-base/Http" />
+            <option value="$PROJECT_DIR$/module-base/IM" />
+            <option value="$PROJECT_DIR$/module-base/Rtc" />
+            <option value="$PROJECT_DIR$/module-logic" />
+            <option value="$PROJECT_DIR$/module-logic/BaseLogic" />
+            <option value="$PROJECT_DIR$/module-logic/DataAnalysis" />
+            <option value="$PROJECT_DIR$/module-logic/Http" />
+            <option value="$PROJECT_DIR$/module-logic/Message" />
+            <option value="$PROJECT_DIR$/module-public" />
+            <option value="$PROJECT_DIR$/module-public/Pay" />
+            <option value="$PROJECT_DIR$/module-public/Picture" />
+            <option value="$PROJECT_DIR$/module-public/Storage" />
+            <option value="$PROJECT_DIR$/module-public/Tool" />
+            <option value="$PROJECT_DIR$/module-ui" />
+            <option value="$PROJECT_DIR$/module-ui/Call" />
+            <option value="$PROJECT_DIR$/module-ui/Chat" />
+            <option value="$PROJECT_DIR$/module-ui/Home" />
+            <option value="$PROJECT_DIR$/module-ui/Login" />
+            <option value="$PROJECT_DIR$/module-ui/Main" />
+            <option value="$PROJECT_DIR$/module-ui/Mine" />
+            <option value="$PROJECT_DIR$/module-ui/Store" />
+            <option value="$PROJECT_DIR$/module-ui/UIBase" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

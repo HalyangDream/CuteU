@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:banner_indicator_gravity="center"
+        app:banner_indicator_normal_color="#E0E0E0"
+        app:banner_indicator_normal_width="8dp"
+        app:banner_indicator_selected_color="#000000"
+        app:banner_indicator_selected_width="8dp" />
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/img_placehoder_round_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_remote_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/app_text_reverse_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/iv_avatar"
+        app:layout_constraintStart_toStartOf="@id/iv_avatar"
+        app:layout_constraintTop_toBottomOf="@id/iv_avatar"
+        tools:text="Rose Morgan" />
+
+
+    <ImageView
+        android:id="@+id/iv_country"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_placehoder_grey"
+        app:layout_constraintEnd_toStartOf="@id/sll_gender"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/tv_remote_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_remote_name" />
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/sll_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="3dp"
+        android:paddingVertical="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_country"
+        app:layout_constraintEnd_toEndOf="@id/tv_remote_name"
+        app:layout_constraintStart_toEndOf="@id/iv_country"
+        app:layout_constraintTop_toTopOf="@id/iv_country"
+        app:shape_radius="8dp"
+        app:shape_solidColor="#E7F9FE">
+
+        <ImageView
+            android:id="@+id/iv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/ic_makecall_male" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textColor="@color/app_text_color"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="24" />
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+
+    <com.hjq.shape.layout.ShapeRelativeLayout
+        android:id="@+id/srl_call_error"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:paddingHorizontal="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_radius="8dp"
+        app:shape_solidColor="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_call_error"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_centerVertical="true"
+            tools:src="@drawable/ic_call_error_busy" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/iv_call_error"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_call_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/app_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Busy" />
+
+            <TextView
+                android:id="@+id/tv_call_error_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="start"
+                android:textColor="@color/app_text_third_color"
+                android:textSize="12sp"
+                tools:text="@string/str_user_busy_tip" />
+        </LinearLayout>
+
+
+    </com.hjq.shape.layout.ShapeRelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_call_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn_pickup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Waiting for response…" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_free_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/btn_decline"
+        app:layout_constraintEnd_toEndOf="@id/btn_pickup"
+        app:layout_constraintStart_toStartOf="@id/btn_pickup">
+
+        <com.hjq.shape.view.ShapeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="2dp"
+            android:text="@string/str_free"
+            android:textColor="@color/white"
+            app:shape_radius="6dp"
+            app:shape_solidColor="#F858D4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_free_call_arrow_down_pink" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/ic_telephone_hangup"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_pickup"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_pickup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:background="@drawable/ic_telephone_pickup"
+        app:layout_constraintBottom_toBottomOf="@id/btn_decline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_decline"
+        app:layout_constraintTop_toTopOf="@id/btn_decline" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

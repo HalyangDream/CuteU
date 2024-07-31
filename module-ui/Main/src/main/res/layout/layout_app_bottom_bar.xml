@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white">
+
+
+        <ImageView
+            android:id="@+id/iv_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/tab_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_video"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/tab_video"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_match"
+            app:layout_constraintStart_toEndOf="@id/iv_home"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_match"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/tab_match"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_msg"
+            app:layout_constraintStart_toEndOf="@id/iv_video"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_msg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/tab_msg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_me"
+            app:layout_constraintStart_toEndOf="@id/iv_match"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/tv_unread_count"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/iv_msg"
+            app:layout_constraintStart_toStartOf="@id/iv_msg"
+            app:layout_constraintTop_toTopOf="@id/iv_msg"
+            app:shape="oval"
+            app:shape_solidColor="@android:color/holo_red_light" />
+
+        <com.hjq.shape.view.ShapeView
+            android:id="@+id/sv_unread_follow"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="18dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/iv_msg"
+            app:layout_constraintStart_toStartOf="@id/iv_msg"
+            app:layout_constraintTop_toTopOf="@id/iv_msg"
+            app:shape="oval"
+            app:shape_solidColor="@android:color/holo_red_light" />
+
+        <ImageView
+            android:id="@+id/iv_me"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/tab_me"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_msg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.hjq.shape.layout.ShapeRelativeLayout
+        android:id="@+id/srl_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="6dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        app:shape_radius="12dp"
+        app:shape_solidColor="@color/app_main_color">
+
+        <ImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_cover"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/app_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="1600" />
+
+            <TextView
+                android:id="@+id/tv_bound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FD1C48"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="+1600" />
+
+        </LinearLayout>
+
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/tv_price"
+            android:layout_width="108dp"
+            android:layout_height="32dp"
+            android:layout_below="@id/ll_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@color/app_text_color"
+            android:textStyle="bold"
+            app:shape_radius="22dp"
+            app:shape_solidColor="@color/white"
+            tools:text="$10.99" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="end"
+            android:layout_marginEnd="4dp"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/app_text_reverse_color"
+            android:textSize="12sp"
+            app:shape_bottomRightRadius="12dp"
+            app:shape_solidColor="@android:color/holo_red_light"
+            app:shape_topLeftRadius="12dp"
+            tools:text="50% off" />
+
+    </com.hjq.shape.layout.ShapeRelativeLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start">
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_bottomLeftRadius="12dp"
+        app:shape_bottomRightRadius="12dp"
+        app:shape_solidColor="@color/color_chat_receive_msg"
+        app:shape_topRightRadius="12dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_chat_msg_video_call" />
+
+        <TextView
+            android:id="@+id/tv_video_call_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_text_color"
+            android:textSize="14sp"
+            tools:text="Missed" />
+
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

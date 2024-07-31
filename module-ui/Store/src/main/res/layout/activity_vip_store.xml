@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:banner_indicator_gravity="center"
+        app:banner_indicator_normal_color="#E0E0E0"
+        app:banner_indicator_normal_width="8dp"
+        app:banner_indicator_selected_color="#000000"
+        app:banner_indicator_selected_width="8dp" />
+
+
+    <com.youth.banner.indicator.CircleIndicator
+        android:id="@+id/circle_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp" />
+
+    <ImageView
+        android:id="@+id/iv_nav_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:elevation="10dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_vip_store_close" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_continue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="304dp"
+            android:paddingBottom="16dp">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_power"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:nestedScrollingEnabled="true" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_vip_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="24dp"
+                android:clipToPadding="false"
+                android:minHeight="160dp" />
+
+            <TextView
+                android:id="@+id/tv_vip_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#99EBEBF5"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_vip_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#99EBEBF5"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.hjq.shape.view.ShapeTextView
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="18sp"
+        android:gravity="center"
+        android:text="@string/str_continue"
+        android:textColor="@color/app_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:shape_radius="24dp"
+        app:shape_solidColor="@color/app_main_color" />
+
+
+</RelativeLayout>

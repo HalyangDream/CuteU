@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景轨道 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <size android:height="4dp" />
+            <solid android:color="#33FFFFFF" />
+            <corners android:radius="10dp"/>
+            <!-- 这里是背景轨道的颜色 -->
+        </shape>
+    </item>
+
+    <!-- 可见的进度条 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <size android:height="4dp" />
+                <solid android:color="@color/white" />
+                <corners android:radius="10dp"/>
+                <!-- 这里设置进度条的颜色 -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

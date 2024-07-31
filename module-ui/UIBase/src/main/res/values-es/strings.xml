@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--LoginUI-->
+    <string name="str_join_us">Únete a nosotros</string>
+    <string name="str_sign_with_google">Inicia sesión con Google</string>
+    <string name="str_sign_with_account">Iniciar sesión con ID de usuario</string>
+    <string name="sign_notice">Al registrarte, confirmas que estás de acuerdo con nuestros %s y has leído y entendido nuestros %s</string>
+    <string name="str_login_tips">Disfruta la vida tanto como sea posible</string>
+    <string name="str_enter_user_id">Ingrese ID de usuario</string>
+    <string name="str_enter_user_password">Ingrese contraseña de usuario</string>
+    <string name="str_login">Iniciar sesión</string>
+
+    <string name="str_empty_tip">Sin contenido</string>
+    <string name="str_net_error_tip">Algo salió mal con la red</string>
+    <string name="str_retry">Reintentar</string>
+    <string name="str_refresh">Actualizar</string>
+
+    <string name="str_encounters">Encuentros</string>
+    <string name="str_top_profile">Perfil destacado</string>
+    <string name="str_show">Mostrar</string>
+    <string name="str_learn_more">Aprende más</string>
+    <string name="str_album">Álbum</string>
+    <string name="str_self_introduction">Autointroducción</string>
+    <string name="str_gift">Regalo</string>
+    <string name="str_more">Más</string>
+    <string name="str_call_me">Llámame</string>
+    <string name="str_events">Eventos</string>
+    <string name="str_who_you_like">Te gusta %1$s</string>
+
+    <string name="str_say_hi">Di hola</string>
+    <string name="str_continue_matching">Continuar emparejando</string>
+    <string name="str_match">Emparejar</string>
+    <string name="str_likes">Me gusta</string>
+    <string name="str_my_likes">Mis me gusta</string>
+    <string name="str_video_call">Videollamada</string>
+
+    <string name="str_message">Mensaje</string>
+    <string name="str_please_enter">Por favor, introduce</string>
+
+    <string name="str_private">Privado</string>
+    <string name="str_unlock">Desbloquear</string>
+    <string name="str_chatting">Chateando</string>
+    <string name="str_chat_unlock_vip_tip">Ser VIP te permite disfrutar de chats de texto y video tanto como quieras.</string>
+    <string name="str_chat_unlock_vip_sub_tip">Obtén chat gratis todos los días</string>
+    <string name="str_add_to_blacklist">Añadir a la lista negra</string>
+    <string name="str_remove_to_blacklist">Quitar a la lista negra</string> <string name="str_delete">Eliminar</string>
+    <string name="str_report">Reportar</string>
+    <string name="str_report_reason">Razón del reporte</string>
+    <string name="str_cancel">Cancelar</string>
+    <string name="str_advertising">Publicidad</string>
+    <string name="str_harass_me">Acoso</string>
+    <string name="str_copycat">Imitador</string>
+    <string name="str_illegal">Ilegal</string>
+    <string name="str_sexual_hint">Insinuación sexual</string>
+    <string name="str_other">Otro</string>
+    <string name="str_report_success">Reporte exitoso</string>
+    <string name="str_report_failed">Reporte fallido</string>
+    <string name="str_video_history">Historial de videos</string>
+
+    <string name="str_cancelled">Cancelado</string>
+    <string name="str_call_cancelled">Llamada cancelada</string>
+    <string name="str_rejected">Rechazado</string>
+    <string name="str_call_rejected">Llamada rechazada</string>
+    <string name="str_call_miss">Perdida</string>
+    <string name="str_call_buys">Compras</string>
+    <string name="str_call_offline">Fuera de línea</string>
+    <string name="str_call_failure">Fallo</string>
+    <string name="str_call_end">Llamada finalizada</string>
+    <string name="str_received">Recibido</string>
+
+    <string name="str_join_vip_now">Únete a VIP ahora</string>
+    <string name="str_join_vip_now_tip">Disfruta de más de 6 privilegios</string>
+    <string name="str_id_value">ID:%s</string>
+    <string name="str_my_coins">Mis monedas</string>
+    <string name="str_vip">VIP</string>
+    <string name="str_setting">Configuración</string>
+    <string name="str_blacklist">Lista negra</string>
+    <string name="str_coin_store">Tienda de monedas</string>
+    <string name="str_my_balance_value">Mi saldo:%s</string>
+
+    <string name="str_version_value">Versión %s</string>
+    <string name="str_logout">Cerrar sesión</string>
+    <string name="str_app_language">Idioma de la aplicación</string>
+    <string name="str_account_info">Información de la cuenta</string>
+    <string name="str_privacy_policy">Política de privacidad</string>
+    <string name="str_terms_service">Términos de servicio</string>
+    <string name="str_black_user">Usuario bloqueado</string>
+    <string name="str_about">Acerca de</string>
+    <string name="str_checking_for_update">Buscando actualizaciones</string>
+    <string name="str_disable_your_account">Deshabilita tu cuenta</string>
+    <string name="str_already_latest_version">Ya la versión más reciente</string>
+
+    <string name="str_my_diamonds">Mis diamantes</string>
+    <string name="str_purchase">Comprar</string>
+    <string name="str_remove">Quitar</string>
+
+    <string name="str_free">Gratis</string>
+    <string name="str_insufficient_balance">Saldo insuficiente</string>
+    <string name="str_video_time_remaining_value">Tiempo de video restante: %ss</string>
+
+    <string name="str_user_busy_tip"><![CDATA[Contacto actualmente <font color="#FD1C48">ocupado.</font> Por favor, espera o llama más tarde.]]></string>
+    <string name="str_user_offline_tip"><![CDATA[Contacto <font color="#FD1C48">fuera de línea.</font> Por favor, vuelve a comprobar más tarde.]]></string>
+    <string name="str_user_fail_tip"><![CDATA[Llamada <font color="#FD1C48">fallida</font> para conectar. Por favor, intenta de nuevo más tarde.]]></string>
+    <string name="str_user_busy">Usuario Ocupado</string>
+    <string name="str_user_offline">Usuario Fuera de Línea</string>
+    <string name="str_user_failed">Fallo del Usuario</string>
+    <string name="str_waiting_for_response">Esperando respuesta...</string>
+    <string name="str_connecting">Conectando...</string>
+    <string name="str_calling">Llamando...</string>
+
+    <string name="str_what_is_your_name">¿Cuál es tu nombre?</string>
+    <string name="str_what_is_your_gender">¿Cuál es tu género?</string>
+    <string name="str_want_to_meet">¿A quién quieres conocer?</string>
+    <string name="str_please_enter_your_name">Por favor, introduce tu nombre</string>
+    <string name="str_continue">Continuar</string>
+    <string name="str_male">Hombre</string>
+    <string name="str_female">Mujer</string>
+    <string name="str_everyone">Todos</string>
+    <string name="str_unknown">Desconocido</string>
+    <string name="str_let_s_add_a_photo">Agreguemos una foto</string>
+
+    <string name="str_gender">Género</string>
+    <string name="str_age_range">Rango de edad</string>
+    <string name="str_language">Idioma</string>
+    <string name="apply_filters">Aplicar filtros</string>
+    <string name="str_country">País</string>
+    <string name="str_apply">Aplicar</string>
+    <string name="str_filter_gender_sub_title">¿Qué género te gustaría ver?</string>
+
+    <string name="str_edit_profile">Editar perfil</string>
+    <string name="str_portrait">Retrato</string>
+    <string name="str_nick_name">Apodo</string>
+    <string name="str_age">Edad</string>
+    <string name="str_height">Altura</string>
+    <string name="str_introduction">Introducción</string>
+    <string name="str_tags">Etiquetas</string>
+    <string name="str_add_your_tags">Añade tus etiquetas</string>
+    <string name="str_info">Información</string>
+    <string name="str_date_purpose">Propósito de la cita</string>
+    <string name="str_improve_information">Mejorar información</string>
+    <string name="str_your_figure">Tu figura</string>
+    <string name="str_trying_new_things">Probando cosas nuevas</string>
+
+    <string name="str_special_offer_bundle">Paquete de oferta especial</string>
+    <string name="str_buy_now">Comprar ahora</string>
+
+    <string name="str_dialog_20101_title">Monedas insuficientes</string>
+    <string name="str_dialog_20101_tip">Consigue monedas para activar Boost</string>
+
+    <string name="str_dialog_20102_title">Te está esperando</string>
+    <string name="str_dialog_20102_tip">La videollamada requiere %s</string>
+
+    <string name="str_unlock_private">Desbloquear privado</string>
+
+    <string name="str_more_matched">Más emparejados</string>
+    <string name="str_vip_describe_dialog_tip">Obtén 5 veces más vistas de perfil y me gusta</string>
+
+    <string name="str_payment_method">Método de pago</string>
+
+    <string name="str_consumed">Consumido</string>
+    <string name="str_duration">Duración</string>
+    <string name="score_evaluate_desc">¿Cómo te sientes acerca de esta chica hermosa?</string>
+    <string name="str_like">Me gusta</string>
+    <string name="str_dislike">No me gusta</string>
+    <string name="str_confirm">Confirmar</string>
+
+    <string name="str_warning">Advertencia</string>
+    <string name="str_please_observe_the_community_rules_and_do_not_upload_images_or_videos_that_are_against_the_rules_read_the_privacy_policy_for_details">Por favor, respeta las reglas de la comunidad y no subas imágenes o videos que estén en contra de las reglas. Lee la política de privacidad para más detalles.</string>
+    <string name="str_i_have_read_and_agree_the_privacy_policy">He leído y acepto la política de privacidad</string>
+    <string name="str_back">Volver</string>
+    <string name="str_save">GUARDAR</string>
+    <string name="str_about_me">Sobre mí...</string>
+    <string name="str_save_success">Actualización exitosa</string>
+    <string name="str_save_failed">Fallo en la actualización</string>
+    <string name="str_please_enter_your_intro">Por favor, introduce tu presentación</string>
+    <string name="str_find_your_perfect_her_right_now">Encuentra a tu pareja perfecta ahora mismo.</string>
+    <string name="str_let_s_start">EMPECEMOS</string>
+    <string name="str_block_success">Bloqueo exitoso</string>
+    <string name="str_block_failed">Fallo en el bloqueo</string>
+    <string name="str_unblock_success">Desbloqueo exitoso</string>
+    <string name="str_unblock_failed">Desbloqueo fallido</string>
+    <string name="str_liked">Gustado</string>
+    <string name="str_unliked">No gustado</string>
+    <string name="str_copy">Copiar</string>
+    <string name="str_delete_account">Eliminar cuenta</string>
+
+    <string name="str_account_delete_title">Por favor, verifica si deseas cancelar tu cuenta, después de haberlo hecho.</string>
+    <string name="str_account_delete_rule_1">1. No podrás reactivar tu cuenta usando tu cuenta de Facebook.</string>
+    <string name="str_account_delete_rule_2">2. Tu perfil, fotos, publicaciones, videos y cualquier otro contenido que hayas agregado serán eliminados permanentemente.</string>
+    <string name="str_account_delete_rule_3">3. Eliminaremos tu información de cuenta, información del dispositivo y todo el historial de uso dentro de la aplicación.</string>
+    <string name="str_account_delete_rule_4">4. Alguna información permanecerá visible después de la eliminación de la cuenta, por ejemplo, mensajes que hayas enviado previamente a tus amigos. Se guardará una copia del mensaje enviado en el historial de chat de tu amigo.</string>
+    <string name="str_account_delete_rule_5">5. Eliminaremos cualquier moneda no utilizada, membresías, etc. y no ofreceremos reembolsos.</string>
+    <string name="str_agree_rule">He leído y estoy de acuerdo con las reglas anteriores</string>
+
+    <string name="str_account_expired">Cuenta expirada</string>
+    <string name="str_exit_app_tip">Salida presionando la tecla de retorno una vez</string>
+
+    <string name="str_please_grant_permission">Por favor, concede permiso</string>
+    <string name="str_please_select_gift">Por favor, selecciona un regalo</string>
+    <string name="str_my_coins_with_balance">Mis monedas:%1$s</string>
+
+    <string name="str_left_chats_value">Tienes %s chats gratis</string>
+    <string name="str_in_call">En llamada...</string>
+    <string name="str_call_server_unable">Servicio de llamada no disponible</string>
+
+    <string name="str_play_private_tip_value"><![CDATA[El video solo se puede ver durante <font color="#FFF034">%ss.</font> Desbloquea para ver el video completo.]]></string>
+    <string name="str_tap_to_start">Toca para empezar</string>
+    <string name="str_match_call_title">Buscando nuevos amigos…</string>
+    <string name="str_match_call_content">Encontrando personas que están chateando en video en tiempo real para ti…</string>
+    <string name="str_match_call_tip_value"><![CDATA[Después de <font color="#FFF034">%ss</font>, se convertirá en una llamada privada.<font color="#FFF034">%s</font>]]></string>
+
+    <string name="str_enable_notify">Activar Notificaciones</string>
+    <string name="str_enable_notify_desc">Las notificaciones pueden ayudarte a:\n1. Recibir información importante y actualizaciones oportunamente.\n2. Obtener notificaciones de mensajes instantáneos.\n3. Mantenerte al día con nuestras últimas noticias.</string>
+    <string name="str_go_setting">Ir a Ajustes</string>
+
+    <string name="str_no_match_found_for_user">No se encontró coincidencia para el usuario</string>
+    <string name="str_hint">Pista</string>
+    <string name="str_conversation_with_value">Conversación con %s</string>
+    <string name="str_delete_conversation_tip">¿Estás seguro de que deseas eliminar esta conversación?</string>
+
+    <string name="str_watch_ad">Ver anuncio</string>
+    <string name="str_microphone_turned_off">Micrófono apagado</string>
+    <string name="str_microphone_turned_off_tip">¿Estás seguro de que quieres apagar el micrófono?</string>
+    <string name="str_using_rear_camera">Usando la cámara trasera</string>
+    <string name="str_using_rear_camer_tip">¿Estás seguro de querer activar la cámara trasera?</string>
+
+    <string name="str_camera_turned_off">Cámara apagada</string>
+    <string name="str_camera_turned_off_tip">¿Obtener el derecho de apagar tu cámara durante la videollamada?</string>
+
+    <string name="str_unlock_success">Desbloqueo exitoso</string>
+    <string name="str_unlock_failure">Fallo en el desbloqueo</string>
+    <string name="str_vip_free">VIP Gratis</string>
+    <string name="str_vip_only">Solo VIP</string>
+
+    <string name="str_camera_is_turned_on">Cámara encendida</string>
+    <string name="str_camera_is_turned_off">Cámara apagada</string>
+
+    <string name="str_front_camera_switched">Usando la cámara frontal</string>
+    <string name="str_rear_camera_switched">Usando la cámara trasera</string>
+
+    <string name="str_micrphone_is_off">Micrófono apagado</string>
+    <string name="str_micrphone_is_on">Micrófono encendido</string>
+    <string name="str_can_not_play_ad">No se pueden reproducir anuncios</string>
+
+    <string name="str_cancel_subscription">Cancelar suscripción</string>
+    <string name="str_vip_subscription_tips">El pago se cargará a tu cuenta de Google Play Store en el momento de la confirmación de la compra. Puedes desactivar la renovación automática al menos 24 horas antes del final de tu periodo de suscripción actual. No ofrecemos una prueba gratuita para el contenido de la suscripción. Tu suscripción se renovará automáticamente dentro del mismo periodo del paquete al mismo precio.Las suscripciones se pueden cancelar en cualquier momento. Cancela tu suscripción haciendo clic aquí: %s</string>
+    <string name="str_vip_subscription_agreement">Para obtener más información, visita nuestras páginas de %s y %s</string>
+
+    <string name="str_crowd">Multitud</string>
+    <string name="str_country_region">País/Región</string>
+
+    <string name="str_rating_dialog_title">¿Te gusta nuestra aplicación?</string>
+    <string name="str_rating_dialog_tip">Toca para calificar</string>
+
+    <string name="str_look_coin_ad_tip">Mira un anuncio para obtener monedas y videollama con la chica que amas.</string>
+    <string name="str_ads_free">Sin anuncios</string>
+    <string name="str_ads_free_tip">Hazte VIP y ya no verás anuncios</string>
+    <string name="str_become_vip">Hazte VIP</string>
+
+    <string name="str_app_prodcut_pro">Tamo Pro</string>
+    <string name="str_20201_product_desc">Después de activar Tamo Pro, los precios de las videollamadas se descontarán en un <font color="#FD1C48">50%</font></string>
+</resources>

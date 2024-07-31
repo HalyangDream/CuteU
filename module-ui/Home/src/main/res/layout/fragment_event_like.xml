@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cute.uibase.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sl_layout"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:emptyLayoutId="@layout/layout_empty"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/rl_title"
+    app:loadingLayoutId="@layout/layout_loading"
+    app:netErrorLayoutId="@layout/layout_net_error">
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/srl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableLoadMoreWhenContentNotFull="false"
+        app:srlEnableAutoLoadMore="true"
+        app:srlFooterInsetStart="76dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_like"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="76dp" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</com.cute.uibase.StateLayout>

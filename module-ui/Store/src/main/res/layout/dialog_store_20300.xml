@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/srl_layout"
+        android:layout_width="304dp"
+        android:layout_height="348dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_endColor="#FD8B3A"
+        app:shape_startColor="#FD1C48">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/img_content_20300" />
+
+        <com.hjq.shape.layout.ShapeRelativeLayout
+            android:layout_width="160dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:shape_radius="20dp"
+            app:shape_solidColor="#4d000000">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6dp"
+                android:drawableStart="@drawable/ic_common_coin_normal"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:textColor="@color/app_text_reverse_color"
+                android:textSize="18sp"
+                tools:text="100" />
+
+            <com.hjq.shape.view.ShapeTextView
+                android:id="@+id/tv_bound"
+                android:layout_width="74dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="2dp"
+                android:gravity="center"
+                android:textColor="@color/app_text_color"
+                android:textSize="18sp"
+                app:shape_radius="20dp"
+                app:shape_solidColor="#7CF686"
+                tools:text="+100" />
+
+        </com.hjq.shape.layout.ShapeRelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/img_buy_20300"
+            android:gravity="center"
+            android:text="@string/str_buy_now"
+            android:textColor="@color/app_text_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-33dp"
+        android:background="@drawable/img_title_20300"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/srl_layout"
+        app:layout_constraintEnd_toEndOf="@id/srl_layout"
+        app:layout_constraintStart_toStartOf="@id/srl_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:text="Only"
+            android:textColor="@color/app_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="6dp"
+            android:gravity="center"
+            android:textColor="@color/app_text_color"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            tools:text="$0.99" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_dialog_bottom_close"
+        app:layout_constraintEnd_toEndOf="@id/srl_layout"
+        app:layout_constraintStart_toStartOf="@id/srl_layout"
+        app:layout_constraintTop_toBottomOf="@id/srl_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

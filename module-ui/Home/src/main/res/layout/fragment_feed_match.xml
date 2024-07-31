@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="@string/str_encounters"
+            android:textColor="@color/app_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="12dp"
+        app:cardBackgroundColor="@android:color/black"
+        app:cardCornerRadius="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_title">
+
+        <com.cute.picture.camera.CameraPreviewView
+            android:id="@+id/camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="lottie/match_wave.json"
+            app:lottie_loop="true" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="lottie/match_search.json"
+            app:lottie_loop="true" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/sll_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="6dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="@id/card_view"
+        app:layout_constraintStart_toStartOf="@id/card_view"
+        app:layout_constraintTop_toTopOf="@id/card_view"
+        app:shape_radius="18dp"
+        app:shape_solidColor="#CC000000">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_match_type"-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp" />-->
+
+        <TextView
+            android:id="@+id/tv_match_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/app_text_reverse_color"
+            android:textSize="16sp"
+            tools:text="Both" />
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/sll_match"
+        app:layout_constraintTop_toBottomOf="@id/sll_match">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:rotation="180"
+            android:src="@drawable/ic_match_arrow_bottom_red" />
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/stv_free_match_num"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:paddingHorizontal="7dp"
+            android:textColor="@color/app_text_reverse_color"
+            app:shape_radius="10dp"
+            app:shape_solidColor="#FD1C48"
+            tools:text="Free: x106" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

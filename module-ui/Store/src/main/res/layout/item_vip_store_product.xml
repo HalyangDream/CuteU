@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srl_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    app:shape_radius="12dp"
+    app:shape_solidColor="#cc000000"
+    app:shape_strokeColor="#32E1F0"
+    app:shape_strokeWidth="1dp">
+
+    <com.hjq.shape.view.ShapeTextView
+        android:id="@+id/stv_discount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingVertical="5dp"
+        android:singleLine="true"
+        android:textAllCaps="true"
+        android:textColor="@color/app_text_color"
+        android:textSize="12sp"
+        app:shape_solidColor="#32E1F0"
+        app:shape_topLeftRadius="12dp"
+        app:shape_topRightRadius="12dp"
+        tools:text="POPULAR" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stv_discount"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="12dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_text_reverse_color"
+            android:textSize="32sp"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_sub_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/app_text_reverse_color"
+            android:textSize="14sp"
+            tools:text="Year" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#ccffffff"
+            android:textSize="13sp"
+            tools:text="$119.99" />
+
+        <TextView
+            android:id="@+id/tv_bound_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#32E1F0"
+            android:textSize="14sp"
+            tools:text="$0.17/day" />
+
+    </LinearLayout>
+
+
+</com.hjq.shape.layout.ShapeRelativeLayout>

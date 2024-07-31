@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    app:shape_solidColor="@color/white"
+    app:shape_topLeftRadius="12dp"
+    app:shape_topRightRadius="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/str_gender"
+        android:textColor="@color/app_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/str_filter_gender_sub_title"
+        android:textColor="@color/app_text_second_color"
+        android:textSize="13sp" />
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/ll_male_select"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:hint="@string/str_please_enter_your_name"
+        android:paddingHorizontal="20dp"
+        app:shape_radius="24dp"
+        app:shape_strokeColor="@color/color_input_stroke"
+        app:shape_strokeWidth="1dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_male" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_male"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cb_male_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_circle_btn"
+            android:checked="true"
+            android:clickable="false" />
+
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/ll_female_select"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:hint="@string/str_please_enter_your_name"
+        android:paddingHorizontal="20dp"
+        app:shape_radius="24dp"
+        app:shape_strokeColor="@color/color_input_stroke"
+        app:shape_strokeWidth="1dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_female" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_female"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cb_female_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_circle_btn"
+            android:clickable="false" />
+
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/ll_everyone_select"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="36dp"
+        android:gravity="center_vertical"
+        android:hint="@string/str_please_enter_your_name"
+        android:paddingHorizontal="20dp"
+        app:shape_radius="24dp"
+        android:visibility="visible"
+        app:shape_strokeColor="@color/color_input_stroke"
+        app:shape_strokeWidth="1dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_both" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/str_everyone"
+            android:textColor="@color/app_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cb_every_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_circle_btn"
+            android:clickable="false" />
+
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+
+</com.hjq.shape.layout.ShapeLinearLayout>
