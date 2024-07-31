@@ -20,16 +20,17 @@
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="@string/str_net_error_tip"
-        android:textColor="@color/app_text_color"
+        android:textColor="@color/app_main_color"
         android:textSize="16sp" />
 
 
-    <com.cute.uibase.PositiveButton
+    <com.cute.uibase.NegativeButton
         android:id="@+id/btn_retry"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
-        android:text="@string/str_retry" />
+        android:text="@string/str_retry"
+        android:textColor="@color/app_main_color" />
 
 
 </LinearLayout>

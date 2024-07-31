@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cute.baselogic.userDataStore
 import com.cute.basic.BaseModelFragment
+import com.cute.basic.util.StatusUtils
 import com.cute.logic.http.Gender
 import com.cute.mine.databinding.FragmentMineBinding
 import com.cute.mine.intent.MineIntent
@@ -33,6 +34,7 @@ class MineFragment : BaseModelFragment<FragmentMineBinding, MineViewModel>() {
     }
 
     override fun initView() {
+        StatusUtils.setImmerseLayout(viewBinding.rlTitle, this)
         viewModel.observerState {
             when (it) {
                 is MineState.MeUserState -> bindMineState(it)
