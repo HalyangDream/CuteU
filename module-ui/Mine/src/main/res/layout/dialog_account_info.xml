@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/tv_title"
-        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
         app:shape_radius="20dp"
         app:shape_solidColor="#F3F3F3">
 
@@ -47,7 +47,7 @@
             android:text="@string/str_copy"
             android:textColor="@color/app_text_reverse_color"
             app:shape_bottomRightRadius="20dp"
-            app:shape_solidColor="@android:color/black"
+            app:shape_solidColor="@color/app_main_color"
             app:shape_topRightRadius="20dp" />
 
 
@@ -58,8 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/layout_user_id"
-        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
         app:shape_radius="20dp"
         app:shape_solidColor="#F3F3F3">
 
@@ -82,7 +82,7 @@
             android:text="@string/str_copy"
             android:textColor="@color/app_text_reverse_color"
             app:shape_bottomRightRadius="20dp"
-            app:shape_solidColor="@android:color/black"
+            app:shape_solidColor="@color/app_main_color"
             app:shape_topRightRadius="20dp" />
     </com.hjq.shape.layout.ShapeFrameLayout>
 

@@ -76,7 +76,7 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <com.hjq.shape.view.ShapeTextView
+            <com.cute.uibase.NegativeButton
                 android:id="@+id/tv_cancel"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
@@ -88,17 +88,14 @@
                 app:shape_strokeColor="@color/color_tag_border"
                 app:shape_strokeWidth="1dp" />
 
-            <com.hjq.shape.view.ShapeTextView
+            <com.cute.uibase.PositiveButton
                 android:id="@+id/tv_confirm"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/str_confirm"
-                android:textColor="@color/app_text_reverse_color"
-                app:shape_radius="20dp"
-                app:shape_solidColor="@color/app_text_color" />
+                android:text="@string/str_confirm" />
 
         </LinearLayout>
 

@@ -36,7 +36,7 @@
         android:layout_below="@id/iv_lock"
         android:layout_centerHorizontal="true"
         android:text="@string/str_private"
-        android:textColor="@color/white"
+        android:textColor="@color/app_main_color"
         android:textSize="16sp" />
 
 </RelativeLayout>

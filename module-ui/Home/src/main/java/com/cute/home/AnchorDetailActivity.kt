@@ -102,7 +102,7 @@ class AnchorDetailActivity :
                 }
 
                 is AnchorDetailState.FollowState -> {
-                    this.isFollow = isFollow
+                    this.isFollow = it.isFollow
                     if (it.isFollow) {
                         viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_liked)
                         Toaster.showShort(this, com.cute.uibase.R.string.str_liked)

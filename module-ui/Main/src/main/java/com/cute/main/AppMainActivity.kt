@@ -193,6 +193,19 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
     }
 
     private fun addViewListener() {
+        viewBinding.vp2.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == 1) {
+                    bottomBarBinding.clBottom.setBackgroundColor(ContextCompat.getColor(this@AppMainActivity,
+                        android.R.color.black))
+                }else{
+                    bottomBarBinding.clBottom.setBackgroundColor(ContextCompat.getColor(this@AppMainActivity,
+                        android.R.color.white))
+                }
+            }
+        })
+
         bottomBarBinding.ivHome.setOnClickListener {
             val adapter = viewBinding.vp2.adapter as ViewPagerAdapter
             val index = adapter.getIndexOfFragment(it.tag as Fragment)
