@@ -30,24 +30,51 @@ android {
     signingConfigs {
         getByName("debug") {
             storeFile = file("../keystore/cuteu.jks")
-            storePassword = "cuteu0713"
+            storePassword = "cuteu0731"
             keyAlias = "cuteu"
-            keyPassword = "cuteu0713"
+            keyPassword = "cuteu0731"
             enableV1Signing = true
             enableV2Signing = true
         }
 
         create("Vibro") {
             storeFile = file("../keystore/cuteu.jks")
-            storePassword = "cuteu0713"
+            storePassword = "cuteu0731"
             keyAlias = "cuteu"
-            keyPassword = "cuteu0713"
+            keyPassword = "cuteu0731"
             enableV1Signing = true
             enableV2Signing = true
         }
     }
 
     productFlavors {
+
+        create("piya") {
+            applicationId = "com.piya.app"
+            versionCode = 10000
+            versionName = "1.0.0"
+            resValue("string", "app_name", "Piya")
+            resValue(
+                "string",
+                "google_server_id",
+                "980280066942-06l9gr3h87ikp7r4r9888g2g16ba003d.apps.googleusercontent.com"
+            )
+            resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
+            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
+            buildConfigField("int", "APP_ID", "1")
+            buildConfigField("String", "DT_APP_ID", "\"dt_8d891c8f9c02a310\"")
+            buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
+            buildConfigField("String", "APP_URL", "\"https://www.amormeetapp.com\"")
+            buildConfigField(
+                "String",
+                "PRIVACY_AGREEMENT",
+                "\"https://www.amormeetapp.com/privacy.html\""
+            )
+            buildConfigField("String", "USER_AGREEMENT", "\"https://www.amormeetapp.com/terms.html\"")
+            buildConfigField("String", "TOP_ON_ID", "\"h6689368ab49e1\"")
+            buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
+            signingConfig = signingConfigs.findByName("Vibro")!!
+        }
         create("Vibro") {
             applicationId = "com.market.vibro.app"
             versionCode = 10000

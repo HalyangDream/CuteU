@@ -108,7 +108,7 @@ class AnchorDetailActivity :
                         Toaster.showShort(this, com.cute.uibase.R.string.str_liked)
 
                     } else {
-                        viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_unlike)
+                        viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_unliked)
                         Toaster.showShort(this, com.cute.uibase.R.string.str_unliked)
                     }
                 }
@@ -187,7 +187,7 @@ class AnchorDetailActivity :
             viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_liked)
 
         } else {
-            viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_unlike)
+            viewBinding.ivFollow.setImageResource(R.drawable.ic_feed_unliked)
         }
         anchorInfoAdapter?.setData(anchorInfo.info)
         userTagAdapter?.setData(anchorInfo.tag)

@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cute.baselogic.userDataStore
 import com.cute.basic.BaseModelFragment
+import com.cute.logic.http.Gender
 import com.cute.mine.databinding.FragmentMineBinding
 import com.cute.mine.intent.MineIntent
 import com.cute.mine.state.MineState
@@ -107,6 +108,12 @@ class MineFragment : BaseModelFragment<FragmentMineBinding, MineViewModel>() {
         )
         viewBinding.ivVip.setImageResource(if (user.isVip) R.drawable.ic_mine_vip else R.drawable.ic_mine_vip_grey)
         viewBinding.tvVipTime.text = if (user.isVip) user.vipExpiredTime else ""
+       if(user.gender ==Gender.FEMALE.value){
+           viewBinding.ivGender.setImageResource(com.cute.uibase.R.drawable.ic_female)
+       }else{
+           viewBinding.ivGender.setImageResource(com.cute.uibase.R.drawable.ic_male)
+       }
+
         context?.apply {
             userDataStore.saveRole(user.role)
             userDataStore.saveUid(user.id)
