@@ -20,14 +20,6 @@
 
 
             <ImageView
-                android:id="@+id/iv_online"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/iv_nav_back" />
-
-
-            <ImageView
                 android:id="@+id/iv_nav_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

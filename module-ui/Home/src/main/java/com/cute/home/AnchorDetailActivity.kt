@@ -75,7 +75,7 @@ class AnchorDetailActivity :
         viewBinding.ivMsg.setOnClickListener {
             RouteSdk.navigationChat(anchorId, "anchor_profile")
         }
-        viewBinding.rlCall.setOnClickListener {
+        viewBinding.ivCall.setOnClickListener {
             RouteSdk.findService(ITelephoneService::class.java).sendCallInvited(
                 this, UserDataStore.get(this).getUid(), anchorId, "anchor_profile"
             )
@@ -161,13 +161,11 @@ class AnchorDetailActivity :
         isBlock = anchorInfo.isBlock
         isFollow = anchorInfo.isFollow
         viewBinding.ivAvatar.loadImage(
-            anchorInfo.avatar,
-            isCircle = true,
-            placeholderRes = com.cute.uibase.R.drawable.img_placehoder_round_grey
+            anchorInfo.avatar, placeholderRes = com.cute.uibase.R.drawable.img_placehoder_grey
         )
         viewBinding.tvId.text = "@${anchorInfo.id}"
         viewBinding.tvName.text = "${anchorInfo.name},${anchorInfo.age}"
-        titleBarBinding.ivOnline.setOnlineLabelImage(anchorInfo.online)
+        viewBinding.ivOnline.setOnlineLabelImage(anchorInfo.online)
         viewBinding.tvSign.text = anchorInfo.sign
 
         if (anchorInfo.sign.isEmpty()) {
@@ -195,23 +193,24 @@ class AnchorDetailActivity :
     }
 
     private fun initRv() {
-        viewBinding.rvInfo.apply {
-            layoutManager =
-                FlexboxLayoutManager(this@AnchorDetailActivity, FlexDirection.ROW, FlexWrap.WRAP)
-            anchorInfoAdapter = AnchorInfoAdapter(this@AnchorDetailActivity)
-            adapter = anchorInfoAdapter
-        }
+//        viewBinding.rvInfo.apply {
+//            layoutManager =
+//                FlexboxLayoutManager(this@AnchorDetailActivity, FlexDirection.ROW, FlexWrap.WRAP)
+//            anchorInfoAdapter = AnchorInfoAdapter(this@AnchorDetailActivity)
+//            adapter = anchorInfoAdapter
+//        }
         viewBinding.rvTag.apply {
             userTagAdapter = UserTagAdapter(this@AnchorDetailActivity)
-            val linearLayoutManager = LinearLayoutManager(this@AnchorDetailActivity)
-            linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-            layoutManager = linearLayoutManager
+            layoutManager =
+                FlexboxLayoutManager(this@AnchorDetailActivity, FlexDirection.ROW, FlexWrap.WRAP)
             adapter = userTagAdapter
         }
 
         viewBinding.rvAlbum.apply {
             albumAdapter = AnchorAlbumAdapter(this@AnchorDetailActivity)
-            layoutManager = GridLayoutManager(this@AnchorDetailActivity,3)
+            layoutManager = LinearLayoutManager(this@AnchorDetailActivity).apply {
+                orientation = LinearLayoutManager.HORIZONTAL
+            }
             adapter = albumAdapter
         }
     }
