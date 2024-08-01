@@ -87,7 +87,7 @@ android {
             )
             resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
             manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            buildConfigField("int", "APP_ID", "1")
+            buildConfigField("int", "APP_ID", "5")
             buildConfigField("String", "DT_APP_ID", "\"dt_eed0a0646e06c1dc\"")
             buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
             buildConfigField("String", "APP_URL", "\"https://www.amormeetapp.com\"")

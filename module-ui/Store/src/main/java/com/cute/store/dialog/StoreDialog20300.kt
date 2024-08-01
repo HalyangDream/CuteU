@@ -17,6 +17,7 @@ import com.cute.tool.Toaster
 import com.cute.uibase.ActivityStack
 import com.cute.uibase.ad.AdPlayService
 import com.cute.uibase.event.StoreDialogCloseEvent
+import com.cute.uibase.setThrottleListener
 import com.cute.uibase.userbehavior.UserBehavior
 import kotlinx.coroutines.launch
 
@@ -42,7 +43,7 @@ class StoreDialog20300 : BaseCenterDialog() {
     override fun initView(view: View?) {
         setDialogCancelable(false)
         setDialogCanceledOnTouchOutside(false)
-        binding.tvBuy.setOnClickListener {
+        binding.btnBuy.setThrottleListener {
             if (product != null) {
                 startPay(product!!)
             }
