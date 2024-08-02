@@ -1,6 +1,7 @@
 package com.cute.main
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -197,8 +198,7 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == 1) {
-                    bottomBarBinding.clBottom.setBackgroundColor(ContextCompat.getColor(this@AppMainActivity,
-                        android.R.color.black))
+                    bottomBarBinding.clBottom.setBackgroundColor(Color.parseColor("#80000000"))
                 }else{
                     bottomBarBinding.clBottom.setBackgroundColor(ContextCompat.getColor(this@AppMainActivity,
                         android.R.color.white))
