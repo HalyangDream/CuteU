@@ -38,10 +38,10 @@ android {
         }
 
         create("Vibro") {
-            storeFile = file("../keystore/cuteu.jks")
-            storePassword = "cuteu0731"
-            keyAlias = "cuteu"
-            keyPassword = "cuteu0731"
+            storeFile = file("../keystore/PortScanner.jks")
+            storePassword = "wafikpass2001@"
+            keyAlias = "portscannerkey0"
+            keyPassword = "wafikpass2001@"
             enableV1Signing = true
             enableV2Signing = true
         }
