@@ -90,13 +90,13 @@ android {
             buildConfigField("int", "APP_ID", "5")
             buildConfigField("String", "DT_APP_ID", "\"dt_eed0a0646e06c1dc\"")
             buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
-            buildConfigField("String", "APP_URL", "\"https://www.amormeetapp.com\"")
+            buildConfigField("String", "APP_URL", "\"https://www.vibrometa.com\"")
             buildConfigField(
                 "String",
                 "PRIVACY_AGREEMENT",
-                "\"https://www.amormeetapp.com/privacy.html\""
+                "\"https://www.vibrometa.com/vibro/privacy.html\""
             )
-            buildConfigField("String", "USER_AGREEMENT", "\"https://www.amormeetapp.com/terms.html\"")
+            buildConfigField("String", "USER_AGREEMENT", "\"https://www.vibrometa.com/vibro/terms.html\"")
             buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("Vibro")!!
