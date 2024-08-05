@@ -16,7 +16,7 @@ object AppMessageViewFactory : ActivityStack.ActivityStateListener() {
     private val timerRunnable = TimerRunnable()
 
     init {
-        ActivityStack.addListener(this)
+        ActivityStack.addActivityStateListener(this)
     }
 
     override fun onActivityDestroyed(activity: Activity) {

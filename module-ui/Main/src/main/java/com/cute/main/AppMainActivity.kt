@@ -146,7 +146,8 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
 
     override fun onStart() {
         super.onStart()
-        ContextCompat.startForegroundService(this, Intent(this, CoreService::class.java))
+        CoreService.getInstance().onCreate(this)
+//        ContextCompat.startForegroundService(this, Intent(this, CoreService::class.java))
     }
 
     override fun onResume() {
@@ -199,9 +200,13 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
                 super.onPageSelected(position)
                 if (position == 1) {
                     bottomBarBinding.clBottom.setBackgroundColor(Color.parseColor("#80000000"))
-                }else{
-                    bottomBarBinding.clBottom.setBackgroundColor(ContextCompat.getColor(this@AppMainActivity,
-                        android.R.color.white))
+                } else {
+                    bottomBarBinding.clBottom.setBackgroundColor(
+                        ContextCompat.getColor(
+                            this@AppMainActivity,
+                            android.R.color.white
+                        )
+                    )
                 }
             }
         })

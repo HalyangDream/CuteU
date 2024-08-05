@@ -5,6 +5,7 @@ import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.os.Build
@@ -53,9 +54,29 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import java.lang.ref.WeakReference
+import java.util.concurrent.atomic.AtomicBoolean
 
-class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyListener {
+class CoreService private constructor() : ActivityStack.AppStateListener(), IMStatusListener,
+    IMMessageListener, IMNotifyListener {
 
+    private var contextRef: WeakReference<Context>? = null
+    private val isCreate = AtomicBoolean(false)
+
+    init {
+        ActivityStack.addAppStateListener(this)
+    }
+
+    companion object {
+        @Volatile
+        private var instance: CoreService? = null
+
+        fun getInstance(): CoreService {
+            return instance ?: synchronized(this) {
+                instance ?: CoreService().also { instance = it }
+            }
+        }
+    }
 
     private val serviceScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -78,87 +99,104 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
         )
     }
 
+    private fun mContext() = contextRef?.get()
 
-    override fun onCreate() {
-        super.onCreate()
-        LooperService.init(serviceScope)
-        IMCore.getService(MsgServiceObserver::class.java).observerReceiveNotify(this, true)
-        IMCore.getService(MsgServiceObserver::class.java).observerReceiveMessage(this, true)
-        IMCore.getService(MsgServiceObserver::class.java).observerIMStatus(this, true)
-        GooglePayClient.initialize(this) {}
-        AdPlayService.cacheAd(this)
-        EventBus.event.subscribe<RemoteNotifyEvent>(serviceScope) {
-            if (it is RemoteNotifyEvent.PaySuccessEvent) {
-                getDeviceFunctionInfo()
+    fun onCreate(context: Context) {
+        contextRef = WeakReference(context)
+        if (isCreate.compareAndSet(false, true)) {
+            LooperService.init(serviceScope)
+            IMCore.getService(MsgServiceObserver::class.java).observerReceiveNotify(this, true)
+            IMCore.getService(MsgServiceObserver::class.java).observerReceiveMessage(this, true)
+            IMCore.getService(MsgServiceObserver::class.java).observerIMStatus(this, true)
+            contextRef?.get()?.let {
+                GooglePayClient.initialize(it) {}
+                AdPlayService.cacheAd(it)
+            }
+            EventBus.event.subscribe<RemoteNotifyEvent>(serviceScope) {
+                if (it is RemoteNotifyEvent.PaySuccessEvent) {
+                    getDeviceFunctionInfo()
+                    fixGoogleOrder()
+                    contextRef?.get()?.let {
+                        Toaster.showShort(it, "Pay Success")
+                    }
+
+                }
+            }
+            EventBus.event.subscribe<PayResultEvent>(serviceScope) {
                 fixGoogleOrder()
-                Toaster.showShort(this, "Pay Success")
             }
         }
-        EventBus.event.subscribe<PayResultEvent>(serviceScope) {
-            fixGoogleOrder()
-        }
+
     }
 
-
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        startForegroundNotification()
+    override fun onAppFront() {
+        super.onAppFront()
+//        startForegroundNotification()
         fixGoogleOrder()
         getDeviceFunctionInfo()
         serviceScope.launch {
-            InitCoreService.initCoreService(this@CoreService)
-            LooperService.stopHeart()
-            LooperService.heart(serviceScope, this@CoreService)
-        }
-        return START_STICKY
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        IMCore.getService(MsgServiceObserver::class.java).observerReceiveNotify(this, false)
-        IMCore.getService(MsgServiceObserver::class.java).observerReceiveMessage(this, false)
-        IMCore.getService(MsgServiceObserver::class.java).observerIMStatus(this, false)
-        RtcManager.getInstance().destroy()
-        serviceScope.cancel("Service Destroy")
-    }
-
-    override fun onBind(intent: Intent?): IBinder? {
-
-        return null
-    }
-
-    private fun startForegroundNotification() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            startForegroundNotificationMoreV31()
-        } else {
-            startForegroundNotificationLessV31()
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.S)
-    private fun startForegroundNotificationMoreV31() {
-        try {
-            if (Build.VERSION.SDK_INT >= 34) {
-                startForeground(
-                    10, getNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_REMOTE_MESSAGING
-                )
-            } else {
-                startForeground(10, getNotification())
+            val context = mContext()
+            context?.let {
+                InitCoreService.initCoreService(it)
+                LooperService.stopHeart()
+                LooperService.heart(serviceScope, it)
             }
-        } catch (ex: ForegroundServiceStartNotAllowedException) {
-            ex.printStackTrace()
-        } catch (ex: Exception) {
-            ex.printStackTrace()
         }
     }
 
-    private fun startForegroundNotificationLessV31() {
-        try {
-            startForeground(10, getNotification())
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-        }
+    override fun onAppBackground() {
+        super.onAppBackground()
     }
+
+
+//    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+//
+//        return START_STICKY
+//    }
+
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        IMCore.getService(MsgServiceObserver::class.java).observerReceiveNotify(this, false)
+//        IMCore.getService(MsgServiceObserver::class.java).observerReceiveMessage(this, false)
+//        IMCore.getService(MsgServiceObserver::class.java).observerIMStatus(this, false)
+//        RtcManager.getInstance().destroy()
+//        serviceScope.cancel("Service Destroy")
+//    }
+
+
+//    private fun startForegroundNotification() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            startForegroundNotificationMoreV31()
+//        } else {
+//            startForegroundNotificationLessV31()
+//        }
+//    }
+//
+//    @RequiresApi(Build.VERSION_CODES.S)
+//    private fun startForegroundNotificationMoreV31() {
+//        try {
+//            if (Build.VERSION.SDK_INT >= 34) {
+//                startForeground(
+//                    10, getNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_REMOTE_MESSAGING
+//                )
+//            } else {
+//                startForeground(10, getNotification())
+//            }
+//        } catch (ex: ForegroundServiceStartNotAllowedException) {
+//            ex.printStackTrace()
+//        } catch (ex: Exception) {
+//            ex.printStackTrace()
+//        }
+//    }
+//
+//    private fun startForegroundNotificationLessV31() {
+//        try {
+//            startForeground(10, getNotification())
+//        } catch (ex: Exception) {
+//            ex.printStackTrace()
+//        }
+//    }
 
 
     //================== IM Start==================
@@ -166,7 +204,7 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
     override fun reLogin() {
         IMCore.getService(UserService::class.java).logout()
         serviceScope.launch {
-            InitCoreService.initCoreService(this@CoreService)
+            contextRef?.get()?.let { InitCoreService.initCoreService(it) }
         }
     }
 
@@ -177,7 +215,7 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
     override fun renewToken() {
         IMCore.getService(UserService::class.java).logout()
         serviceScope.launch {
-            InitCoreService.initCoreService(this@CoreService)
+            contextRef?.get()?.let { InitCoreService.initCoreService(it) }
         }
     }
 
@@ -194,9 +232,10 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
 
             is StrategyCallNotify -> {
                 val strategyCallNotify = notify as StrategyCallNotify
-                if (!strategyCallNotify.remoteId.isNullOrEmpty()) {
+                val uid = contextRef?.get()?.userDataStore?.getUid()
+                if (!strategyCallNotify.remoteId.isNullOrEmpty() && uid != null) {
                     iTelephoneService.launchStrategyCall(
-                        userDataStore.getUid(),
+                        uid,
                         strategyCallNotify.remoteId!!.toLong(),
                         strategyCallNotify.isFreeCall,
                         strategyCallNotify.triggerSource ?: "income_call",
@@ -221,42 +260,15 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
 
     override fun onReceiveMsg(message: Msg) {
         serviceScope.launch(Dispatchers.Main) {
-            ReceiveMsgService.handleReceiveMsg(this@CoreService, serviceScope, message)
+            if (mContext() == null) return@launch
+            ReceiveMsgService.handleReceiveMsg(mContext()!!, serviceScope, message)
         }
     }
     //================== IM End==================
 
-    private fun getNotification(): Notification {
-        val builder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationUtils.createChannel(
-                "message", "RemoteMessage", NotificationManager.IMPORTANCE_MIN
-            )
-            NotificationUtils.createNotificationChannel(this, channel)
-            NotificationCompat.Builder(this, channel.id)
-        } else {
-            NotificationCompat.Builder(this, "message")
-        }
-        builder.setSmallIcon(this.resources.getIdentifier("ic_launcher","mipmap",packageName))
-        builder.setContentTitle(AppUtil.getApplicationName(this))
-        builder.setContentText("Running")
-        builder.setContentIntent(getPendingIntent())
-        builder.setCategory(NotificationCompat.CATEGORY_MESSAGE)
-        builder.priority = NotificationCompat.PRIORITY_DEFAULT
-        return builder.build()
-    }
-
-    private fun getPendingIntent(): PendingIntent {
-        val intent = packageManager.getLaunchIntentForPackage(packageName)
-        return PendingIntent.getActivity(
-            this,
-            0x1111,
-            intent,
-            if (Build.VERSION.SDK_INT >= 23) PendingIntent.FLAG_IMMUTABLE else PendingIntent.FLAG_UPDATE_CURRENT
-        )
-    }
-
     private fun fixGoogleOrder() {
-        RouteSdk.findService(IStoreService::class.java).fixGoogleOrder(this)
+        if (mContext() == null) return
+        RouteSdk.findService(IStoreService::class.java).fixGoogleOrder(mContext()!!)
     }
 
     private fun getDeviceFunctionInfo() {
@@ -264,15 +276,16 @@ class CoreService : Service(), IMStatusListener, IMMessageListener, IMNotifyList
             val response = _callRepository.deviceFunctionUnlockInfo()
             if (response.isSuccess) {
                 val list = response.data?.list ?: return@launch
+                val context = mContext() ?: return@launch
                 for (deviceFunctionInfo in list) {
                     if (!deviceFunctionInfo.enable) {
                         when (deviceFunctionInfo.type) {
-                            "camera_close" -> this@CoreService.statusDataStore.saveCloseCamera(false)
-                            "camera_switch" -> this@CoreService.statusDataStore.saveUseFrontCamera(
+                            "camera_close" -> context.statusDataStore.saveCloseCamera(false)
+                            "camera_switch" -> context.statusDataStore.saveUseFrontCamera(
                                 true
                             )
 
-                            "voice_mute" -> this@CoreService.statusDataStore.saveMuteVoice(false)
+                            "voice_mute" -> context.statusDataStore.saveMuteVoice(false)
                         }
                     }
                 }

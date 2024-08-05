@@ -11,11 +11,10 @@ object ActivityStack : Application.ActivityLifecycleCallbacks {
 
 
     lateinit var application: Application
-    private var foregroundCount = 0 // 位于前台的 Activity 的数目
     private val activities: CopyOnWriteArrayList<Activity> = CopyOnWriteArrayList()
-    private val stateListener = CopyOnWriteArrayList<ActivityStateListener>()
-
-
+    private val activityStateListeners = CopyOnWriteArrayList<ActivityStateListener>()
+    private val appStateListeners = CopyOnWriteArrayList<AppStateListener>()
+    private var foregroundCount = 0 // 位于前台的 Activity 的数目
     fun isBackground() = foregroundCount <= 0
 
     fun getTopActivity(): Activity? {
@@ -23,49 +22,68 @@ object ActivityStack : Application.ActivityLifecycleCallbacks {
             return activities.lastOrNull()
         } catch (ex: ArrayIndexOutOfBoundsException) {
             ex.printStackTrace()
-        } catch (ex:Exception){
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
         return null
     }
 
-    fun addListener(listener: ActivityStateListener) {
-        stateListener.add(listener)
+    fun addAppStateListener(listener: AppStateListener) {
+        appStateListeners.add(listener)
     }
 
-    fun removeListener(listener: ActivityStateListener) {
-        stateListener.remove(listener)
+    fun addActivityStateListener(listener: ActivityStateListener) {
+        activityStateListeners.add(listener)
     }
+
+    fun removeAppStateListener(listener: AppStateListener) {
+        appStateListeners.remove(listener)
+    }
+
+    fun removeActivityStateListener(listener: ActivityStateListener) {
+        activityStateListeners.remove(listener)
+    }
+
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         activities.add(activity)
-        for (activityStateListener in stateListener) {
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityCreated(activity)
         }
     }
 
     override fun onActivityStarted(activity: Activity) {
-        for (activityStateListener in stateListener) {
+        if (foregroundCount <= 0) {
+            for (appStateListener in appStateListeners) {
+                appStateListener.onAppFront()
+            }
+        }
+        foregroundCount++
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityStarted(activity)
         }
     }
 
     override fun onActivityResumed(activity: Activity) {
-        foregroundCount++
-        for (activityStateListener in stateListener) {
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityResumed(activity)
         }
     }
 
     override fun onActivityPaused(activity: Activity) {
-        foregroundCount--
-        for (activityStateListener in stateListener) {
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityPaused(activity)
         }
     }
 
     override fun onActivityStopped(activity: Activity) {
-        for (activityStateListener in stateListener) {
+        foregroundCount--
+        if (foregroundCount <= 0) {
+            for (appStateListener in appStateListeners) {
+                appStateListener.onAppBackground()
+            }
+        }
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityStopped(activity)
         }
     }
@@ -73,7 +91,7 @@ object ActivityStack : Application.ActivityLifecycleCallbacks {
 
     override fun onActivityDestroyed(activity: Activity) {
         activities.remove(activity)
-        for (activityStateListener in stateListener) {
+        for (activityStateListener in activityStateListeners) {
             activityStateListener.onActivityDestroyed(activity)
         }
     }
@@ -89,5 +107,11 @@ object ActivityStack : Application.ActivityLifecycleCallbacks {
         open fun onActivityPaused(activity: Activity) {}
         open fun onActivityStopped(activity: Activity) {}
         open fun onActivityDestroyed(activity: Activity) {}
+    }
+
+    open class AppStateListener {
+        open fun onAppFront() {}
+
+        open fun onAppBackground() {}
     }
 }

@@ -39,7 +39,7 @@ class AnchorAlbumAdapter(context: Context) :
                 if (!it.videoCover.isNullOrEmpty()) {
                     itemBind.ivAlbum.loadImage(
                         it.videoCover!!,
-                        roundedCorners = 0f,
+                        roundedCorners = 12f,
                         blurTransformation = if (it.isLock) BlurTransformation(
                             context,
                             25f,
@@ -49,7 +49,7 @@ class AnchorAlbumAdapter(context: Context) :
                 } else {
                     itemBind.ivAlbum.loadVideo(
                         it.resUrl,
-                        roundedCorners = 0f,
+                        roundedCorners = 12f,
                         blurTransformation = if (it.isLock) BlurTransformation(
                             context,
                             25f,
@@ -61,7 +61,7 @@ class AnchorAlbumAdapter(context: Context) :
             } else {
                 itemBind.ivAlbum.loadImage(
                     it.resUrl,
-                    roundedCorners = 0f,
+                    roundedCorners = 12f,
                     placeholderRes = com.cute.uibase.R.drawable.img_placehoder,
                     errorRes = com.cute.uibase.R.drawable.img_placehoder,
                     blurTransformation = if (it.isLock) BlurTransformation(

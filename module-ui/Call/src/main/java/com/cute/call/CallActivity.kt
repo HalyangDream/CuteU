@@ -172,7 +172,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
         }
     }
 
-
+    
     override fun onDestroy() {
         super.onDestroy()
         audioPlayer.release()

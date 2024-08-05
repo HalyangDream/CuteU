@@ -59,7 +59,7 @@ class StoreDialog20201 : BaseCenterDialog() {
             val response = productRepository.getVipProduct20201()
             if (response.data != null) {
                 product = response.data
-                binding.tvProductName.text = "${product?.name}"
+//                binding.tvProductName.text = "${product?.name}"
                 binding.stvDesc.text = "${product?.bonusDescribe}"
                 binding.btnPrice.text = "${product?.unit}${product?.displayPrice}"
             }
