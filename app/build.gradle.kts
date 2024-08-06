@@ -77,13 +77,13 @@ android {
         }
         create("Vibro") {
             applicationId = "com.market.vibro.app"
-            versionCode = 10000
+            versionCode = 10001
             versionName = "1.0.0"
             resValue("string", "app_name", "Vibro")
             resValue(
                 "string",
                 "google_server_id",
-                "980280066942-06l9gr3h87ikp7r4r9888g2g16ba003d.apps.googleusercontent.com"
+                "95897089591-jn6b4bb5hm2kdp0aept4tqcb4ilno164.apps.googleusercontent.com"
             )
             resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
             manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
