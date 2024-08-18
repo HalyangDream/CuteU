@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.pay"
+    namespace = "com.amigo.pay"
     compileSdk = Version.compileSdk
 
     defaultConfig {

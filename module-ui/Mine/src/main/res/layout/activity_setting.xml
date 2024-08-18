@@ -104,7 +104,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/tv_logout"
         android:layout_width="match_parent"
         android:layout_height="48dp"

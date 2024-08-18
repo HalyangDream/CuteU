@@ -98,7 +98,7 @@
         android:layout_marginTop="24dp">
 
 
-        <com.cute.uibase.PositiveButton
+        <com.amigo.uibase.PositiveButton
             android:layout_width="260dp"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"

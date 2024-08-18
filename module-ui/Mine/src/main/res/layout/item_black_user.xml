@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="@id/iv_country"
         tools:text="India" />
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_remove"
         android:layout_width="80dp"
         android:layout_height="28dp"

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.ad"
+    namespace = "com.amigo.ad"
     compileSdk = 34
 
     defaultConfig {

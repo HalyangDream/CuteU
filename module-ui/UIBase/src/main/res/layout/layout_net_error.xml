@@ -24,7 +24,7 @@
         android:textSize="16sp" />
 
 
-    <com.cute.uibase.NegativeButton
+    <com.amigo.uibase.NegativeButton
         android:id="@+id/btn_retry"
         android:layout_width="160dp"
         android:layout_height="48dp"

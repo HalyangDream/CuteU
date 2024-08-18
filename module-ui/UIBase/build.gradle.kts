@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.uibase"
+    namespace = "com.amigo.uibase"
     compileSdk = Version.compileSdk
 
     defaultConfig {

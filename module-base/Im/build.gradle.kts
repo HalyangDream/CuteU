@@ -7,7 +7,7 @@ plugins {
 
 
 android {
-    namespace = "com.cute.im"
+    namespace = "com.amigo.im"
     compileSdk = Version.compileSdk
 
     defaultConfig {

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.storage"
+    namespace = "com.amigo.storage"
     compileSdk = Version.compileSdk
 
     defaultConfig {

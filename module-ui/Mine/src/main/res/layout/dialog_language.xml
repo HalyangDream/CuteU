@@ -41,13 +41,13 @@
             android:layout_marginTop="4dp"
             android:orientation="horizontal">
 
-            <com.cute.uibase.wheelview.WheelView
+            <com.amigo.uibase.wheelview.WheelView
                 android:id="@+id/wheel_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <com.cute.uibase.wheelview.WheelView
+            <com.amigo.uibase.wheelview.WheelView
                 android:id="@+id/wheel_age_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
 
     </RelativeLayout>
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_apply"
         android:layout_width="match_parent"
         android:layout_height="48dp"

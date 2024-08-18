@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.login"
+    namespace = "com.amigo.login"
     compileSdk = Version.compileSdk
 
     defaultConfig {

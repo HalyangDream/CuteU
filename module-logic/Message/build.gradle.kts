@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.message"
+    namespace = "com.amigo.message"
     compileSdk = Version.compileSdk
 
     defaultConfig {

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.chat"
+    namespace = "com.amigo.chat"
     compileSdk = Version.compileSdk
 
     defaultConfig {

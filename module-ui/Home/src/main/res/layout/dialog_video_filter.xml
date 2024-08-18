@@ -74,7 +74,7 @@
         android:layout_height="420dp"
         android:layout_below="@id/rl_unlock_vip" />
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_confirm"
         android:layout_width="match_parent"
         android:layout_height="48dp"

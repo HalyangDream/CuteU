@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.baselogic"
+    namespace = "com.amigo.baselogic"
     compileSdk = Version.compileSdk
 
     defaultConfig {

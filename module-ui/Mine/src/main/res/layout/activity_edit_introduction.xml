@@ -50,7 +50,7 @@
     </RelativeLayout>
 
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_save"
         android:layout_width="320dp"
         android:layout_height="48dp"

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.rtc"
+    namespace = "com.amigo.rtc"
     compileSdk = Version.compileSdk
 
     defaultConfig {

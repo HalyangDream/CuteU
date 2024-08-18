@@ -45,7 +45,7 @@
             android:textColor="@android:color/black"
             android:textSize="12sp" />
 
-        <com.cute.uibase.PositiveButton
+        <com.amigo.uibase.PositiveButton
             android:id="@+id/btn_buy_vip"
             android:layout_width="wrap_content"
             android:layout_height="32dp"

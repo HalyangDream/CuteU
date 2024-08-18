@@ -17,7 +17,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.cute.store.NewWebPayActivity"
+            android:name="com.amigo.store.NewWebPayActivity"
             android:screenOrientation="portrait" />
 
 

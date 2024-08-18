@@ -22,38 +22,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp" />
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_portrait"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:leftContent="@string/str_portrait" />
 
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_nick_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:leftContent="@string/str_nick_name" />
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:leftContent="@string/str_gender" />
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:leftContent="@string/str_age" />
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:leftContent="@string/str_height" />
 
-            <com.cute.uibase.InfoItemView
+            <com.amigo.uibase.InfoItemView
                 android:id="@+id/item_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

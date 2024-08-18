@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.analysis"
+    namespace = "com.amigo.analysis"
     compileSdk = Version.compileSdk
 
     defaultConfig {

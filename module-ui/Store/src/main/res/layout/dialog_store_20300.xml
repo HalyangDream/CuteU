@@ -74,7 +74,7 @@
         </LinearLayout>
 
 
-        <com.cute.uibase.PositiveButton
+        <com.amigo.uibase.PositiveButton
             android:id="@+id/btn_buy"
             android:layout_width="240dp"
             android:layout_height="48dp"

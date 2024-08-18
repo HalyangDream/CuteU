@@ -1,2 +1,2 @@
--keep class com.cute.message.custom.msg.**{*;}
--keep class com.cute.message.custom.notify.**{*;}
+-keep class com.amigo.message.custom.msg.**{*;}
+-keep class com.amigo.message.custom.notify.**{*;}

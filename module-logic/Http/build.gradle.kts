@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.logic.http"
+    namespace = "com.amigo.logic.http"
     compileSdk = Version.compileSdk
 
     defaultConfig {

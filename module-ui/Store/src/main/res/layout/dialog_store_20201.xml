@@ -73,7 +73,7 @@
 
     </LinearLayout>
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_price"
         android:layout_width="match_parent"
         android:layout_height="46dp"

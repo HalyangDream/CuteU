@@ -6,7 +6,7 @@ plugins {
 
 
 android {
-    namespace = "com.cute.app"
+    namespace = "com.amigo.app"
     compileSdk = Version.compileSdk
 
     defaultConfig {
@@ -20,9 +20,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        ndk {
-            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
-        }
+//        ndk {
+//            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+//        }
     }
 
 

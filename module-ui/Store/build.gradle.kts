@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.store"
+    namespace = "com.amigo.store"
     compileSdk = Version.compileSdk
 
     defaultConfig {

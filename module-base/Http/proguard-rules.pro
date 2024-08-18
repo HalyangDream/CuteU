@@ -67,5 +67,5 @@
 
 # With R8 full mode generic signatures are stripped for classes that are not kept.
 -keep,allowobfuscation,allowshrinking class retrofit2.Response
--keep class com.cute.http.ApiResponse{*;}
--keep interface com.cute.http.HandleApiResponseListener{*;}
+-keep class com.amigo.http.ApiResponse{*;}
+-keep interface com.amigo.http.HandleApiResponseListener{*;}

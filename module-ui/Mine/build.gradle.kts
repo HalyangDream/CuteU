@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.mine"
+    namespace = "com.amigo.mine"
     compileSdk = Version.compileSdk
 
     defaultConfig {

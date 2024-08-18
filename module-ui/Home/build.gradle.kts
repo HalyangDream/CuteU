@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.home"
+    namespace = "com.amigo.home"
     compileSdk = Version.compileSdk
 
     defaultConfig {

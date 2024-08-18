@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
 
-        <com.cute.picture.camera.CameraPreviewView
+        <com.amigo.picture.camera.CameraPreviewView
             android:id="@+id/cpv_local"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

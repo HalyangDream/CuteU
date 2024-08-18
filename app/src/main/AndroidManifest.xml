@@ -62,7 +62,7 @@
     </queries>
 
     <application
-        android:name="com.cute.app.SocialApp"
+        android:name="com.amigo.app.SocialApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

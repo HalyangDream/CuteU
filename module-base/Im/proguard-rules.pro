@@ -20,6 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class io.agora.**{*;}
--keep class com.cute.im.bean.**{*;}
--keep class com.cute.im.service.**{*;}
--keep class com.cute.im.dao.**{*;}
+-keep class com.amigo.im.bean.**{*;}
+-keep class com.amigo.im.service.**{*;}
+-keep class com.amigo.im.dao.**{*;}

@@ -9,7 +9,7 @@
 
     <include layout="@layout/layout_chat_top" />
 
-    <com.cute.chat.ChatInputView
+    <com.amigo.chat.ChatInputView
         android:id="@+id/chat_input_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <com.cute.uibase.NegativeButton
+        <com.amigo.uibase.NegativeButton
             android:layout_width="190dp"
             android:layout_height="32dp"
             android:layout_marginTop="8dp"

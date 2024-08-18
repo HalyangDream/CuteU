@@ -57,7 +57,7 @@
         tools:text="Are you sure you want to turn off the microphone?" />
 
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_vip_free"
         android:layout_width="320dp"
         android:layout_height="48dp"

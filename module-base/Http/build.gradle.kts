@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.http"
+    namespace = "com.amigo.http"
     compileSdk = Version.compileSdk
 
     defaultConfig {

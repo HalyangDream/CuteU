@@ -7,7 +7,7 @@
     android:background="@android:color/black">
 
 
-    <com.cute.uibase.media.DouYinVideoView
+    <com.amigo.uibase.media.DouYinVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

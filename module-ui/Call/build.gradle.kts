@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cute.call"
+    namespace = "com.amigo.call"
     compileSdk = Version.compileSdk
 
     defaultConfig {

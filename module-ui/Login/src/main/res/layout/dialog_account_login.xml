@@ -79,7 +79,7 @@
         app:shape_strokeWidth="1dp" />
 
 
-    <com.cute.uibase.PositiveButton
+    <com.amigo.uibase.PositiveButton
         android:id="@+id/btn_login"
         android:layout_width="170dp"
         android:layout_height="45dp"

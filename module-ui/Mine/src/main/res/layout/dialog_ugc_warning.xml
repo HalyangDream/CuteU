@@ -76,7 +76,7 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <com.cute.uibase.NegativeButton
+            <com.amigo.uibase.NegativeButton
                 android:id="@+id/tv_cancel"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
@@ -88,7 +88,7 @@
                 app:shape_strokeColor="@color/color_tag_border"
                 app:shape_strokeWidth="1dp" />
 
-            <com.cute.uibase.PositiveButton
+            <com.amigo.uibase.PositiveButton
                 android:id="@+id/tv_confirm"
                 android:layout_width="130dp"
                 android:layout_height="40dp"

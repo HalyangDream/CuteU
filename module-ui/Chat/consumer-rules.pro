@@ -1,2 +1,2 @@
--keep class com.cute.chat.view.**{*;}
--keep class com.cute.chat.view.CustomChattingAnnotation{*;}
+-keep class com.amigo.chat.view.**{*;}
+-keep class com.amigo.chat.view.CustomChattingAnnotation{*;}
