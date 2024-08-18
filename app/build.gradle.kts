@@ -37,11 +37,11 @@ android {
             enableV2Signing = true
         }
 
-        create("Vibro") {
-            storeFile = file("../keystore/PortScanner.jks")
-            storePassword = "wafikpass2001@"
-            keyAlias = "portscannerkey0"
-            keyPassword = "wafikpass2001@"
+        create("Amigo") {
+            storeFile = file("../keystore/Amigo.jks")
+            storePassword = "Amigo0818"
+            keyAlias = "Amigo"
+            keyPassword = "Amigo0818@"
             enableV1Signing = true
             enableV2Signing = true
         }
@@ -73,13 +73,14 @@ android {
             buildConfigField("String", "USER_AGREEMENT", "\"https://www.amormeetapp.com/terms.html\"")
             buildConfigField("String", "TOP_ON_ID", "\"h6689368ab49e1\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
-            signingConfig = signingConfigs.findByName("Vibro")!!
+            signingConfig = signingConfigs.findByName("debug")!!
         }
-        create("Vibro") {
-            applicationId = "com.market.vibro.app"
-            versionCode = 10001
+
+        create("Amigo") {
+            applicationId = "com.amigo.market.app"
+            versionCode = 10000
             versionName = "1.0.0"
-            resValue("string", "app_name", "Vibro")
+            resValue("string", "app_name", "Amigo")
             resValue(
                 "string",
                 "google_server_id",
@@ -99,7 +100,7 @@ android {
             buildConfigField("String", "USER_AGREEMENT", "\"https://www.vibrometa.com/vibro/terms.html\"")
             buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
-            signingConfig = signingConfigs.findByName("Vibro")!!
+            signingConfig = signingConfigs.findByName("Amigo")!!
         }
     }
 
