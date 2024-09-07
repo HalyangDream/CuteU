@@ -8,6 +8,7 @@ import com.amigo.im.IMCore
 import com.amigo.im.bean.Msg
 import com.amigo.im.service.MessageService
 import com.amigo.logic.http.model.BehaviorRepository
+import com.amigo.logic.http.model.MessageRepository
 import com.amigo.logic.http.model.UserRepository
 import kotlinx.coroutines.launch
 
@@ -15,6 +16,7 @@ class ChatViewModel : BaseMVIModel<ChatIntent, ChatState>() {
 
     private val _userRepository = UserRepository()
     private val _behaviorRepository = BehaviorRepository()
+    private val _messageRepository = MessageRepository()
 
     private val _repository = IMCore.getService(MessageService::class.java)
 
@@ -29,6 +31,7 @@ class ChatViewModel : BaseMVIModel<ChatIntent, ChatState>() {
 
             is ChatIntent.MessageListForAnchor -> getMessageListForAnchor(intent.anchor)
             is ChatIntent.GetAnchorInfo -> getAnchorInfo(intent.peerId, intent.isFirst)
+            is ChatIntent.GetVipLock -> vipLockInfo(intent.peerId)
             is ChatIntent.SendTextMessage -> sendTextMessage(intent)
             is ChatIntent.SendImageMessage -> sendImageMessage(intent)
             is ChatIntent.SendVideoMessage -> sendVideoMessage(intent)
@@ -94,6 +97,14 @@ class ChatViewModel : BaseMVIModel<ChatIntent, ChatState>() {
         viewModelScope.launch {
             val userInfo = _userRepository.getChatUserInfo(anchorId).data
             setState(ChatState.AnchorInfo(isFirst, userInfo))
+        }
+    }
+
+    private fun vipLockInfo(anchorId: Long) {
+        viewModelScope.launch {
+            val vipLockResponse = _messageRepository.showVipLock(anchorId).data
+            val hasUnLock = vipLockResponse?.hasUnLock?:false
+            setState(ChatState.VipLock(hasUnLock))
         }
     }
 

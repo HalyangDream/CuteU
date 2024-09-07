@@ -61,17 +61,17 @@ android {
             )
             resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
             manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            buildConfigField("int", "APP_ID", "1")
-            buildConfigField("String", "DT_APP_ID", "\"dt_8d891c8f9c02a310\"")
+            buildConfigField("int", "APP_ID", "6")
+            buildConfigField("String", "DT_APP_ID", "\"dt_eed0a0646e06c1dc\"")
             buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
-            buildConfigField("String", "APP_URL", "\"https://www.amormeetapp.com\"")
+            buildConfigField("String", "APP_URL", "\"https://www.amigochatapp.com\"")
             buildConfigField(
                 "String",
                 "PRIVACY_AGREEMENT",
-                "\"https://www.amormeetapp.com/privacy.html\""
+                "\"https://www.amigochatapp.com/amigo/privacy.html\""
             )
-            buildConfigField("String", "USER_AGREEMENT", "\"https://www.amormeetapp.com/terms.html\"")
-            buildConfigField("String", "TOP_ON_ID", "\"h6689368ab49e1\"")
+            buildConfigField("String", "USER_AGREEMENT", "\"https://www.amigochatapp.com/amigo/terms.html\"")
+            buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("debug")!!
         }
@@ -88,16 +88,16 @@ android {
             )
             resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
             manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            buildConfigField("int", "APP_ID", "5")
+            buildConfigField("int", "APP_ID", "6")
             buildConfigField("String", "DT_APP_ID", "\"dt_eed0a0646e06c1dc\"")
             buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
-            buildConfigField("String", "APP_URL", "\"https://www.vibrometa.com\"")
+            buildConfigField("String", "APP_URL", "\"https://www.amigochatapp.com\"")
             buildConfigField(
                 "String",
                 "PRIVACY_AGREEMENT",
-                "\"https://www.vibrometa.com/vibro/privacy.html\""
+                "\"https://www.amigochatapp.com/amigo/privacy.html\""
             )
-            buildConfigField("String", "USER_AGREEMENT", "\"https://www.vibrometa.com/vibro/terms.html\"")
+            buildConfigField("String", "USER_AGREEMENT", "\"https://www.amigochatapp.com/amigo/terms.html\"")
             buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("Amigo")!!

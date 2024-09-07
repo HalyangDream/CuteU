@@ -148,6 +148,7 @@ class ChatActivity : BaseModelActivity<ActivityChatBinding, ChatViewModel>(), IM
         }
         IMCore.getService(MsgServiceObserver::class.java).observerReceiveMessage(this, true)
         viewModel.processIntent(ChatIntent.GetAnchorInfo(mPeerId, true))
+        viewModel.processIntent(ChatIntent.GetVipLock(mPeerId))
     }
 
     private fun checkIsOfficial(
@@ -175,6 +176,18 @@ class ChatActivity : BaseModelActivity<ActivityChatBinding, ChatViewModel>(), IM
 
             is ChatState.AnchorInfo -> updateAnchorInfo(state)
 
+            is ChatState.VipLock -> {
+                if (state.hasUnLock) {
+                    viewBinding.rlUnlockVip.gone()
+                } else {
+                    checkIsOfficial(isOfficial = {
+                        viewBinding.rlUnlockVip.gone()
+                    }, isNotOfficial = {
+                        viewBinding.rlUnlockVip.visible()
+                        KeyboardUtil.hide(this, viewBinding.rlUnlockVip)
+                    })
+                }
+            }
 
             is ChatState.BlockUserResult -> {
                 if (state.result) {
@@ -286,16 +299,6 @@ class ChatActivity : BaseModelActivity<ActivityChatBinding, ChatViewModel>(), IM
             "${anchorInfo.city}${anchorInfo.country}"
         }
         titleBarBinding.tvCity.text = cityAndCountry
-        if (!userDataStore.readVip()) {
-            checkIsOfficial(isOfficial = {
-                viewBinding.rlUnlockVip.gone()
-            }, isNotOfficial = {
-                viewBinding.rlUnlockVip.visible()
-                KeyboardUtil.hide(this, viewBinding.rlUnlockVip)
-            })
-        } else {
-            viewBinding.rlUnlockVip.gone()
-        }
     }
 
     private fun clearUnReadCount() {

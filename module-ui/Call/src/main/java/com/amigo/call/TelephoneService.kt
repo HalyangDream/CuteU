@@ -239,16 +239,15 @@ object TelephoneService {
                 val loadVideoTime = data.loadVideoWaitDuration
                 val videoUrl = data.videoUrl
                 val videoEndTime = data.playEndTime
-                setState(TelephoneCallerState.StartLoadVideo(videoUrl, videoEndTime))
                 val job1 = _callScope.launch {
                     delay(connectTime * 1000L)
                     //执行链接中的状态
                     setState(TelephoneCallerState.Connecting)
+                    //执行预加载视频
+                    setState(TelephoneCallerState.StartLoadVideo(videoUrl, videoEndTime))
                     //执行加载视频
                     setState(TelephoneCallerState.CanPlayVideo(true))
-                }
-
-                val job2 = _callScope.launch {
+                    //执行等待加载视频的事件，时间到达没播放就挂断
                     delay(loadVideoTime * 1000L)
                     //执行完,没有加载中的理应结束
                     if (telephoneState == MAKE_CALL) {
@@ -257,7 +256,6 @@ object TelephoneService {
                     }
                 }
                 delayJobQueue.add(job1)
-                delayJobQueue.add(job2)
                 setState(TelephoneCallerState.OperateInvitedSuccess(caller, data.remoteId, data.callId))
 
             } else {

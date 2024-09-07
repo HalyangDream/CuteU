@@ -14,6 +14,8 @@ sealed class ChatState : UserState {
 
     data class AnchorInfo(val isFirst: Boolean, val anchorInfo: ChatUserInfo?) : ChatState()
 
+    data class VipLock(val hasUnLock:Boolean): ChatState()
+
     data class BlockUserResult(val result: Boolean) : ChatState()
 
     data class UnBlockUserResult(val result: Boolean) : ChatState()

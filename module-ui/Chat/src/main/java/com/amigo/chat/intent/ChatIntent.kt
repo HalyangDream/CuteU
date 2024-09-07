@@ -11,7 +11,7 @@ sealed class ChatIntent : UserIntent {
 
     data class MessageListForAnchor(val anchor: Msg) : ChatIntent()
     data class GetAnchorInfo(val peerId: Long, val isFirst: Boolean) : ChatIntent()
-
+    data class GetVipLock(val peerId:Long):ChatIntent()
     data class SendTextMessage(val uid: Long, val peerId: Long, val message: String) :
         ChatIntent()
 
