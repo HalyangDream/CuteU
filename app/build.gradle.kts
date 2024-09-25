@@ -2,6 +2,8 @@ import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 
@@ -41,7 +43,7 @@ android {
             storeFile = file("../keystore/Amigo.jks")
             storePassword = "Amigo0818"
             keyAlias = "Amigo"
-            keyPassword = "Amigo0818@"
+            keyPassword = "Amigo0818"
             enableV1Signing = true
             enableV2Signing = true
         }
@@ -101,6 +103,9 @@ android {
             buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("Amigo")!!
+            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                mappingFileUploadEnabled = true
+            }
         }
     }
 

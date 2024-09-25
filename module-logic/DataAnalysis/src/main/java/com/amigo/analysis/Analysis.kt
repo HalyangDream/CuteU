@@ -22,9 +22,6 @@ object Analysis {
         FirebaseApp.initializeApp(context)
         analytics = FirebaseAnalytics.getInstance(context)
         DT.initSDK(context, dtAppId, dtServerUrl, DTChannel.GP, isDebug)
-        FirebaseAnalytics.getInstance(context).appInstanceId.addOnSuccessListener {
-            DTAnalytics.setFirebaseAppInstanceId(it);
-        }
     }
 
     fun getDtId(listener: ((String) -> Unit)?) {
@@ -33,6 +30,13 @@ object Analysis {
                 listener?.invoke(dataTowerId)
             }
         })
+    }
+
+    fun getFirebaseId(context: Context,listener: ((String) -> Unit)?){
+        FirebaseAnalytics.getInstance(context).appInstanceId.addOnSuccessListener {
+            DTAnalytics.setFirebaseAppInstanceId(it);
+            listener?.invoke(it)
+        }
     }
 
     fun getGoogleAdId(context: Context): String? {

@@ -43,6 +43,14 @@ class DeviceDataStore private constructor(context: Context) : DataStore() {
         return readString("adId", "")
     }
 
+    fun saveFirebaseId(firebaseId: String) {
+        runBlocking { putString("firebaseId", firebaseId) }
+    }
+
+    fun getFirebaseId(): String {
+        return readString("firebaseId", "")
+    }
+
     fun saveThirdPartyId(thirdPartyId: String) {
         runBlocking { putString("thirdPartyId", thirdPartyId) }
     }

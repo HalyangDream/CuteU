@@ -140,6 +140,8 @@ class SocialApp : Application() {
                 paramObject["utm"] = DeviceDataStore.get(this@SocialApp).getReferrer()
                 paramObject["ad_id"] = DeviceDataStore.get(this@SocialApp).getAdId()
                 paramObject["sim_country"] = AppUtil.simCountry(this@SocialApp)
+                paramObject["firebase_id"] =
+                    DeviceDataStore.get(this@SocialApp).getFirebaseId()
                 paramObject["third_party_id"] =
                     DeviceDataStore.get(this@SocialApp).getThirdPartyId()
 //                paramObject["adjust_id"] = DeviceDataStore.get(this@SocialApp).getAdJustId()
@@ -195,6 +197,9 @@ class SocialApp : Application() {
         deviceDataStore.saveAdId(Analysis.getGoogleAdId(this) ?: "")
         Analysis.getDtId {
             deviceDataStore.saveThirdPartyId(it)
+        }
+        Analysis.getFirebaseId(this){
+            deviceDataStore.saveFirebaseId(it)
         }
     }
 
@@ -273,6 +278,9 @@ class SocialApp : Application() {
             requestBuilder.addHeader("Authorization", UserDataStore.get(this@SocialApp).readToken())
             requestBuilder.addHeader(
                 "Third_Party_Id", DeviceDataStore.get(this@SocialApp).getThirdPartyId()
+            )
+            requestBuilder.addHeader(
+                "Firebase_Id", DeviceDataStore.get(this@SocialApp).getFirebaseId()
             )
             return chain.proceed(requestBuilder.build())
         }
