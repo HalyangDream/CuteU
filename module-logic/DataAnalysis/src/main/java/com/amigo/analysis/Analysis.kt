@@ -34,8 +34,10 @@ object Analysis {
 
     fun getFirebaseId(context: Context,listener: ((String) -> Unit)?){
         FirebaseAnalytics.getInstance(context).appInstanceId.addOnSuccessListener {
-            DTAnalytics.setFirebaseAppInstanceId(it);
-            listener?.invoke(it)
+          if(!it.isNullOrEmpty()){
+              DTAnalytics.setFirebaseAppInstanceId(it);
+              listener?.invoke(it)
+          }
         }
     }
 

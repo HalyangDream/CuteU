@@ -218,9 +218,13 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                 super.onVideoPrepare()
                 isVideoPrepare = true
                 if (canPlayVideo && TelephoneService.stateIsMakeCall()) {
-                    val callId = callerInfo?.callId!!
-                    val callee = callerInfo?.callee!!
-                    viewModel.processIntent(CallIntent.StartCall(callId, callee))
+                    val callId = callerInfo?.callId
+                    val callee = callerInfo?.callee
+                    if (callId.isNullOrEmpty() || callee == null) {
+                        TelephoneService.processIntent(TelephoneIntent.FinishCommunication("onVideoPrepare 视频播放出错"))
+                    } else {
+                        viewModel.processIntent(CallIntent.StartCall(callId, callee))
+                    }
                 }
             }
 

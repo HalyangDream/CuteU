@@ -267,8 +267,10 @@ class CoreService private constructor() : ActivityStack.AppStateListener(), IMSt
     //================== IM End==================
 
     private fun fixGoogleOrder() {
-        if (mContext() == null) return
-        RouteSdk.findService(IStoreService::class.java).fixGoogleOrder(mContext()!!)
+        val context = mContext() ?: return
+        GooglePayClient.initialize(context) {
+            RouteSdk.findService(IStoreService::class.java).fixGoogleOrder(context)
+        }
     }
 
     private fun getDeviceFunctionInfo() {

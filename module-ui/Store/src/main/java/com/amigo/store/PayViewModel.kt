@@ -1,6 +1,7 @@
 package com.amigo.store
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -171,9 +172,14 @@ object PayViewModel : PayResultCallback {
                     EventBus.post(PayResultEvent.PayFailureEvent)
                     payResult?.invoke(false, "Pay Url Null")
                 } else {
-                    val intent = Intent(Intent.ACTION_VIEW)
-                    intent.data = Uri.parse(order.payUrl)
-                    activity.startActivity(intent)
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.data = Uri.parse(order.payUrl)
+                        activity.startActivity(intent)
+                    } catch (ex: ActivityNotFoundException) {
+                        ex.printStackTrace()
+                        payResult?.invoke(false, "${ex.message}")
+                    }
                 }
             }
 
