@@ -80,7 +80,7 @@ android {
 
         create("Amigo") {
             applicationId = "com.amigo.market.app"
-            versionCode = 10002
+            versionCode = 10005
             versionName = "1.0.0"
             resValue("string", "app_name", "Amigo")
             resValue(
@@ -91,7 +91,7 @@ android {
             resValue("string", "admob_id", "ca-app-pub-3081270146300138~4612580463")
             manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
             buildConfigField("int", "APP_ID", "6")
-            buildConfigField("String", "DT_APP_ID", "\"dt_eed0a0646e06c1dc\"")
+            buildConfigField("String", "DT_APP_ID", "\"dt_35f19f7b82d7afdc\"")
             buildConfigField("String", "DT_SERVER_URL", "\"https://report.roiquery.com\"")
             buildConfigField("String", "APP_URL", "\"https://www.amigochatapp.com\"")
             buildConfigField(
@@ -100,7 +100,7 @@ android {
                 "\"https://www.amigochatapp.com/amigo/privacy.html\""
             )
             buildConfigField("String", "USER_AGREEMENT", "\"https://www.amigochatapp.com/amigo/terms.html\"")
-            buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
+            buildConfigField("String", "TOP_ON_ID", "\"h669f4eeaecf70\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("Amigo")!!
             configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
