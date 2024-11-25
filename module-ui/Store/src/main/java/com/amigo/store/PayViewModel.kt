@@ -7,6 +7,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
+import com.amigo.analysis.Analysis
+import com.amigo.analysis.ProductEvent
 import com.amigo.baselogic.userDataStore
 import com.amigo.logic.http.model.PayRepository
 import com.amigo.logic.http.response.pay.Order
@@ -48,6 +50,14 @@ object PayViewModel : PayResultCallback {
         fromPopCode: String,
         block: ((result: Boolean, msg: String) -> Unit)?
     ) {
+        Analysis.beginCheckout(
+            ProductEvent(
+                product.google,
+                product.name,
+                "USD",
+                product.googlePrice
+            )
+        )
         if (activity == null) return
         this.payResult = block
         dialog.showDialog(activity, null)

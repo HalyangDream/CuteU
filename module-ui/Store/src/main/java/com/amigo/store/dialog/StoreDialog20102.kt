@@ -72,6 +72,7 @@ class StoreDialog20102 : BaseBottomDialog() {
             put("pop_type","20102")
             put("source",UserBehavior.chargeSource)
         })
+        Analysis.track("pop_recharge_20102")
     }
 
     override fun initData() {

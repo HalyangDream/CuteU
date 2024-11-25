@@ -43,6 +43,7 @@ class CoinStoreActivity : BaseModelActivity<ActivityCoinStoreBinding, CoinStoreV
     }
 
     override fun initView() {
+        Analysis.track("view_coin_store")
         StatusUtils.setImmerseLayout(viewBinding.flTitle, this)
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -104,6 +105,7 @@ class CoinStoreActivity : BaseModelActivity<ActivityCoinStoreBinding, CoinStoreV
             put("pop_type", "20100")
             put("source", UserBehavior.chargeSource)
         })
+        Analysis.track("pop_recharge_20100")
     }
 
 

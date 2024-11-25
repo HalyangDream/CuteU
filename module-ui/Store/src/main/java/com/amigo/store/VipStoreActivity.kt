@@ -44,6 +44,7 @@ class VipStoreActivity : BaseModelActivity<ActivityVipStoreBinding, VipStoreView
     }
 
     override fun initView() {
+        Analysis.track("view_vip_store")
         isFromCode = intent.getBooleanExtra("isFromCode", false)
         StatusUtils.setImmerseLayout(viewBinding.circleIndicator, this)
         viewBinding.rvVipProduct.apply {
@@ -90,6 +91,7 @@ class VipStoreActivity : BaseModelActivity<ActivityVipStoreBinding, VipStoreView
             put("pop_type", "20200")
             put("source", UserBehavior.chargeSource)
         })
+        Analysis.track("pop_recharge_20200")
     }
 
     override fun onDestroy() {

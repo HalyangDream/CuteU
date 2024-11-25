@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import com.amigo.analysis.Analysis
 import com.amigo.basic.dialog.BaseCenterDialog
 import com.amigo.logic.http.model.ProductRepository
 import com.amigo.logic.http.response.product.Product
@@ -52,6 +53,7 @@ class StoreDialog20201 : BaseCenterDialog() {
             put("pop_type", "20201")
             put("source", UserBehavior.chargeSource)
         })
+        Analysis.track("pop_recharge_20201")
     }
 
     override fun initData() {

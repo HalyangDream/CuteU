@@ -142,6 +142,7 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
                 }
             }
         })
+        Analysis.login()
     }
 
     override fun onStart() {
@@ -176,6 +177,7 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
     }
 
     override fun reLogin() {
+        Analysis.login()
         viewModel.processIntent(AppMainIntent.InitService)
         viewModel.processIntent(AppMainIntent.GetUnReadCount(userDataStore.getUid()))
     }

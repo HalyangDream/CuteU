@@ -147,6 +147,7 @@ class SocialApp : Application() {
 //                paramObject["adjust_id"] = DeviceDataStore.get(this@SocialApp).getAdJustId()
                 paramObject["token"] = UserDataStore.get(this@SocialApp).readToken()
                 paramObject["locale"] = MultiLanguages.getCAppLanguage()
+                paramObject["sys_language"] = AppUtil.getSysLocale().language
                 paramObject["app_id"] = BuildConfig.APP_ID
                 val uid = UserDataStore.get(this@SocialApp).getUid()
                 if (uid != 0L) {

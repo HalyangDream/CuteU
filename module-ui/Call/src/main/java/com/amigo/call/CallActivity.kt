@@ -444,6 +444,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                         val callId = callerInfo?.callId!!
                         val callee = callerInfo?.callee!!
                         viewModel.processIntent(CallIntent.StartCall(callId, callee))
+                        Analysis.track("start_call")
                     }
                 }
             }

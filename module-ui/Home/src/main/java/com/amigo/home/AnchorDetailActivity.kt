@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.amigo.analysis.Analysis
 import com.amigo.baselogic.storage.UserDataStore
 import com.amigo.basic.BaseModelActivity
 import com.amigo.basic.util.StatusUtils
@@ -68,6 +69,7 @@ class AnchorDetailActivity :
             put("anchor_id", "$anchorId")
             put("source", source)
         })
+        Analysis.track("anchor_profile_page")
         titleBarBinding = LayoutAnchorTitleBinding.bind(viewBinding.root)
         StatusUtils.setImmerseLayout(titleBarBinding.flTitle, this)
         initTitleBar()
