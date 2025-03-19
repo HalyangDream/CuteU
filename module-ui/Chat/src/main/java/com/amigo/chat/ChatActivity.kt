@@ -73,7 +73,8 @@ class ChatActivity : BaseModelActivity<ActivityChatBinding, ChatViewModel>(), IM
     override fun initView() {
         mUid = this.userDataStore.getUid()
         mPeerId = intent.getLongExtra("peerId", 0)
-        mSource = intent.getStringExtra("source")!!
+        mSource = intent.getStringExtra("source")?:"chatroom"
+        UserBehavior.setRootPage(mSource)
         titleBarBinding = LayoutChatTopBinding.bind(viewBinding.root)
         StatusUtils.setStatusBarColor(Color.WHITE, this.window)
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {

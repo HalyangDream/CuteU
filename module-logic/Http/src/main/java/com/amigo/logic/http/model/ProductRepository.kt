@@ -65,6 +65,15 @@ class ProductRepository : ApiRepository() {
         }
     }
 
+    suspend fun getCoinPackage20301(): ApiResponse<Product> {
+        return launchRequest {
+            service.getCoinPackage20301(
+                HttpCommonParam.getCommonParam().toRequestBody()
+            )
+        }
+    }
+
+
     suspend fun getVipProduct20200(): ApiResponse<ProductResponse> {
         return launchRequest {
             service.getVipProduct20200(

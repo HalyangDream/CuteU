@@ -42,7 +42,8 @@ class FeedVideoFragment : BaseListFragment<FragmentFeedVideoBinding, FeedVideoVi
     private var feedVideoAdapter: FeedVideoAdapter? = null
     private val videoFilterCondition = VideoFilterCondition()
     private val videoFilterDialog = VideoFilterDialog()
-
+    private var currentPlayIndex = -1
+    private var lastTimestamp = 0L
 
     override fun initViewBinding(
         layout: LayoutInflater, container: ViewGroup?
@@ -99,6 +100,7 @@ class FeedVideoFragment : BaseListFragment<FragmentFeedVideoBinding, FeedVideoVi
                     playVideo(position)
                 }
                 autoLoadMore(position)
+                scrollOtherVideo(position)
             }
         })
 
@@ -216,7 +218,7 @@ class FeedVideoFragment : BaseListFragment<FragmentFeedVideoBinding, FeedVideoVi
         super.onResume()
         resume()
         activity?.let { StatusUtils.setStatusMode(false, it.window) }
-        UserBehavior.setRootPage("show_list")
+        UserBehavior.setRootPage("video_list")
         ReportBehavior.reportEvent("show_list_page")
     }
 
@@ -248,6 +250,10 @@ class FeedVideoFragment : BaseListFragment<FragmentFeedVideoBinding, FeedVideoVi
             put("anchor_id", "${item.id}")
             put("url", "${item.videoUrl}")
         })
+        Analysis.track("video_card_show", mutableMapOf<String, Any>().apply {
+            put("anchor_id", "${item.id}")
+            put("video_url", "${item.videoUrl}")
+        })
     }
 
     private fun pause() {
@@ -263,5 +269,22 @@ class FeedVideoFragment : BaseListFragment<FragmentFeedVideoBinding, FeedVideoVi
         if (adapter == null || adapter.itemCount <= 0) return
         val position = viewBinding.vpVideo.currentItem
         playVideo(position)
+    }
+
+    private fun scrollOtherVideo(position: Int) {
+        val currentTimestamp = System.currentTimeMillis()
+        if (currentPlayIndex != -1 && lastTimestamp != 0L) {
+            val item = feedVideoAdapter?.getItem(currentPlayIndex)
+            if (item != null) {
+                val stopDuration = (currentTimestamp - lastTimestamp) / 1000
+                Analysis.track("video_card_swipe", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "${item.id}")
+                    put("video_url", "${item.videoUrl}")
+                    put("duration", stopDuration)
+                })
+            }
+        }
+        currentPlayIndex = position
+        lastTimestamp = currentTimestamp
     }
 }

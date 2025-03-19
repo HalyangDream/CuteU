@@ -10,12 +10,15 @@ import com.amigo.logic.http.response.call.CallInfoResponse
 import com.amigo.logic.http.response.call.HeartState
 import com.amigo.logic.http.response.call.InvitedCall
 import com.amigo.logic.http.response.call.DeviceFunctionInfoResponse
+import com.amigo.logic.http.response.product.PopShow
 import com.amigo.logic.http.service.CallService
+import com.amigo.logic.http.service.ProductService
 
 class CallRepository : ApiRepository() {
 
 
     private val service by lazy { ApiClient.getService(CallService::class.java) }
+    private val productService by lazy { ApiClient.getService(ProductService::class.java) }
 
 
     suspend fun deviceFunctionUnlockInfo(): ApiResponse<DeviceFunctionInfoResponse> {
@@ -30,6 +33,10 @@ class CallRepository : ApiRepository() {
         return launchRequest { service.unlockDeviceFunction(param.toRequestBody()) }
     }
 
+    suspend fun showPop():ApiResponse<PopShow> {
+        val param = HttpCommonParam.getCommonParam()
+        return launchRequest { productService.showPop(param.toRequestBody()) }
+    }
 
     suspend fun invitedCall(
         remoteId: Long, source: String, bundle: Bundle?

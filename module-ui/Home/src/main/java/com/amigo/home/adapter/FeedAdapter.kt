@@ -75,7 +75,7 @@ class FeedAdapter(context: Context) : BaseRvFooterAdapter<Feed>(context) {
     override fun onMainItemClick(position: Int, view: View) {
         super.onMainItemClick(position, view)
         val item = items[position]
-        RouteSdk.navigationUserDetail(item.id, "anchor_list")
+        RouteSdk.navigationUserDetail(item.id, "anchor_list_details")
     }
 
 

@@ -81,7 +81,6 @@ import kotlinx.coroutines.runBlocking
  *
  */
 class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
-
     companion object {
         fun startLaunchCall(context: Context, bundle: Bundle) {
             val intent = Intent(context, CallActivity::class.java)
@@ -126,6 +125,13 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
      * 视频播放多久结束
      */
     private var videoPlayEndTime: Int? = null
+
+
+    private var videoUrl: String? = null
+    private var isFree = false
+    private var duration: Long = 0
+    private var videoTotalTime: Long = 0
+
 
     override fun initViewBinding(layout: LayoutInflater): ActivityCallBinding {
 
@@ -172,7 +178,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
         }
     }
 
-    
+
     override fun onDestroy() {
         super.onDestroy()
         audioPlayer.release()
@@ -213,6 +219,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
     }
 
     private fun prepareFakeVideo(videoUrl: String) {
+        this.videoUrl = videoUrl
         videoPlayer.addListener(object : VideoPlayerAdapterListener() {
             override fun onVideoPrepare() {
                 super.onVideoPrepare()
@@ -244,6 +251,12 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                     }
                 }
             }
+
+            override fun onVideoTotalDuration(duration: Long) {
+                super.onVideoTotalDuration(duration)
+                this@CallActivity.videoTotalTime = duration / 1000
+            }
+
 
             override fun onVideoPlayComplete() {
                 super.onVideoPlayComplete()
@@ -328,9 +341,21 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                         this@CallActivity, com.amigo.uibase.R.string.str_please_grant_permission
                     )
                 })
+
+                Analysis.track("video_call_success", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "${state.uid}")
+                    put("video_url", "${videoUrl}")
+                    put("source", "$source")
+                    put("is_free", isFree)
+                })
+
             }
 
-            is CallState.UpdateCallDuration -> callingHolder?.updateDuration(state.durationSecond)
+            is CallState.UpdateCallDuration -> {
+                callingHolder?.updateDuration(state.durationSecond)
+                this.duration = state.durationSecond.toLong()
+            }
+
 
             is CallState.CallInfoResult -> callingHolder?.updateCallInfo(state.callInfoResponse)
 
@@ -339,6 +364,16 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                     TelephoneIntent.FinishCall(state.callId, state.reason)
                 )
                 callingHolder?.binding?.ivCallClose?.isEnabled = true
+                Analysis.track("video_call_exit", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "${callerInfo?.callee}")
+                    put("source", "$source")
+                    put("video_url", "$videoUrl")
+                    put("duration", "$duration")
+                    put("video_time", "${videoTotalTime}")
+                    put("is_free", isFree)
+                    put("reason", state.reason)
+                })
+
             }
 
             is CallState.FinishCallFailure -> {
@@ -351,6 +386,16 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                 TelephoneService.processIntent(
                     TelephoneIntent.FinishCall(state.callId, "心跳结束")
                 )
+                Analysis.track("video_call_exit", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "${callerInfo?.callee}")
+                    put("source", "$source")
+                    put("video_url", "$videoUrl")
+                    put("duration", "$duration")
+                    put("video_time", "${videoTotalTime}")
+                    put("is_free", isFree)
+                    put("reason","心跳结束")
+                })
+
             }
         }
     }
@@ -450,6 +495,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
             }
 
             is TelephoneCallerState.Connecting -> {
+                this.isFree = state.isFree
                 if (isMatchCall) {
                     makeMatchCallHolder?.buttonEnable(false)
                     makeMatchCallHolder?.changeCallStateContent(com.amigo.uibase.R.string.str_connecting)
@@ -494,6 +540,11 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                     "${callerInfo?.callId}",
                     0, false
                 )
+                Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                    put("anchor_id","${callerInfo?.callee}",)
+                    put("source", "${source}")
+                    put("reason",state.reason)
+                })
             }
         }
     }
@@ -628,7 +679,10 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                         holder.imageView.loadImage(data, roundRadius = roundRadius)
                     }
                 }).start()
-            binding.ivAvatar.loadImage(userDetail.avatar, isCircle = true)
+            binding.ivAvatar.loadImage(
+                userDetail.avatar,
+                roundedCorners = 12f.dpToPx(this@CallActivity)
+            )
             binding.tvRemoteName.text = userDetail.name
             binding.tvAge.text = "${userDetail.age}"
             binding.ivCountry.loadImage(
@@ -712,8 +766,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
 
         //对方ID
         private var anchorId: Long = -1
-        private var isFollow = false
-
+        private var isFollow =false
         //设备功能信息
         private var cameraCloseInfo: DeviceFunctionInfo? = null
         private var cameraSwitchInfo: DeviceFunctionInfo? = null
@@ -781,13 +834,12 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
                 }
 
                 binding.ivFollow.setOnClickListener {
-                    if (isFollow) {
+                    if(isFollow){
                         viewModel.processIntent(CallIntent.UnLike(anchorId))
-                    } else {
+                    }else{
                         viewModel.processIntent(CallIntent.Like(anchorId))
                     }
                 }
-
                 binding.etInput.isFocusableInTouchMode = true
                 binding.etInput.setOnClickListener { showMessageChatBox() }
             } else {
@@ -935,7 +987,7 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
         fun bindFollowState(isFollow: Boolean) {
             this.isFollow = isFollow
             if (isFollow) {
-                binding.ivFollow.setImageResource(R.drawable.ic_call_liked)
+              binding.ivFollow.setImageResource(R.drawable.ic_call_liked)
             } else {
                 binding.ivFollow.setImageResource(R.drawable.ic_call_unlike)
             }
@@ -1076,5 +1128,4 @@ class CallActivity : BaseModelActivity<ActivityCallBinding, CallViewModel>() {
 
         finish()
     }
-
 }

@@ -3,7 +3,6 @@ package com.amigo.call.viewmodel
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.amigo.basic.BaseMVIModel
-import com.amigo.call.TelephoneService
 import com.amigo.call.intent.CallIntent
 import com.amigo.call.state.CallState
 import com.amigo.im.IMCore

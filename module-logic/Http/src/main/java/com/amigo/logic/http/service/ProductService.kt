@@ -4,6 +4,7 @@ import com.amigo.http.ApiResponse
 import com.amigo.logic.http.response.product.Product
 import com.amigo.logic.http.response.product.ProductResponse
 import com.amigo.logic.http.response.product.PackageShow
+import com.amigo.logic.http.response.product.PopShow
 import com.amigo.logic.http.response.product.VipPowerInfoDataResponse
 import okhttp3.RequestBody
 import retrofit2.http.Body
@@ -36,5 +37,12 @@ interface ProductService {
 
     @POST("/v1/product/vip_20201")
     suspend fun getVip20201(@Body body: RequestBody): ApiResponse<Product>
+
+    @POST("/v1/product/coin_20301")
+    suspend fun getCoinPackage20301(@Body body: RequestBody): ApiResponse<Product>
+
+    @POST("/v1/product/show_pop")
+    suspend fun showPop(@Body body: RequestBody): ApiResponse<PopShow>
+
 
 }

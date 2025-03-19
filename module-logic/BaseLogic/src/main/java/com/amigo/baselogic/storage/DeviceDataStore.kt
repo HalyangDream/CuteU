@@ -26,6 +26,13 @@ class DeviceDataStore private constructor(context: Context) : DataStore() {
         initDataStore(context, "devices-preference")
     }
 
+    fun saveReferrerInfo(referrerJson: String) {
+        runBlocking { putString("referrer_json", referrerJson) }
+    }
+
+    fun getReferrerInfo(): String {
+        return readString("referrer_json", "")
+    }
 
     fun saveReferrer(referrer: String) {
         runBlocking { putString("referrer", referrer) }

@@ -23,6 +23,7 @@ class PayRepository : ApiRepository() {
     }
 
     suspend fun getPreOrder(
+        popCode:String,
         source: String,
         root: String,
         productId: Int,
@@ -31,6 +32,7 @@ class PayRepository : ApiRepository() {
         val param = HttpCommonParam.getCommonParam().apply {
             put("product_id", productId)
             put("payment_id", paymentId)
+            put("pop_code", popCode)
             put("source", source)
             put("root", root)
         }

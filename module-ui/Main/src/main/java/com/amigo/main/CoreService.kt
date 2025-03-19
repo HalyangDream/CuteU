@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.graphics.drawable.IconCompat
 import com.amigo.analysis.Analysis
+import com.amigo.analysis.PurchaseEvent
 import com.amigo.baselogic.statusDataStore
 import com.amigo.baselogic.userDataStore
 import com.amigo.im.IMCore
@@ -112,6 +113,7 @@ class CoreService private constructor() : ActivityStack.AppStateListener(), IMSt
                 GooglePayClient.initialize(it) {}
                 AdPlayService.cacheAd(it)
             }
+            onAppFront()
             EventBus.event.subscribe<RemoteNotifyEvent>(serviceScope) {
                 if (it is RemoteNotifyEvent.PaySuccessEvent) {
                     getDeviceFunctionInfo()
@@ -228,7 +230,19 @@ class CoreService private constructor() : ActivityStack.AppStateListener(), IMSt
 
     override fun onReceiveNotify(notify: CustomNotify) {
         when (notify) {
-            is PaySuccessNotify -> EventBus.post(RemoteNotifyEvent.PaySuccessEvent)
+            is PaySuccessNotify -> {
+                EventBus.post(RemoteNotifyEvent.PaySuccessEvent)
+                val orderNo = notify.orderNo
+                val productName = notify.productName
+                val google = notify.google
+                val price = notify.price
+                if (!orderNo.isNullOrEmpty() && !productName.isNullOrEmpty()
+                    && !google.isNullOrEmpty() && price != null
+                ) {
+                    val purchaseEvent = PurchaseEvent(orderNo, google, productName, price)
+                    Analysis.purchase(purchaseEvent)
+                }
+            }
 
             is StrategyCallNotify -> {
                 val strategyCallNotify = notify as StrategyCallNotify

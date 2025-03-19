@@ -88,7 +88,7 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
         viewBinding.vp2.isSaveEnabled = false
         viewBinding.vp2.offscreenPageLimit = fragments.size
         viewBinding.vp2.adapter = pagerAdapter
-        changeTab(0)
+        changeTab(1)
         addViewListener()
         viewModel.observerState {
             when (it) {

@@ -19,7 +19,7 @@ sealed class TelephoneCallerState : UserState {
 
     object OperateCalleeOffline : TelephoneCallerState()
 
-    object Connecting : TelephoneCallerState()
+    data class Connecting(val isFree:Boolean) : TelephoneCallerState()
 
     data class CanPlayVideo(val canPlay: Boolean) : TelephoneCallerState()
 

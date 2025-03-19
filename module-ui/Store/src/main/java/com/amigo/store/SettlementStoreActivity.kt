@@ -80,11 +80,12 @@ class SettlementStoreActivity : BaseActivity<ActivitySettlementStoreBinding>() {
             put("item_name", product.name)
             put("item_money_amount", product.displayPrice)
         })
+
     }
 
     private fun startPay() {
         val payment = paymentAdapter.getSelectItem() ?: return
-        PayViewModel.launchPay(this, product, payment) { result, msg ->
+        PayViewModel.launchPay(this,  "$popCode",product, payment) { result, msg ->
             if (result) {
                 Toaster.showShort(this, "Pay Success")
                 finish()
@@ -100,5 +101,11 @@ class SettlementStoreActivity : BaseActivity<ActivitySettlementStoreBinding>() {
                 put("item_name", product.name)
                 put("item_money_amount", product.displayPrice)
             })
+        Analysis.track("payment_channel_click_pay",mutableMapOf<String, Any>().apply {
+            put("code", popCode)
+            put("source", UserBehavior.root)
+            put("charge_behavior",UserBehavior.chargeSource)
+            put("sku",product.google)
+        })
     }
 }

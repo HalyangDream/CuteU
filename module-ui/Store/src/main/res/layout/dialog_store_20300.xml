@@ -31,7 +31,7 @@
             android:layout_alignBottom="@id/iv_top"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:textColor="@color/app_text_color"
+            android:textColor="@color/app_text_reverse_color"
             android:textSize="36sp"
             android:textStyle="bold"
             tools:text="Only $0.99" />
@@ -57,7 +57,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/app_text_reverse_color"
+                android:textColor="@color/app_text_color"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:text="100" />

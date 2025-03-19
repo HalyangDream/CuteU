@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.os.Build
@@ -238,6 +239,35 @@ object AppUtil {
      * @return
      */
     fun getSysLocale(): Locale {
+
+        val locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Resources.getSystem().configuration.locales[0]
+        } else {
+            Resources.getSystem().configuration.locale
+        }
+        return locale
+    }
+
+    /**
+     * 获取App语言
+     *
+     * @return
+     */
+    fun getAppLanguage(): String {
+        val locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            LocaleList.getDefault()[0]
+        } else {
+            Locale.getDefault()
+        }
+        return locale.language
+    }
+
+    /**
+     * 获取系统语言
+     *
+     * @return
+     */
+    fun getAppLocale(): Locale {
 
         val locale = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             LocaleList.getDefault()[0]

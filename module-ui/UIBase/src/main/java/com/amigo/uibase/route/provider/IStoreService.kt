@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import com.alibaba.android.arouter.facade.template.IProvider
+import com.amigo.basic.dialog.BaseDialog
 import com.amigo.logic.http.response.call.DeviceFunctionEnum
 import com.amigo.logic.http.response.call.DeviceFunctionInfo
 import com.amigo.logic.http.response.product.Product
@@ -17,6 +18,8 @@ interface IStoreService : IProvider {
      * @return 是否被处理了
      */
     fun showCodeDialog(popCode: String, dialogBundle: Bundle?): Boolean
+
+    fun showPopCodeDialog(popCode: String, dialogBundle: Bundle?): BaseDialog?
 
 
     /**

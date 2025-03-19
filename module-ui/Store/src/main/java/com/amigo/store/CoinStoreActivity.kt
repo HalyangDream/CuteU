@@ -24,9 +24,11 @@ import com.amigo.uibase.ad.AdPlayService
 import com.amigo.uibase.event.PayResultEvent
 import com.amigo.uibase.event.RemoteNotifyEvent
 import com.amigo.uibase.gone
+import com.amigo.uibase.invisible
 import com.amigo.uibase.route.RoutePage
 import com.amigo.uibase.route.RouteSdk
 import com.amigo.uibase.route.provider.IStoreService
+import com.amigo.uibase.setThrottleListener
 import com.amigo.uibase.userbehavior.UserBehavior
 import com.amigo.uibase.visible
 
@@ -56,6 +58,13 @@ class CoinStoreActivity : BaseModelActivity<ActivityCoinStoreBinding, CoinStoreV
 
         viewBinding.ivNavBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+
+        viewBinding.ivPackage3.setThrottleListener  {
+            val product = it.tag
+            if (product != null && product is Product) {
+                startPay(product)
+            }
         }
 
         viewBinding.rvExtraProduct.apply {
@@ -89,6 +98,15 @@ class CoinStoreActivity : BaseModelActivity<ActivityCoinStoreBinding, CoinStoreV
                     }
                     extraAdapter.submitList(it.extraList)
                     coinAdapter.submitList(it.list)
+                }
+                is CoinStoreState.Package3Product -> {
+                    val product = it.package3Product
+                    if (product != null) {
+                        viewBinding.ivPackage3.visible()
+                        viewBinding.ivPackage3.tag = product
+                    } else {
+                        viewBinding.ivPackage3.invisible()
+                    }
                 }
             }
         }

@@ -64,7 +64,8 @@ class AnchorDetailActivity :
 
     override fun initView() {
         anchorId = intent.getLongExtra("anchorId", 0)
-        source = intent.getStringExtra("source") ?: ""
+        source = intent.getStringExtra("source") ?: "details"
+        UserBehavior.setRootPage(source)
         ReportBehavior.reportEvent("anchor_profile_page", mutableMapOf<String, Any>().apply {
             put("anchor_id", "$anchorId")
             put("source", source)

@@ -62,8 +62,15 @@ object PayViewModel : PayResultCallback {
         this.payResult = block
         dialog.showDialog(activity, null)
         if (activity.userDataStore.role() == "4") {
-            launchPay(activity, product, googlePay, block)
+            launchPay(activity, fromPopCode, product, googlePay, block)
             dialog.dismissDialog()
+            Analysis.track("payment_channel_click_pay", mutableMapOf<String, Any>().apply {
+                put("code", fromPopCode)
+                put("source", UserBehavior.root)
+                put("charge_behavior", UserBehavior.chargeSource)
+                put("sku", product.google)
+            })
+
         } else {
             activity.lifecycleScope.launch {
                 val list = payRepository.getPaymentList()
@@ -81,10 +88,22 @@ object PayViewModel : PayResultCallback {
                         list
                     )
                 } else {
-                    launchPay(activity, product, list[0], block)
+                    launchPay(activity, fromPopCode, product, list[0], block)
+                    Analysis.track("payment_channel_click_pay", mutableMapOf<String, Any>().apply {
+                        put("code", fromPopCode)
+                        put("source", UserBehavior.root)
+                        put("charge_behavior", UserBehavior.chargeSource)
+                        put("sku", product.google)
+                    })
                 }
             }
         }
+        Analysis.track("payment_channel_show", mutableMapOf<String, Any>().apply {
+            put("code", fromPopCode)
+            put("source", UserBehavior.root)
+            put("charge_behavior", UserBehavior.chargeSource)
+            put("sku", product.google)
+        })
 
     }
 
@@ -93,13 +112,14 @@ object PayViewModel : PayResultCallback {
      */
     fun launchPay(
         activity: FragmentActivity,
+        popCode: String,
         product: Product,
         payment: Payment,
         block: ((result: Boolean, msg: String) -> Unit)?
     ) {
         this.payResult = block
         activity.lifecycleScope.launch {
-            invokeRealPay(activity, product, payment)
+            invokeRealPay(activity, popCode, product, payment)
         }
     }
 
@@ -119,13 +139,15 @@ object PayViewModel : PayResultCallback {
 
     private suspend fun getPreOrder(
         activity: Activity,
+        popCode: String,
         product: Product,
         payment: Payment
     ): Order? {
         dialog.showDialog(activity, null)
         val data = payRepository.getPreOrder(
-            UserBehavior.chargeSource,
+            popCode,
             UserBehavior.root,
+            UserBehavior.chargeSource,
             product.id,
             payment.id
         )
@@ -141,11 +163,12 @@ object PayViewModel : PayResultCallback {
 
     private suspend fun invokeRealPay(
         activity: Activity,
+        popCode: String,
         product: Product,
         payment: Payment
     ) {
         val pay = Pay()
-        val order = getPreOrder(activity, product, payment)
+        val order = getPreOrder(activity, popCode, product, payment)
         if (order == null) {
             EventBus.post(PayResultEvent.PayFailureEvent)
             payResult?.invoke(false, "Order is Null")

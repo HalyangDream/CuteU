@@ -15,6 +15,7 @@ import com.amigo.tool.Toaster
 import com.amigo.uibase.ActivityStack
 import com.amigo.uibase.userbehavior.UserBehavior
 import com.amigo.uibase.media.RingPlayer
+import com.amigo.uibase.route.RouteSdk
 import io.agora.rtm.RemoteInvitation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -83,11 +84,11 @@ object TelephoneService {
             is TelephoneIntent.TryResumeCall -> tryResumeCall()
 
 
-            is TelephoneIntent.MakeCall -> sendInvited(
+            is TelephoneIntent.MakeCall -> invitedPrepare(
                 caller = intent.caller, callee = intent.callee, matchId = 0, source = intent.source
             )
 
-            is TelephoneIntent.MakeMatchCall -> sendInvited(
+            is TelephoneIntent.MakeMatchCall -> invitedPrepare(
                 caller = intent.caller, callee = 0, matchId = intent.matchId, source = intent.source
             )
 
@@ -141,12 +142,29 @@ object TelephoneService {
             CallActivity.startLaunchCall(context, launchBundle)
             RingPlayer.startRinging(ActivityStack.application, R.raw.call_ring)
             bundle = launchBundle
+            Analysis.track("video_call_click", mutableMapOf<String, Any>().apply {
+                put("anchor_id", "$callee")
+                put("source", source)
+            })
+
         } else {
             if (telephoneState > PREPARE) {
                 Toaster.showShort(context, com.amigo.uibase.R.string.str_in_call)
+                Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "$callee")
+                    put("source", source)
+                    put("reason", "正在通话")
+                })
+
             } else {
                 Toaster.showShort(context, com.amigo.uibase.R.string.str_call_server_unable)
                 initTelephoneService()
+                Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                    put("anchor_id", "$callee")
+                    put("source", source)
+                    put("reason", "功能未启用")
+                })
+
             }
         }
     }
@@ -199,6 +217,11 @@ object TelephoneService {
         launchBundle.putBoolean("isStrategyCall", false)
         bundle = launchBundle
         CallActivity.startLaunchCall(ActivityStack.application, launchBundle)
+        Analysis.track("video_call_click", mutableMapOf<String, Any>().apply {
+            put("anchor_id", "$matchId")
+            put("source", source)
+        })
+
     }
 
     /**
@@ -224,6 +247,36 @@ object TelephoneService {
     }
 
 
+    private fun invitedPrepare(
+        caller: Long,
+        callee: Long,
+        matchId: Long,
+        source: String
+    ) {
+        _callScope.launch {
+            val popResponse = _callRepository.showPop()
+            val popData = popResponse.data
+            if (!popResponse.isSuccess || popData == null) {
+                sendInvited(caller, callee, matchId, source)
+            } else {
+                val popCode = popData.popCode
+                if (!popData.isShow) {
+                    sendInvited(caller, callee, matchId, source)
+                    return@launch
+                }
+                val dialog = RouteSdk.handleResponseDialogCode(popCode, null)
+                if (dialog != null) {
+                    dialog.setDialogDismissListener {
+                        sendInvited(caller, callee, matchId, source)
+                    }
+                } else {
+                    sendInvited(caller, callee, matchId, source)
+                }
+            }
+        }
+    }
+
+
     private fun sendInvited(caller: Long, callee: Long, matchId: Long, source: String) {
         _callScope.launch {
             val response = if (isMatchCall) {
@@ -242,7 +295,7 @@ object TelephoneService {
                 val job1 = _callScope.launch {
                     delay(connectTime * 1000L)
                     //执行链接中的状态
-                    setState(TelephoneCallerState.Connecting)
+                    setState(TelephoneCallerState.Connecting(data.isFree))
                     //执行预加载视频
                     setState(TelephoneCallerState.StartLoadVideo(videoUrl, videoEndTime))
                     //执行加载视频
@@ -253,10 +306,22 @@ object TelephoneService {
                     if (telephoneState == MAKE_CALL) {
                         setState(TelephoneCallerState.CanPlayVideo(false))
                         setState(TelephoneCallerState.OperateCalleeOffline)
+                        Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                            put("anchor_id", "$callee")
+                            put("source", source)
+                            put("reason", "视频加载失败")
+                        })
+
                     }
                 }
                 delayJobQueue.add(job1)
-                setState(TelephoneCallerState.OperateInvitedSuccess(caller, data.remoteId, data.callId))
+                setState(
+                    TelephoneCallerState.OperateInvitedSuccess(
+                        caller,
+                        data.remoteId,
+                        data.callId
+                    )
+                )
 
             } else {
                 when (response.code) {
@@ -267,6 +332,12 @@ object TelephoneService {
                                 caller, callee, com.amigo.uibase.R.string.str_call_buys, 0
                             )
                         }
+                        Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                            put("anchor_id", "$callee")
+                            put("source", source)
+                            put("reason", "用户Busy")
+                        })
+
                     }
 
                     "80002" -> {
@@ -276,6 +347,12 @@ object TelephoneService {
                                 caller, callee, com.amigo.uibase.R.string.str_call_offline, 0
                             )
                         }
+                        Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                            put("anchor_id", "$callee")
+                            put("source", source)
+                            put("reason", "用户离线")
+                        })
+
                     }
 
                     else -> {
@@ -287,6 +364,12 @@ object TelephoneService {
                                 caller, callee, com.amigo.uibase.R.string.str_call_failure, 0
                             )
                         }
+                        Analysis.track("video_call_err", mutableMapOf<String, Any>().apply {
+                            put("anchor_id", "$callee")
+                            put("source", source)
+                            put("reason", "code:${response.code}")
+                        })
+
                     }
                 }
             }

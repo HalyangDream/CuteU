@@ -61,7 +61,12 @@ class StoreDialog20101 : BaseBottomDialog() {
             put("pop_type", "20101")
             put("source", UserBehavior.chargeSource)
         })
-        Analysis.track("pop_recharge_20101")
+        Analysis.track("payment_popup_show",mutableMapOf<String, Any>().apply {
+            put("code", "20101")
+            put("source", UserBehavior.root)
+            put("charge_behavior",UserBehavior.chargeSource)
+        })
+
     }
 
     override fun initData() {
@@ -99,6 +104,13 @@ class StoreDialog20101 : BaseBottomDialog() {
             put("item_name", product.name)
             put("item_money_amount", product.displayPrice)
         })
+        Analysis.track("payment_popup_click_sku",mutableMapOf<String, Any>().apply {
+            put("code", "20101")
+            put("source", UserBehavior.root)
+            put("charge_behavior",UserBehavior.chargeSource)
+            put("sku",product.google)
+        })
+
     }
 
     private inner class DialogCoinAdapter20101(context: Context) :
@@ -128,10 +140,10 @@ class StoreDialog20101 : BaseBottomDialog() {
                 binding.tvDiscount.visible()
             }
             if (!extraProducts.isNullOrEmpty() && extraProducts!!.contains(item)) {
-                binding.srlContent.shapeDrawableBuilder.setSolidColor(Color.parseColor("#FFF6E6"))
+                binding.srlContent.shapeDrawableBuilder.setSolidColor(Color.parseColor("#29FFFFFF"))
                     .intoBackground()
             } else {
-                binding.srlContent.shapeDrawableBuilder.setSolidColor(Color.parseColor("#F3F3F3"))
+                binding.srlContent.shapeDrawableBuilder.setSolidColor(Color.parseColor("#0FFFFFFF"))
                     .intoBackground()
             }
 

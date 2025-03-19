@@ -88,6 +88,11 @@ class FeedFragment : BaseListFragment<FragmentFeedBinding, FeedViewModel>() {
         viewModel.processIntent(FeedIntent.List(ListIntent.Loading()))
     }
 
+    override fun onResume() {
+        super.onResume()
+        UserBehavior.setRootPage("anchor_list")
+    }
+
     override fun emptyLayout(isEmpty: Boolean) {
         viewBinding.slLayout.showEmptyView(isEmpty)
     }

@@ -8,6 +8,13 @@ class PaySuccessNotify : CustomNotify() {
 
     var orderNo: String? = null
         private set
+    var productName: String? = null
+        private set
+    var price: Double? = null
+        private set
+    var google: String? = null
+        private set
+
 
     override fun parseJson(json: String?) {
         if (json.isNullOrEmpty()) return
@@ -16,6 +23,10 @@ class PaySuccessNotify : CustomNotify() {
             val payNotifyObj = jsonObject.optJSONObject("pay_notify")
             if (payNotifyObj != null) {
                 orderNo = payNotifyObj.optString("order_no")
+                productName = payNotifyObj.optString("product_name")
+                price = payNotifyObj.optDouble("price")
+                google = payNotifyObj.optString("google")
+
             }
         } catch (ex: JSONException) {
             ex.printStackTrace()

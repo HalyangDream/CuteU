@@ -52,16 +52,23 @@ object Analysis {
         }
     }
 
-    fun loginAccount(account: String) {
+    fun loginAccount(account: String, userPropJson: String?) {
         analytics?.setUserId(account)
         DTAnalytics.setAccountId(account);
+        try {
+            if (userPropJson.isNullOrEmpty()) return
+            val jsonObject = JSONObject(userPropJson)
+            DTAnalytics.userSet(jsonObject)
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
     }
 
     fun track(eventName: String) {
         analytics?.logEvent(eventName, null)
-//        DTAnalytics.track(eventName, mutableMapOf<String, Any>().apply {
-//            put("app_id", appId)
-//        })
+        DTAnalytics.track(eventName, mutableMapOf<String, Any>().apply {
+            put("app_id", appId)
+        })
     }
 
     fun track(eventName: String, valueMap: Map<String, Any>) {
@@ -83,13 +90,13 @@ object Analysis {
             }
             jsonObject.put("app_id", appId)
             analytics?.logEvent(eventName, bundle)
-//            DTAnalytics.track(eventName, jsonObject)
+            DTAnalytics.track(eventName, jsonObject)
         } catch (ex: Exception) {
             ex.printStackTrace()
         }
     }
 
-    fun login(){
+    fun login() {
         analytics?.logEvent(FirebaseAnalytics.Event.LOGIN, null)
     }
 
@@ -116,6 +123,28 @@ object Analysis {
         )
         analytics?.logEvent(FirebaseAnalytics.Event.BEGIN_CHECKOUT, bundle)
     }
+
+
+    /**
+     * 支付成功
+     */
+    fun purchase(
+        event: PurchaseEvent
+    ) {
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.TRANSACTION_ID, event.orderNo)
+        bundle.putString(FirebaseAnalytics.Param.CURRENCY, "USD")
+        bundle.putDouble(FirebaseAnalytics.Param.VALUE, event.price)
+        val itemBoots = Bundle()
+        itemBoots.putString(FirebaseAnalytics.Param.ITEM_ID, event.sku)
+        itemBoots.putString(FirebaseAnalytics.Param.ITEM_NAME, event.name)
+        bundle.putParcelableArray(
+            FirebaseAnalytics.Param.ITEMS,
+            arrayOf<Parcelable>(itemBoots)
+        )
+        analytics?.logEvent(FirebaseAnalytics.Event.PURCHASE, bundle)
+    }
+
 
 
     private fun isNumber(value: String): Boolean {

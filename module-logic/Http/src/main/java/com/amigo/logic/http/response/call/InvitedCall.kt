@@ -15,5 +15,7 @@ data class InvitedCall(
     val intoConnectStateDuration: Int,
     @SerializedName("load_video_wait_duration")
     val loadVideoWaitDuration: Int,
+    @SerializedName("is_free")
+    val isFree: Boolean
 )
 

@@ -53,9 +53,14 @@ import com.amigo.uibase.Constant
 import com.amigo.uibase.RefreshFooterView
 import com.amigo.uibase.route.RouteSdk
 import com.amigo.uibase.media.VideoPlayerManager
+import com.android.installreferrer.api.InstallReferrerClient
+import com.android.installreferrer.api.InstallReferrerStateListener
+import com.android.installreferrer.api.ReferrerDetails
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import org.json.JSONObject
+import java.net.URLDecoder
 import java.net.URLEncoder
 import java.nio.charset.Charset
 
@@ -75,6 +80,8 @@ class SocialApp : Application() {
             RefreshFooterView(context)
         }
     }
+
+    private var referrerClient: InstallReferrerClient? = null
 
 
     override fun onCreate() {
@@ -103,6 +110,7 @@ class SocialApp : Application() {
             initAnalysis()
             initAd()
 //            initAttribution()
+            initGpInstall()
 
         }.start()
     }
@@ -129,6 +137,8 @@ class SocialApp : Application() {
                 paramObject["make"] = AppUtil.getOSBrand()
                 paramObject["model"] = AppUtil.getOSModel()
                 paramObject["locale"] = AppUtil.getSysLocale().language
+                paramObject["app_locale"] = AppUtil.getAppLocale().country
+                paramObject["app_language"] = AppUtil.getAppLanguage()
                 paramObject["network"] = AppUtil.getNetwork(this@SocialApp)
                 paramObject["version"] = AppUtil.getAppVersion(this@SocialApp)
                 paramObject["device_id"] = AppUtil.getAndroidID(this@SocialApp)
@@ -208,6 +218,76 @@ class SocialApp : Application() {
         AdFactory.createFactory(
             this, BuildConfig.DEBUG, BuildConfig.TOP_ON_ID, BuildConfig.TOP_ON_KEY
         )
+    }
+
+    private fun initGpInstall() {
+        referrerClient = InstallReferrerClient.newBuilder(this).build()
+        referrerClient?.startConnection(object : InstallReferrerStateListener {
+            override fun onInstallReferrerSetupFinished(responseCode: Int) {
+                when (responseCode) {
+                    InstallReferrerClient.InstallReferrerResponse.OK -> {
+                        // Connection established.
+                        val client = referrerClient
+                        if (client != null) {
+                            val response: ReferrerDetails = client.installReferrer
+                            val referrerUrl: String = response.installReferrer
+                            val referrerClickTime: Long = response.referrerClickTimestampSeconds
+                            val appInstallTime: Long = response.installBeginTimestampSeconds
+                            val instantExperienceLaunched: Boolean = response.googlePlayInstantParam
+                            val json = parseReferrerToJson(referrerUrl)
+                            if (json != null) {
+                                if (json.has("utm_source")) {
+                                    val utmSource = json.optString("utm_source") ?: ""
+                                    DeviceDataStore.get(this@SocialApp).saveReferrer(utmSource)
+                                }
+                                DeviceDataStore.get(this@SocialApp)
+                                    .saveReferrerInfo(json.toString())
+                            }
+                        }
+                        referrerClient?.endConnection()
+                    }
+
+                    InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> {
+                        // API not available on the current Play Store app.
+                    }
+
+                    InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> {
+                        // Connection couldn't be established.
+                    }
+                }
+            }
+
+            override fun onInstallReferrerServiceDisconnected() {
+                // Try to restart the connection on the next request to
+                // Google Play by calling the startConnection() method.
+            }
+        })
+    }
+
+
+    fun parseReferrerToJson(referrer: String): JSONObject? {
+        return try {
+            // 分割并解析键值对
+            val map = referrer.split("&")
+                .mapNotNull {
+                    val parts = it.split("=")
+                    if (parts.size == 2) {
+                        // 解码键和值
+                        val key = URLDecoder.decode(parts[0], "UTF-8")
+                        val value = URLDecoder.decode(parts[1], "UTF-8")
+                        key to value
+                    } else {
+                        null // 跳过不符合格式的部分
+                    }
+                }
+                .toMap()
+
+            // 转换为 JSON 对象
+            JSONObject(map)
+        } catch (e: Exception) {
+            e.printStackTrace() // 打印异常日志，便于调试
+            null // 返回空值表示解析失败
+        }
     }
 
     private fun initAttribution() {

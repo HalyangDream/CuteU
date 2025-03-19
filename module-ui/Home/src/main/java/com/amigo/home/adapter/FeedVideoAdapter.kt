@@ -100,10 +100,10 @@ class FeedVideoAdapter(context: Context) : BaseRvAdapter<VideoList, ItemFeedVide
         }
 
         binding.llMessage.setOnClickListener {
-            RouteSdk.navigationChat(item.id, "show_list")
+            RouteSdk.navigationChat(item.id, "video_list_chat")
         }
         binding.ivAvatar.setOnClickListener {
-            RouteSdk.navigationUserDetail(item.id, "show_list")
+            RouteSdk.navigationUserDetail(item.id, "video_list_details")
         }
     }
 }

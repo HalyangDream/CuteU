@@ -6,3 +6,10 @@ data class ProductEvent(
     val currency: String,
     val price: String
 )
+
+data class PurchaseEvent(
+    val orderNo: String,
+    val sku: String,
+    val name: String,
+    val price: Double
+)

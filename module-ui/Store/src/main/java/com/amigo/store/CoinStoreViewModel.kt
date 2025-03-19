@@ -36,6 +36,11 @@ class CoinStoreViewModel : BaseMVIModel<CoinStoreIntent, CoinStoreState>() {
                     response.data?.list
                 )
             )
+            val package3Data = productRepository.getCoinPackage20301()
+            val product = package3Data.data
+            setState(
+                CoinStoreState.Package3Product(product)
+            )
         }
     }
 }

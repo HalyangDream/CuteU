@@ -43,7 +43,7 @@ class StoreDialog20300 : BaseCenterDialog() {
     override fun initView(view: View?) {
         setDialogCancelable(false)
         setDialogCanceledOnTouchOutside(false)
-        binding.btnBuy.setThrottleListener {
+        binding.btnBuy.setOnClickListener {
             if (product != null) {
                 startPay(product!!)
             }
@@ -57,7 +57,12 @@ class StoreDialog20300 : BaseCenterDialog() {
             put("pop_type", "20300")
             put("source", UserBehavior.chargeSource)
         })
-        Analysis.track("pop_recharge_20300")
+        Analysis.track("payment_popup_show",mutableMapOf<String, Any>().apply {
+            put("code", "20300")
+            put("source", UserBehavior.root)
+            put("charge_behavior",UserBehavior.chargeSource)
+        })
+
     }
 
     override fun initData() {
@@ -94,5 +99,12 @@ class StoreDialog20300 : BaseCenterDialog() {
             put("item_name", product.name)
             put("item_money_amount", product.displayPrice)
         })
+        Analysis.track("payment_popup_click_sku",mutableMapOf<String, Any>().apply {
+            put("code", "20300")
+            put("source", UserBehavior.root)
+            put("charge_behavior",UserBehavior.chargeSource)
+            put("sku",product.google)
+        })
+
     }
 }

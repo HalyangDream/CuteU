@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.BuildConfig
 import com.alibaba.android.arouter.launcher.ARouter
+import com.amigo.basic.dialog.BaseDialog
 import com.amigo.uibase.route.provider.IStoreService
 
 object RouteSdk {
@@ -73,6 +74,11 @@ object RouteSdk {
     fun handleResponseCode(code: String, dialogBundle: Bundle?): Boolean {
         val iStoreService = findService(IStoreService::class.java)
         return iStoreService.showCodeDialog(code, dialogBundle)
+    }
+
+    fun handleResponseDialogCode(code: String, dialogBundle: Bundle?): BaseDialog? {
+        val iStoreService = findService(IStoreService::class.java)
+        return iStoreService.showPopCodeDialog(code, dialogBundle)
     }
 
 }
