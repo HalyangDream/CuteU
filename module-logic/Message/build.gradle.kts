@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.message"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

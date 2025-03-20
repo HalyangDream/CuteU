@@ -7,10 +7,9 @@ plugins {
 
 android {
     namespace = "com.amigo.http"
-    compileSdk = Version.compileSdk
-
+    compileSdk = 35
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,9 +34,9 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.ktx)
-    implementation(Version.Dependencies.retrofit)
-    implementation(Version.Dependencies.retrofitGsonConverter)
-    implementation(Version.Dependencies.logginInterceptor)
-    implementation(Version.Dependencies.coroutines)
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }

@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.pay"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation(Version.Dependencies.billing)
-    implementation(Version.Dependencies.ktx)
-    implementation(Version.Dependencies.coroutines)
+    implementation("com.android.billingclient:billing-ktx:6.2.1")
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }

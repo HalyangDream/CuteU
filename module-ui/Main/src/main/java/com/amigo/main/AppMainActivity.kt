@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.amigo.analysis.Analysis
 import com.amigo.baselogic.statusDataStore
+import com.amigo.baselogic.storage.DeviceDataStore
 import com.amigo.baselogic.storage.UserDataStore
 import com.amigo.baselogic.userDataStore
 import com.amigo.basic.BaseModelActivity
@@ -98,7 +99,10 @@ class AppMainActivity : BaseModelActivity<ActivityAppMainBinding, AppMainViewMod
                     userDataStore.saveRole(it.info.role)
                     userDataStore.saveAvatar(it.info.avatar)
                     userDataStore.saveCoinMode(it.info.isCoinMode)
-                    Analysis.loginAccount("${it.info.id}")
+                    Analysis.loginAccount(
+                        "${it.info.id}",
+                        DeviceDataStore.get(this@AppMainActivity).getReferrerInfo()
+                    )
                 }
 
                 is AppMainState.UnReadCount -> updateUnReadCount(it.count)

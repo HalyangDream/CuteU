@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.basic"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -28,22 +28,22 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
-    implementation(Version.Dependencies.ktx)
-    implementation(Version.Dependencies.viewModelKtx)
-    implementation(Version.Dependencies.livedataKtx)
-    implementation(Version.Dependencies.lifecycleKtx)
-    implementation(Version.Dependencies.appcompat)
-    implementation(Version.Dependencies.recyclerview)
-    implementation(Version.Dependencies.material)
-    api(Version.Dependencies.brvahRecyclerView)
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.google.android.material:material:1.9.0")
+    api("io.github.cymchad:BaseRecyclerViewAdapterHelper4:4.1.2")
 }

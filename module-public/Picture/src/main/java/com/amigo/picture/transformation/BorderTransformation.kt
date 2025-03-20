@@ -17,7 +17,7 @@ class BorderTransformation(
         get() = "borderTransformation(borderColor=$borderColor, borderWidthPx=$borderWidthPx, cornerRadius=$cornerRadius)"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
-        val output = Bitmap.createBitmap(input.width, input.height, input.config)
+        val output = Bitmap.createBitmap(input.width, input.height, input.config!!)
         val canvas = Canvas(output)
         val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
         paint.style = Paint.Style.FILL

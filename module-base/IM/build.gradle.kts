@@ -8,10 +8,10 @@ plugins {
 
 android {
     namespace = "com.amigo.im"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -38,10 +38,10 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.ktx)
-    implementation(Version.Dependencies.coroutines)
-    implementation(Version.Dependencies.coroutinesAndroid)
-    implementation(Version.Dependencies.rtm)
-    implementation(Version.Dependencies.roomRuntime)
-    kapt(Version.Dependencies.roomCompile)
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("io.agora.rtm:rtm-sdk:1.5.3")
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 }

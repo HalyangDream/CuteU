@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.picture"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,19 +33,18 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.appcompat)
-    implementation(Version.Dependencies.material)
-    implementation(Version.Dependencies.coil)
-    implementation(Version.Dependencies.coilGif)
-    implementation(Version.Dependencies.coilVideo)
-    api(Version.Dependencies.pictureSelector)
-    implementation(Version.Dependencies.pictureCompress)
-    implementation(Version.Dependencies.pictureUcrop)
-    implementation(Version.Dependencies.cameraXCore)
-    implementation(Version.Dependencies.cameraXCamera2)
-    implementation(Version.Dependencies.cameraXLifecycle)
-    implementation(Version.Dependencies.cameraXVideo)
-    implementation(Version.Dependencies.cameraXView)
-    implementation(Version.Dependencies.cameraXExtensions)
-
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-gif:2.5.0")
+    implementation("io.coil-kt:coil-video:2.5.0")
+    api("io.github.lucksiege:pictureselector:v3.11.2")
+    implementation("io.github.lucksiege:compress:v3.11.2")
+    implementation("io.github.lucksiege:ucrop:v3.11.2")
+    implementation("androidx.camera:camera-core:1.2.2")
+    implementation("androidx.camera:camera-camera2:1.2.2")
+    implementation("androidx.camera:camera-lifecycle:1.2.2")
+    implementation("androidx.camera:camera-video:1.2.2")
+    implementation("androidx.camera:camera-view:1.2.2")
+    implementation("androidx.camera:camera-extensions:1.2.2")
 }

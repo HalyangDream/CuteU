@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.amigo.login"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,8 +44,8 @@ kapt {
 }
 
 dependencies {
-    implementation(Version.Dependencies.arouter)
-    kapt(Version.Dependencies.arouterCompiler)
+    implementation("com.alibaba:arouter-api:1.5.2")
+    kapt("com.alibaba:arouter-compiler:1.5.2")
     implementation(project(":module-ui:UIBase"))
-    implementation(Version.Dependencies.googleSign)
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
 }

@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.storage"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,6 +33,6 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.ktx)
-    implementation(Version.Dependencies.dataStore)
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

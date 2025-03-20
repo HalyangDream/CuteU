@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.logic.http"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,8 +35,8 @@ android {
 dependencies {
     implementation(project(":module-base:Http"))
     implementation(project(":module-public:Tool"))
-    implementation(Version.Dependencies.retrofit)
-    implementation(Version.Dependencies.coroutines)
-    implementation(Version.Dependencies.coroutinesAndroid)
-    implementation(Version.Dependencies.gson)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

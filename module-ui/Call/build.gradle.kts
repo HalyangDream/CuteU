@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.amigo.call"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,8 +44,8 @@ kapt {
 }
 
 dependencies {
-    implementation(Version.Dependencies.arouter)
-    implementation(Version.Dependencies.rtm)
-    kapt(Version.Dependencies.arouterCompiler)
+    implementation("com.alibaba:arouter-api:1.5.2")
+    implementation("io.agora.rtm:rtm-sdk:1.5.3")
+    kapt("com.alibaba:arouter-compiler:1.5.2")
     implementation(project(":module-ui:UIBase"))
 }

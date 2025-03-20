@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.tool"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.jwt)
-    implementation(Version.Dependencies.appcompat)
-    implementation(Version.Dependencies.material)
+    implementation("com.auth0:java-jwt:3.4.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
 }

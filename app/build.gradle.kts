@@ -2,19 +2,19 @@ import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-//    id("com.google.gms.google-services")
-//    id("com.google.firebase.crashlytics")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 
 android {
     namespace = "com.amigo.app"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.amor.app"
-        minSdk = Version.targetSdk
-        targetSdk = Version.compileSdk
+        applicationId = "com.amigo.app"
+        minSdk = 21
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         flavorDimensionList.add("product")
@@ -76,6 +76,9 @@ android {
             buildConfigField("String", "TOP_ON_ID", "\"h66948e19d2314\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("debug")!!
+            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                mappingFileUploadEnabled = true
+            }
         }
 
         create("Amigo") {
@@ -103,9 +106,9 @@ android {
             buildConfigField("String", "TOP_ON_ID", "\"h669f4eeaecf70\"")
             buildConfigField("String", "TOP_ON_KEY", "\"e9dbebeb490ac0b0324a3b8f93baa865\"")
             signingConfig = signingConfigs.findByName("Amigo")!!
-//            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
-//                mappingFileUploadEnabled = true
-//            }
+            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                mappingFileUploadEnabled = true
+            }
         }
     }
 
@@ -179,7 +182,7 @@ dependencies {
     implementation(project(":module-ui:Mine"))
     implementation(project(":module-ui:Call"))
     implementation(project(":module-ui:Store"))
-    implementation(Version.Dependencies.adjust)
+    implementation("com.adjust.sdk:adjust-android:4.33.5")
     implementation("com.android.installreferrer:installreferrer:2.2")
-    api(Version.Dependencies.retrofit)
+    api("com.squareup.retrofit2:retrofit:2.9.0")
 }

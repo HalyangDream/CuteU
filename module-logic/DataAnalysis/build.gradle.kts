@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.analysis"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,8 +33,8 @@ android {
 }
 
 dependencies {
-    implementation(Version.Dependencies.firebaseCrashlytics)
-    implementation(Version.Dependencies.firebaseAnalytics)
-    implementation(Version.Dependencies.googleAdIdentifier)
-    implementation(Version.Dependencies.datatowerAi)
+    implementation("com.google.firebase:firebase-crashlytics-ktx:18.3.7")
+    implementation("com.google.firebase:firebase-analytics-ktx:21.3.0")
+    implementation("com.google.android.gms:play-services-ads-identifier:18.0.1")
+    implementation("ai.datatower:core:3.0.3")
 }

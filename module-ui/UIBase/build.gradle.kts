@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.amigo.uibase"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -44,8 +44,8 @@ kapt {
 }
 
 dependencies {
-    implementation(Version.Dependencies.arouter)
-    kapt(Version.Dependencies.arouterCompiler)
+    implementation("com.alibaba:arouter-api:1.5.2")
+    kapt("com.alibaba:arouter-compiler:1.5.2")
     api(project(":module-logic:DataAnalysis"))
     api(project(":module-logic:BaseLogic"))
     api(project(":module-logic:Http"))
@@ -59,27 +59,27 @@ dependencies {
     api(project(":module-public:Storage"))
     api(project(":module-public:Picture"))
     api(project(":module-public:Pay"))
-    api(Version.Dependencies.coroutines)
-    api(Version.Dependencies.coroutinesAndroid)
-    api(Version.Dependencies.appcompat)
-    api(Version.Dependencies.recyclerview)
-    api(Version.Dependencies.material)
-    api(Version.Dependencies.lifecycleKtx)
-    api(Version.Dependencies.livedataKtx)
-    api(Version.Dependencies.viewModelKtx)
-    api(Version.Dependencies.refresh)
-    api(Version.Dependencies.refreshHeader)
-    api(Version.Dependencies.refreshFooter)
-    api(Version.Dependencies.shapeView)
-    api(Version.Dependencies.exoplayer)
-    api(Version.Dependencies.exoplayerHls)
-    api(Version.Dependencies.exoplayerDash)
-    api(Version.Dependencies.exoplayerSs)
-    api(Version.Dependencies.exoplayerRtsp)
-    api(Version.Dependencies.exoplayerUi)
-    api(Version.Dependencies.lottie)
-    api(Version.Dependencies.gson)
-    api(Version.Dependencies.appUpdate)
-    api(Version.Dependencies.appUpdateKtx)
-    api(Version.Dependencies.banner)
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    api("androidx.appcompat:appcompat:1.6.1")
+    api("androidx.recyclerview:recyclerview:1.3.2")
+    api("com.google.android.material:material:1.9.0")
+    api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    api("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    api("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    api("io.github.scwang90:refresh-layout-kernel:2.1.0")
+    api("io.github.scwang90:refresh-header-material:2.1.0")
+    api("io.github.scwang90:refresh-footer-classics:2.1.0")
+    api("com.github.getActivity:ShapeView:8.5")
+    api("androidx.media3:media3-exoplayer:1.3.1")
+    api("androidx.media3:media3-exoplayer-hls:1.3.1")
+    api("androidx.media3:media3-exoplayer-dash:1.3.1")
+    api("androidx.media3:media3-exoplayer-smoothstreaming:1.3.1")
+    api("androidx.media3:media3-exoplayer-rtsp:1.3.1")
+    api("androidx.media3:media3-ui:1.3.1")
+    api("com.airbnb.android:lottie:6.4.0")
+    api("com.google.code.gson:gson:2.10.1")
+    api("com.google.android.play:app-update:2.1.0")
+    api("com.google.android.play:app-update-ktx:2.1.0")
+    api("io.github.youth5201314:banner:2.2.3")
 }

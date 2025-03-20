@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.amigo.home"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -45,7 +45,7 @@ kapt {
 
 dependencies {
     implementation(project(":module-ui:UIBase"))
-    implementation(Version.Dependencies.arouter)
-    kapt(Version.Dependencies.arouterCompiler)
-    implementation(Version.Dependencies.flexbox)
+    implementation("com.alibaba:arouter-api:1.5.2")
+    kapt("com.alibaba:arouter-compiler:1.5.2")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

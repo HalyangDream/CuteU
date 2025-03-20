@@ -184,7 +184,7 @@ object AppUtil {
             val packageManager: PackageManager = context.getPackageManager()
             val packageInfo: PackageInfo =
                 packageManager.getPackageInfo(context.getPackageName(), 0)
-            packageInfo.versionName
+            packageInfo.versionName!!
         } catch (e: Exception) {
             e.printStackTrace()
             ""

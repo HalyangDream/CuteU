@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.amigo.rtc"
-    compileSdk = Version.compileSdk
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = Version.targetSdk
+        minSdk = 21
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,5 +34,5 @@ android {
 
 dependencies {
 
-    implementation(Version.Dependencies.rtc)
+    implementation("io.agora.rtc:full-rtc-basic:3.7.0")
 }

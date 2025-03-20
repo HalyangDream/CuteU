@@ -16,7 +16,7 @@ class CircleBorderTransformation(
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         // 计算半径和中心点
-        val output = Bitmap.createBitmap(input.width, input.height, input.config)
+        val output = Bitmap.createBitmap(input.width, input.height, input.config!!)
         val canvas = Canvas(output)
         val paint = Paint(Paint.ANTI_ALIAS_FLAG)
         paint.isAntiAlias = true
