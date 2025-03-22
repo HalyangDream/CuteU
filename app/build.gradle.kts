@@ -83,7 +83,7 @@ android {
 
         create("Amigo") {
             applicationId = "com.amigo.market.app"
-            versionCode = 20000
+            versionCode = 20001
             versionName = "2.0.0"
             resValue("string", "app_name", "Amigo")
             resValue(

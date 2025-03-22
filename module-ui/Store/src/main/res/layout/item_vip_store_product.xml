@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/srl_root"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="4dp"
     app:shape_radius="12dp"
@@ -29,7 +29,7 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/stv_discount"
         android:layout_centerHorizontal="true"
@@ -42,17 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/app_text_reverse_color"
-            android:textSize="32sp"
-            tools:text="1" />
-
-        <TextView
-            android:id="@+id/tv_sub_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/app_text_reverse_color"
-            android:textSize="14sp"
-            tools:text="Year" />
+            android:textSize="16sp"
+            tools:text="7 Day VIP" />
 
         <TextView
             android:id="@+id/tv_price"
@@ -60,17 +51,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textColor="#ccffffff"
-            android:textSize="13sp"
-            tools:text="$119.99" />
+            android:textSize="14sp"
+            tools:text="$119.99/Month" />
+
 
         <TextView
             android:id="@+id/tv_bound_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
             android:layout_marginTop="12dp"
+            android:gravity="center"
             android:textColor="#32E1F0"
             android:textSize="14sp"
-            tools:text="$0.17/day" />
+            tools:text="billed yearly as $96" />
 
     </LinearLayout>
 

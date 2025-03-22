@@ -129,6 +129,34 @@ object GooglePayClient {
         }
     }
 
+
+    fun getSkuPrice(
+        isSubscription: Boolean,
+        skuId: String, block: (String?) -> Unit
+    ) {
+        querySkuDetail(
+            isSubscription,
+            mutableListOf(skuId)
+        ) { code, list ->
+            if (!list.isNullOrEmpty()) {
+                val first = list[0]
+                val oneTimeProduct = first.oneTimePurchaseOfferDetails
+                val subProduct = first.subscriptionOfferDetails?.get(0)
+                if (oneTimeProduct != null) {
+                    block(oneTimeProduct.formattedPrice)
+                }
+                if (subProduct != null) {
+                    val firstSub = subProduct.pricingPhases.pricingPhaseList[0]
+                    firstSub.priceAmountMicros
+                    block(subProduct.pricingPhases.pricingPhaseList[0].formattedPrice)
+                }
+
+            } else {
+                block("")
+            }
+        }
+    }
+
     /**
      * 查询购买Google商品
      */

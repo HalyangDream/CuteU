@@ -267,4 +267,6 @@
     <string name="str_spot">Spot</string>
     <string name="str_pay">Pay</string>
     <string name="str_me">Me</string>
+
+    <string name="str_billed_vip_value">billed %1$s as %2$s</string>
 </resources>
