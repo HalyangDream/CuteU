@@ -259,4 +259,10 @@
 
     <string name="str_app_prodcut_pro">App Pro</string>
     <string name="str_20201_product_desc">Después de activar App Pro, los precios de las videollamadas se descontarán en un <font color="#FD1C48">50%</font></string>
+
+    <string name="str_spot">Punto</string>
+    <string name="str_pay">Pagar</string>
+    <string name="str_me">Yo</string>
+    <string name="str_billed_vip_value">facturado %1$s como %2$s</string>
+
 </resources>

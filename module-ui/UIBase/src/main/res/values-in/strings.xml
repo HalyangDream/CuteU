@@ -253,4 +253,9 @@
 
     <string name="str_app_prodcut_pro">App Pro</string>
     <string name="str_20201_product_desc">Sau khi kích hoạt App Pro, giá cuộc gọi video sẽ được giảm giá <font color="#FD1C48">50%</font></string>
+
+    <string name="str_spot">Điểm</string>
+    <string name="str_pay">Thanh toán</string>
+    <string name="str_me">Tôi</string>
+    <string name="str_billed_vip_value">đã thanh toán %1$s dưới dạng %2$s</string>
 </resources>

@@ -264,4 +264,9 @@
 
     <string name="str_app_prodcut_pro">App Pro</string>
     <string name="str_20201_product_desc">App Pro सक्रिय करने के बाद, वीडियो कॉल की कीमतों में <font color="#FD1C48">50%</font> की छूट मिलेगी</string>
+
+    <string name="str_spot">स्थान</string>
+    <string name="str_pay">भुगतान</string>
+    <string name="str_me">मैं</string>
+    <string name="str_billed_vip_value">%1$s को %2$s के रूप में बिल किया गया</string>
 </resources>

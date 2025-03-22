@@ -255,4 +255,9 @@
 
     <string name="str_app_prodcut_pro">App Pro</string>
     <string name="str_20201_product_desc">Após ativar o App Pro, os preços das videochamadas terão um desconto de <font color="#FD1C48">50%</font></string>
+
+    <string name="str_spot">Ponto</string>
+    <string name="str_pay">Pagar</string>
+    <string name="str_me">Eu</string>
+    <string name="str_billed_vip_value">cobrado %1$s como %2$s</string>
 </resources>
